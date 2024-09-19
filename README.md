@@ -7,5 +7,5 @@ https://us06web.zoom.us/j/6537357041?pwd=Dly5YlTtA88AkpjxceK5ObdvMuPhbJ.1
 #### DB 
 ![image](https://github.com/user-attachments/assets/0157a40a-da7b-4523-b94a-ea55923cc431)
 #### DB 설계도
-URL : https://aquerytool.com/aquerymain/index/?rurl=ef838ebe-7084-45d3-a444-9bd21d67a69f&
+URL : https://aquerytool.com/aquerymain/index/?rurl=ef838ebe-7084-45d3-a444-9bd21d67a69f&  
 Password : 1ypx5g
