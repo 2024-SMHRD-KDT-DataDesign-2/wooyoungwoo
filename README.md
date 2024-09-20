@@ -9,3 +9,13 @@ https://us06web.zoom.us/j/6537357041?pwd=Dly5YlTtA88AkpjxceK5ObdvMuPhbJ.1
 #### DB 설계도
 URL : https://aquerytool.com/aquerymain/index/?rurl=ef838ebe-7084-45d3-a444-9bd21d67a69f&  
 Password : 1ypx5g
+## 프로젝트 추천 사이트
+https://seonzeroticket.notion.site/c2b3090e6fe7463e84ea7ec1b7422574
+### JS 라이브러리
+https://seonzeroticket.notion.site/JS-cc0c5b4fcb1d46d28e070490369d96d9?pvs=4
+## 폰트
+https://noonnu.cc/
+### 부트 스트랩
+https://getbootstrap.kr/
+## CSS 오버플로우
+https://www.daleseo.com/css-overflow/
