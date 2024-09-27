@@ -1,4 +1,4 @@
-package com.chall.model;
+package com.tc.model;
 
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.chall.controller;
+package com.tc.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
-import com.chall.model.chatDAO;
-import com.chall.model.chatDTO;
+import com.tc.model.chatDAO;
+import com.tc.model.chatDTO;
 
 import javax.websocket.server.PathParam;
 import java.io.IOException;

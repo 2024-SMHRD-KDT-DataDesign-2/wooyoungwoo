@@ -1,4 +1,4 @@
-package com.chall.controller;
+package com.tc.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
-import com.chall.model.chatDAO;
-import com.chall.model.chattingRoomDTO;
-import com.chall.model.memberDAO;
-import com.chall.model.memberDTO;
+import com.tc.model.chatDAO;
+import com.tc.model.chattingRoomDTO;
+import com.tc.model.memberDAO;
+import com.tc.model.memberDTO;
 
 /**
  * Servlet implementation class ChattingRoomService

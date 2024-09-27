@@ -1,4 +1,4 @@
-package com.chall.model;
+package com.tc.model;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.chall.db.SQLSessionManager;
+import com.tc.db.SQLSessionManager;
 
 public class memberDAO {
 	SqlSessionFactory sqlSessionFactory = SQLSessionManager.getFactory();

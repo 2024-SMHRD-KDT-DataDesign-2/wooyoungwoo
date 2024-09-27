@@ -1,11 +1,11 @@
-package com.chall.model;
+package com.tc.model;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import com.chall.db.SQLSessionManager;
+import com.tc.db.SQLSessionManager;
 
 public class chatDAO {
 	SqlSessionFactory sqlSessionFactory = SQLSessionManager.getFactory();

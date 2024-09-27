@@ -1,4 +1,4 @@
-package com.chall.controller;
+package com.tc.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.chall.model.memberDAO;
-import com.chall.model.memberDTO;
+import com.tc.model.memberDAO;
+import com.tc.model.memberDTO;
 
 
 @WebServlet("/LoginService")

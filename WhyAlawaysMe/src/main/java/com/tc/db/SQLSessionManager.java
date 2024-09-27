@@ -1,4 +1,4 @@
-package com.chall.db;
+package com.tc.db;
 
 import java.io.InputStream;
 
