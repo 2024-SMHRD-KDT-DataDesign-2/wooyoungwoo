@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chall.db.ChattingMapper">
+	<select id="chattingroom" parameterType="com.chall.model.memberDTO" resultType="com.chall.model.chattingRoomDTO">
+		select ROOM_IDX, ROOM_TITLE
+		from CHAT_ROOMS
+		where ROOM_INFO = #{user_id} or USER_ID = #{user_id}
+	</select>
+	
+	<insert id="creat" parameterType="com.chall.model.chattingRoomDTO">
+		insert into CHAT_ROOMS(ROOM_TITLE, ROOM_INFO, USER_ID, CREATED_AT, ROOM_LIMITS, ROOM_STATUS)
+		values(#{user_id}'님과'#{room_info}'님의 채팅방', #{room_info}, #{user_id}, SYSDATE, 2, 'GOOD')
+	</insert>
+	
+	<select id="chat" parameterType="com.chall.model.chatDTO" resultType="com.chall.model.chatDTO">
+		select ROOM_IDX, ROOM_TITLE
+		from CHAT_ROOMS
+		where ROOM_INFO = #{room_idx}
+	</select>
+</mapper>
