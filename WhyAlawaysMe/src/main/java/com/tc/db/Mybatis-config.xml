@@ -18,7 +18,7 @@
 
 	<!-- mappers : 사용할 mapper 파일을 연결하는 태그 => SQL 문장을 가지고 있는 파일 -->
 	<mappers>
-		<mapper resource="com/chall/db/MemberMapper.xml" />
-		<mapper resource="com/chall/db/ChattingMapper.xml" />
+		<mapper resource="com/tc/db/MemberMapper.xml" />
+		<mapper resource="com/tc/db/ChattingMapper.xml" />
 	</mappers>
 </configuration>
