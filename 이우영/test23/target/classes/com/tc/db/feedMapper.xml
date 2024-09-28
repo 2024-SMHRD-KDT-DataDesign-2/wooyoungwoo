@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.db.feedMapper">
+
+	<!-- 게시글 저장 -->
+	<insert id="upload" parameterType="com.tc.model.feedDTO">
+		insert into CHALLENGES
+		<!-- value ( 시퀀스번호, -->
+		values(chal_idx.nextval,#{chal_title},#{chal_content},SYSDATE,SYSDATE+2,#{user_id})
+	</insert>
+
+</mapper>
