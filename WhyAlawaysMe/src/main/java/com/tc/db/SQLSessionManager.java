@@ -15,7 +15,7 @@ public class SQLSessionManager {
 	// 주로 초기화 해야 하는 작업이 있을 때 static{} 을 사용한다
 	static {
 		try {
-			String resource = "com/chall/db/Mybatis-config.xml";
+			String resource = "com/tc/db/Mybatis-config.xml";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		
