@@ -108,7 +108,7 @@
                             <div class="card-item-desc">Onboarding illustrations for App.</div>
                         </div>
                         <div class="card-item" data-year="2020">
-                            <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
+                            <div class="card-item-title">Full-Stack Developer at 네<span>CodePen</span></div>
                             <div class="card-item-desc">Responsible for the encomposing brand expreience.</div>
                         </div>
                     </div>
