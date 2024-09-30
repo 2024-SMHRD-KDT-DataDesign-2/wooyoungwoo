@@ -1,5 +1,6 @@
 package com.tc.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -36,7 +37,13 @@ public class WriteFeedService extends HttpServlet {
 		String path = request.getServletContext().getRealPath("file");
 //		-> getServletContext : 현재 실행중인 실제 경로를 보여주는 함수
 		System.out.println("path의 경로 : " + path);
+		String filePath = "C:\\Users\\smhrd\\Desktop\\Web(Server)\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\WhyAlwaysMe\\file";
+		File directory = new File(filePath);
 
+		// 디렉토리가 존재하지 않는 경우 생성
+		if (!directory.exists()) {
+		    directory.mkdirs();
+		}
 		/*
 		 * 3) maxSize : 파일의 최대 크기를 지정 -> 너무 큰 사이즈가 들어올 경우 과부하 ex) int 자료형,1MB =
 		 * 1024*1024 , 5MB = 1024*1024*5

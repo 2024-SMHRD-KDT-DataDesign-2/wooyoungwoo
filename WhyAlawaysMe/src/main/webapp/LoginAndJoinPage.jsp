@@ -75,7 +75,7 @@
 					class="jlbtn">
 			</form>
 		</div>
-		<div class="overlay-container">3
+		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
 					<h2>돌아오신걸 환영합니다!</h2>
