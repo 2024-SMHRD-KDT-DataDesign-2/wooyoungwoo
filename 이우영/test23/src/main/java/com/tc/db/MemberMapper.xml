@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.db.MemberMapper">
+	<insert id="join" parameterType="com.tc.model.memberDTO">
+		INSERT INTO USERS (USER_ID,
+		USER_PW, USER_NICK, USER_PROFILE, USER_PREFERENCE, JOINED_AT)
+		VALUES
+		(#{user_id}, #{user_pw}, #{user_nick},
+		'https://www.studiopeople.kr/common/img/default_profile.png',
+		#{user_preference} , SYSDATE)
+	</insert>
+
+	<select id="login" parameterType="com.tc.model.memberDTO"
+		resultType="com.tc.model.memberDTO">
+		select * from USERS where user_id = #{user_id} and user_pw = #{user_pw}
+	</select>
+</mapper>
