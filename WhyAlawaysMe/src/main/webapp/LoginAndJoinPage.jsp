@@ -7,12 +7,50 @@
 <title>Insert title here</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="assets/css/rogin.css" />
+<link rel="stylesheet" href="assets/css/LoginAndJoinPage.css" />
+<style>
+
+/* 로고 스타일 */
+.title {
+	align-content: center;
+}
+
+.logo-container {
+	background: #f6f5f7;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 30px; /* 메뉴와 로고 간격 */
+}
+
+.logo-image {
+	height: 180px; /* 로고 높이 조절 */
+	width: auto; /* 자동 너비 비율 */
+	transition: transform 0.3s ease-in-out;
+}
+
+/* 로고에 호버 효과 추가 */
+.logo-container a:hover .logo-image {
+	transform: scale(1.1); /* 호버 시 로고 확대 */
+}
+
+.title {
+	flex-direction: column; /* 위아래로 정렬 */
+	justify-content: center;
+	align-items: center; /* 수평 중앙 정렬 */
+	text-align: center; /* 텍스트 중앙 정렬 */
+	top: 100px;
+}
+</style>
 </head>
 <body>
 	<div class="title">
-		<h1>Challengers</h1>
-		<h3>지금 바로 도전하세요</h3>
+		<a href="MainPage.jsp"> <img
+			src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+			alt="" class="logo-image">
+			<h1>Team Cook</h1>
+			<h3>도전의 연결, 요리 챌린지 SNS</h3>
+		</a>
+	</div>
 	</div>
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
@@ -33,11 +71,11 @@
 				<div class="social-container"></div>
 				<input type="email" name="id" placeholder="아이디(이메일)를 입력하세요">
 				<input type="password" name="pw" placeholder="비밀번호를 입력하세요">
-				<a href="">비밀번호 찾기</a>
-				<input type="submit" value="로그인" class="jlbtn">
+				<a href="">비밀번호 찾기</a> <input type="submit" value="로그인"
+					class="jlbtn">
 			</form>
 		</div>
-		<div class="overlay-container">
+		<div class="overlay-container">3
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
 					<h2>돌아오신걸 환영합니다!</h2>
@@ -58,39 +96,41 @@
 			<h2>관심 분야를 선택해주세요</h2>
 			<form action="JoinService">
 				<div class="check-con">
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Craft" value="Craft"> <span class="checkmark" id="mark1"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Art" value="Art"> <span class="checkmark" id="mark2"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Beauty" value="Beauty"> <span class="checkmark" id="mark3"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Collection" value="Collection"> <span class="checkmark" id="mark4"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Cooking" value="Cooking"> <span class="checkmark" id="mark5"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Fitness" value="Fitness"> <span class="checkmark" id="mark6"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Music" value="Music"> <span class="checkmark" id="mark7"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Sports" value="Sports"> <span class="checkmark" id="mark8"></span>
-					</label>
-					<label class="custom-checkbox">
-						<input type="checkbox" name="preference" id="Traveling" value="Traveling"> <span class="checkmark" id="mark9"></span>
+					<label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Craft" value="Craft"> <span
+						class="checkmark" id="mark1"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Art" value="Art"> <span
+						class="checkmark" id="mark2"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Beauty" value="Beauty"> <span
+						class="checkmark" id="mark3"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Collection" value="Collection"> <span
+						class="checkmark" id="mark4"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Cooking" value="Cooking"> <span
+						class="checkmark" id="mark5"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Fitness" value="Fitness"> <span
+						class="checkmark" id="mark6"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Music" value="Music"> <span
+						class="checkmark" id="mark7"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Sports" value="Sports"> <span
+						class="checkmark" id="mark8"></span>
+					</label> <label class="custom-checkbox"> <input type="checkbox"
+						name="preference" id="Traveling" value="Traveling"> <span
+						class="checkmark" id="mark9"></span>
 					</label>
 				</div>
-				<button onclick="join_select_like()" id="select_com" type="button">선택 완료</button>
+				<button onclick="join_select_like()" id="select_com" type="button">선택
+					완료</button>
 			</form>
 		</div>
 	</div>
 
-	<script src="assets/js/rogin.js"></script>
+	<script src="assets/js/LoginAndJoinPage.js"></script>
 </body>
 </html>

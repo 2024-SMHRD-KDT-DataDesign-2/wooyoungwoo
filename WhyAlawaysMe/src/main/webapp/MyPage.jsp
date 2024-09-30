@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
 	src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
 	crossorigin></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-<link rel="stylesheet" href="./assets/css/my_page.css">
+<link rel="stylesheet" href="./assets/css/MyPage.css">
 
 </head>
 
@@ -71,104 +72,166 @@
 
         init();
     </script>
+	<div class="main-center">
+		<!-- 상단 메뉴바 -->
+		<div class="blocks-menus">
+			<div class="container">
+				<ul class="primary-menus">
+					<li><a href="MainPage.jsp">Home</a></li>
+					<li class="search">
+						<form class="search-container">
+							<input type="text" id="search-bar" placeholder="챌린지를 검색하세요">
+							<a href="#"><img class="search-icon"
+								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+						</form>
+					</li>
+					<li><a href="FeedPage.jsp">피드</a></li>
+					<li><a href="ChattingPage.jsp">메세지</a></li>
+					<li class="menus-megamenus"><a href="#">카테고리 <i
+							class="fa fa-angle-down"></i></a>
+						<ul class="mega-menus">
+							<div class="section">
+								<h3>Pages 1</h3>
+								<li><a href="#">Submenu 1</a></li>
+								<li><a href="#">Submenu 2</a></li>
+								<li><a href="#">Submenu 3</a></li>
+							</div>
+							<div class="section">
+								<h3>Pages 2</h3>
+								<li><a href="#">Submenu 1</a></li>
+								<li><a href="#">Submenu 2</a></li>
+								<li><a href="#">Submenu 3</a></li>
+							</div>
+						</ul></li>
+					<li><a href="MyPage.jsp">마이 페이지</a></li>
+					<li><c:if test="${!empty info}">
+							<a href="LogoutService">로그아웃</a>
+						</c:if> <c:if test="${empty info}">
+							<a href="LoginAndJoinPage.jsp">로그인</a>
+						</c:if></li>
+					<li><a href="">작성하기</a></li>
+				</ul>
+			</div>
+		</div>
 
-
-	 <div class="card" data-state="#about">
-        <div class="card-header">
-            <div class="card-cover"
-                style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALcAwwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAADAgABBwT/xAAZEAEBAQEBAQAAAAAAAAAAAAAAAgExESH/xAAaAQEAAwEBAQAAAAAAAAAAAAADAAECBAYF/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8A9PodYTUU+Zp9eBoVYasHQqXNBWBvH0VgaxinzXz1gqw9YKsHT5r56RWGrBVij5oKxG4XR0hpRbiNwu4PUJB6jcJqdQkFqaXqNQkHqNJqNXCQeo0mo1okHqNwmp3FtwW59ZfjNN9euUii0OnRp4OCrBVhaHQqaBoVYahUOmyCsFRrwVYxT5BWDrDUKmT5DQ9LWD3ELBajcLo9xC5HqNJqNQkFqNLQ9xCweo0lI1CQdYjS6PWo3B6nV6nVkg96ymW09dodE0dOvTwmRUii0KhUuQ0KjUKh00DQaPYaYp8hrBUaxUwfIaRpKHqHg9RpNHqiRGj0mopZIPUUvUUhMj1Gk1GoSD1Gk1FLhIPUaTUa0SJZmRp67Q9LQ9dteEg6FRaHQaXIaHRaFQ6aBoNnoNsHyCh0ahUzT5DQ9LQ6UaDoekpGqLB6PS6Olkg9Rq9RSFg9RpNRSEiNRS9RS4SD1Gk1GtNxLMyNvXaHRKHTurwmR0iiaOg6LBUKi0Kh0sFQbNQbYp8hoVGoNMV0ZFQ9JSKUbI6HpNHqiRFD0lD1CxGopeopZIPU0rU0hIOuI0mo1cJB6jSUPWiRLOsjb12h0WhU7q8HlFCotCoNLkdCotCodNkNCs1BtinyGhUWhUxT5DSKXSNUfI6RpKHqiRFC0mopZMj1Gr1GoWIpGrpGoSI1GrpGrhIih6Ska0SJZmRt69QqLQtd1eDyihUWh0KlgqFRaFQ9GyKg2ag2OnyGhUag0xT5FQ6XSKUbKKHpKFqFiNRq6RqEg9Rq9RqFiKRq9RqEiKRpKFq4SJpGq1GtEjjOMjb1+haWhU768HlGjomjoNLBUKi0Kh6NkVBstCsdPkNCotCpinyGkUukUo+R0PV0jUJlGjolC1C5RqKXqNQsRqKVqNQkTXEarUUuEidRqtRrTccZxkbewUKi0Knfp4PKKFRaFQKXI6FRKFQ6bIqDZqDbFPkNCotBpiujIqHpKFSjxND1dD1CZRqKXQ9UWJ0er0eoSJ1Gq1GrJE6jVajVwkTqNVqNahI4zjLaew0KiUOnbXg8ooVLpFBpcioNFoVD0fIqDZbDY66MisNFsNawfI6HS6RSGg6HWrodIWI1GqpGoWJ1GrrRahMppOu6nUJE6ilUPWoSJ1Ou6nVkjjOa4tp7DQ6JQqdleDiKHRKFQaXIqDRaDQ6fI7BWlsNsV0ZFeholDrWHRkdDpdaOtQ2UUOl0OkLlFI1Wo1CxOj3V6PUJE6nXdRurhImkarUa0SJ1Ou7qN1ZI3rI9dRrj2GtRWuM69PBQdaKtcYWjZHWhvWYVPkF6C9Zh10YDWjrWZToyKtHWsyGyKtHusyi5RuorXWWSC3UbrMhYjdRuszUJEbqN1mabiN1FUzLhYLaZmWTj/9k=')">
-            </div>
-            <div id="root"></div>
-            <input type="file" id="photo-upload" style="display: none;" />
-            <h1 class="card-fullname">King Gang</h1>
-            <h2 class="card-jobtitle">NickName</h2>
-        </div>
-        <div class="card-main">
-            <div class="card-section is-active" id="about">
-                <div class="card-content">
-                    <div class="card-subtitle">한줄 소개</div>
-                    <p class="card-desc">안녕하세요우오우오우오우오우오우오우오우우.
-                    </p>
-                </div>
-            </div>
-            <div class="card-section" id="experience">
-                <div class="card-content">
-                    <div class="card-subtitle">WORK EXPERIENCE</div>
-                    <div class="card-timeline">
-                        <div class="card-item" data-year="2014">
-                            <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
-                            <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
-                        </div>
-                        <div class="card-item" data-year="2016">
-                            <div class="card-item-title">UI Developer at <span>GitHub</span></div>
-                            <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
-                        </div>
-                        <div class="card-item" data-year="2018">
-                            <div class="card-item-title">Illustrator at <span>Google</span></div>
-                            <div class="card-item-desc">Onboarding illustrations for App.</div>
-                        </div>
-                        <div class="card-item" data-year="2020">
-                            <div class="card-item-title">Full-Stack Developer at 네<span>CodePen</span></div>
-                            <div class="card-item-desc">Responsible for the encomposing brand expreience.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-section" id="contact">
-                <div class="card-content">
-                    <div class="card-subtitle">CONTACT</div>
-                    <div class="card-contact-wrapper">
-                        <div class="card-contact">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+		<div class="card" data-state="#about">
+			<div class="card-header">
+				<div class="card-cover"
+					style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALcAwwMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAADAgABBwT/xAAZEAEBAQEBAQAAAAAAAAAAAAAAAgExESH/xAAaAQEAAwEBAQAAAAAAAAAAAAADAAECBAYF/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8A9PodYTUU+Zp9eBoVYasHQqXNBWBvH0VgaxinzXz1gqw9YKsHT5r56RWGrBVij5oKxG4XR0hpRbiNwu4PUJB6jcJqdQkFqaXqNQkHqNJqNXCQeo0mo1okHqNwmp3FtwW59ZfjNN9euUii0OnRp4OCrBVhaHQqaBoVYahUOmyCsFRrwVYxT5BWDrDUKmT5DQ9LWD3ELBajcLo9xC5HqNJqNQkFqNLQ9xCweo0lI1CQdYjS6PWo3B6nV6nVkg96ymW09dodE0dOvTwmRUii0KhUuQ0KjUKh00DQaPYaYp8hrBUaxUwfIaRpKHqHg9RpNHqiRGj0mopZIPUUvUUhMj1Gk1GoSD1Gk1FLhIPUaTUa0SJZmRp67Q9LQ9dteEg6FRaHQaXIaHRaFQ6aBoNnoNsHyCh0ahUzT5DQ9LQ6UaDoekpGqLB6PS6Olkg9Rq9RSFg9RpNRSEiNRS9RS4SD1Gk1GtNxLMyNvXaHRKHTurwmR0iiaOg6LBUKi0Kh0sFQbNQbYp8hoVGoNMV0ZFQ9JSKUbI6HpNHqiRFD0lD1CxGopeopZIPU0rU0hIOuI0mo1cJB6jSUPWiRLOsjb12h0WhU7q8HlFCotCoNLkdCotCodNkNCs1BtinyGhUWhUxT5DSKXSNUfI6RpKHqiRFC0mopZMj1Gr1GoWIpGrpGoSI1GrpGrhIih6Ska0SJZmRt69QqLQtd1eDyihUWh0KlgqFRaFQ9GyKg2ag2OnyGhUag0xT5FQ6XSKUbKKHpKFqFiNRq6RqEg9Rq9RqFiKRq9RqEiKRpKFq4SJpGq1GtEjjOMjb1+haWhU768HlGjomjoNLBUKi0Kh6NkVBstCsdPkNCotCpinyGkUukUo+R0PV0jUJlGjolC1C5RqKXqNQsRqKVqNQkTXEarUUuEidRqtRrTccZxkbewUKi0Knfp4PKKFRaFQKXI6FRKFQ6bIqDZqDbFPkNCotBpiujIqHpKFSjxND1dD1CZRqKXQ9UWJ0er0eoSJ1Gq1GrJE6jVajVwkTqNVqNahI4zjLaew0KiUOnbXg8ooVLpFBpcioNFoVD0fIqDZbDY66MisNFsNawfI6HS6RSGg6HWrodIWI1GqpGoWJ1GrrRahMppOu6nUJE6ilUPWoSJ1Ou6nVkjjOa4tp7DQ6JQqdleDiKHRKFQaXIqDRaDQ6fI7BWlsNsV0ZFeholDrWHRkdDpdaOtQ2UUOl0OkLlFI1Wo1CxOj3V6PUJE6nXdRurhImkarUa0SJ1Ou7qN1ZI3rI9dRrj2GtRWuM69PBQdaKtcYWjZHWhvWYVPkF6C9Zh10YDWjrWZToyKtHWsyGyKtHusyi5RuorXWWSC3UbrMhYjdRuszUJEbqN1mabiN1FUzLhYLaZmWTj/9k=')">
+				</div>
+				<div id="root"></div>
+				<input type="file" id="photo-upload" style="display: none;" />
+				<h1 class="card-fullname">King Gang</h1>
+				<h2 class="card-jobtitle">NickName</h2>
+			</div>
+			<div class="card-main">
+				<div class="card-section is-active" id="about">
+					<div class="card-content">
+						<div class="card-subtitle">한줄 소개</div>
+						<p class="card-desc">안녕하세요우오우오우오우오우오우오우오우우.</p>
+					</div>
+				</div>
+				<div class="card-section" id="experience">
+					<div class="card-content">
+						<div class="card-subtitle">WORK EXPERIENCE</div>
+						<div class="card-timeline">
+							<div class="card-item" data-year="2014">
+								<div class="card-item-title">
+									Front-end Developer at <span>JotForm</span>
+								</div>
+								<div class="card-item-desc">Disrupt stumptown retro
+									everyday carry unicorn.</div>
+							</div>
+							<div class="card-item" data-year="2016">
+								<div class="card-item-title">
+									UI Developer at <span>GitHub</span>
+								</div>
+								<div class="card-item-desc">Developed new conversion
+									funnels and disrupt.</div>
+							</div>
+							<div class="card-item" data-year="2018">
+								<div class="card-item-title">
+									Illustrator at <span>Google</span>
+								</div>
+								<div class="card-item-desc">Onboarding illustrations for
+									App.</div>
+							</div>
+							<div class="card-item" data-year="2020">
+								<div class="card-item-title">
+									Full-Stack Developer at 네<span>CodePen</span>
+								</div>
+								<div class="card-item-desc">Responsible for the
+									encomposing brand expreience.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-section" id="contact">
+					<div class="card-content">
+						<div class="card-subtitle">CONTACT</div>
+						<div class="card-contact-wrapper">
+							<div class="card-contact">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2"
+									stroke-linecap="round" stroke-linejoin="round">
+                                <path
+										d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg>
-                            Algonquin Rd, Three Oaks Vintage, MI, 49128
-                        </div>
-                        <div class="card-contact">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								Algonquin Rd, Three Oaks Vintage, MI, 49128
+							</div>
+							<div class="card-contact">
+								<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2"
+									stroke-linecap="round" stroke-linejoin="round">
                                 <path
-                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                            </svg>(269) 756-9809
-                        </div>
-                        <div class="card-contact">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+										d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+								(269) 756-9809
+							</div>
+							<div class="card-contact">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+									fill="none" stroke="currentColor" stroke-width="2"
+									stroke-linecap="round" stroke-linejoin="round">
+                                <path
+										d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                 <path d="M22 6l-10 7L2 6" />
                             </svg>
-                            william@rocheald.com
-                        </div>
-                        <button class="contact-me">WORK TOGETHER</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-buttons">
-                <button data-section="#about" class="is-active">게시글</button>
-                <button data-section="#experience">활동 피드</button>
-                <button data-section="#contact">레시피 저장소</button>
-                <button data-section="#contact">프로필 수정</button>
-            </div>
-        </div>
-    </div>
+								william@rocheald.com
+							</div>
+							<button class="contact-me">WORK TOGETHER</button>
+						</div>
+					</div>
+				</div>
+				<div class="card-buttons">
+					<button data-section="#about" class="is-active">게시글</button>
+					<button data-section="#experience">활동 피드</button>
+					<button data-section="#contact">레시피 저장소</button>
+					<button data-section="#contact">프로필 수정</button>
+				</div>
+			</div>
+		</div>
 
 
-    <script>
-        document.getElementById('avatar').addEventListener('click', function () {
-            document.getElementById('photo-upload').click();
-        });
+		<script>
+			document.getElementById('avatar').addEventListener('click',
+					function() {
+						document.getElementById('photo-upload').click();
+					});
 
-        document.getElementById('photo-upload').addEventListener('change', function (e) {
-            const reader = new FileReader();
-            reader.onload = function () {
-                document.getElementById('avatar').src = reader.result;
-            }
-            reader.readAsDataURL(e.target.files[0]);
-        });
-    </script>
-	<script src="./asssets/js/my_page.js"></script>
+			document
+					.getElementById('photo-upload')
+					.addEventListener(
+							'change',
+							function(e) {
+								const reader = new FileReader();
+								reader.onload = function() {
+									document.getElementById('avatar').src = reader.result;
+								}
+								reader.readAsDataURL(e.target.files[0]);
+							});
+		</script>
+		<script src="./asssets/js/MyPage.js"></script>
 </body>
 
 </html>
