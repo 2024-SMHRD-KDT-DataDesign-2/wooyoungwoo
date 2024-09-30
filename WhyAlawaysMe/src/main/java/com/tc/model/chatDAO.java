@@ -41,4 +41,14 @@ public class chatDAO {
 
 		return chatList ;
 	}
+	
+	public int chatInsert(chatDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		int cnt = sqlSession.insert("chatting", dto);
+
+		sqlSession.close();
+
+		return cnt;
+	}
 }

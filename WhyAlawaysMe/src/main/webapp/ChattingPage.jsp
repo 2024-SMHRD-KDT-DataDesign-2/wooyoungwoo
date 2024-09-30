@@ -33,13 +33,16 @@
 				<div class='list-friend-frame'>
 					<div class='friend-container'>
 						<c:forEach items="${chatRoom}" var="cr">
-							<div class='avatar-name' onclick="creatRoom(this)">
-								<div class='avatar-frame'>
-									<img src="${cr.user_profile}" alt="Avatar">
+							<form action="CreateRoom" method="post" onsubmit="return false;">
+								<div class='avatar-name' onclick="creatRoom(this)">
+									<input type="hidden" name="user_id" value="${cr.user_id}">
+									<div class='avatar-frame'>
+										<img src="${cr.user_profile}" alt="Avatar">
+									</div>
+									<div class='name-frame'>${cr.room_title}</div>
+									<input type="hidden" name="room_idx" value="${cr.room_idx}">
 								</div>
-								<div class='name-frame'>${cr.room_title}</div>
-								<input type="hidden" name="room_idx" value="${cr.room_idx}">
-							</div>
+							</form>
 						</c:forEach>
 					</div>
 				</div>
@@ -55,26 +58,28 @@
 						<div>
 							<textarea id="chatArea" rows="20" cols="50" readonly>
 								<c:forEach items="${chatList}" var="msg">
-        							${msg.chatter} : ${msg.chatting}
-        							<span class="date">${msg.chatted_at}</span>
+									<c:if test="${! empty msg.chatting}">
+	        							${msg.chatter} : ${msg.chatting}						
+									</c:if>
         							<c:if test="${! empty msg.emoticon}">
         								${msg.chatter} : ${msg.emoticon}
- 										<span class="date">${msg.chatted_at}</span>
         							</c:if>
         							<c:if test="${! empty msg.chat_file}">
         								${msg.chatter} : ${msg.chat_file}
-        								<span class="date">${msg.chatted_at}</span>
         							</c:if>
-    							</c:forEach>
+    							</c:forEach>	
 							</textarea>
 						</div>
 					</div>
 
 					<div class='input-chat-frame'>
 						<div class='search-container'>
-							<input class='search-input' id="message" name="message"
-								placeholder='enter your messages'>
-							<button class='search-button' onclick="sendMessage()">Send</button>
+							<form action="CreateChat" method="post">
+								<input type="text" class='search-input' id="message"
+									name="message" placeholder='enter your messages'>
+								<input type="hidden" name = "room_idx" id="currentRoomInput">
+								<button class='search-button' onclick="sendMessage()">Send</button>
+							</form>
 						</div>
 					</div>
 				</div>

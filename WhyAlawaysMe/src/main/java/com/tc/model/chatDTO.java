@@ -12,8 +12,8 @@ import lombok.Setter;
 @Setter
 @Data
 public class chatDTO {
-	private String chat_idx ;
-	private String room_idx ;
+	private int chat_idx ;
+	private int room_idx ;
 	private String chatter ;
 	private String chatting ;
 	private String emoticon ;
