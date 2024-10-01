@@ -14,8 +14,8 @@ import com.tc.model.feedDAO;
 import com.tc.model.feedDTO;
 
 
-@WebServlet("/FeedService")
-public class FeedService extends HttpServlet {
+@WebServlet("/MainFeedService")
+public class MainFeedService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     @Override
