@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tc.mapper.FeedMapper">
-    <insert id="upload" parameterType="com.tc.model.feedDTO">
-        INSERT INTO CHALLENGES 
-        VALUES (chal_idx.nextval,#{chal_title},#{chal_content},SYSDATE,SYSDATE+2,#{user_id},
-        <if test="img !=null">#{img}</if><if test="img == null">NULL</if>)
-    </insert>
+	<select id="feedSelect" parameterType="com.tc.model.feedDTO"
+		resultType="com.tc.model.feedDTO">
+		select *
+		from CHALLENGES
+	</select>
+
+
+	<insert id="upload" parameterType="com.tc.model.feedDTO">
+		INSERT INTO CHALLENGES
+		VALUES
+		(chal_idx.nextval,#{chal_title},#{chal_content},SYSDATE,SYSDATE+2,#{user_id},
+		<if test="img !=null">#{img}</if>
+		<if test="img == null">NULL</if>
+		)
+	</insert>
 </mapper>
 

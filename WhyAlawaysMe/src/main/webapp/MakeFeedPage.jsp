@@ -324,7 +324,7 @@ input#search-bar {
 			<!-- 파일 업로드시 사용해야하는 속성 ! enctype 
 					 1. 파일 업로드시 form 태그에서 꼭 필요한 속성
 					 2. post 방식일때만 사용이 가능 -->
-			<form action="WriteFeedService" method="post">
+			<form action="WriteFeedService" method="post" enctype="multipart/form-data">>
 				<table id="list">
 					<tr>
 						<td>제목</td>
@@ -340,7 +340,7 @@ input#search-bar {
 								style="resize: none;"></textarea></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="reset" value="초기화"> <button
+						<td colspan="2"><input type="submit" value="??"> <button
 							onclick="fileImg">작성하기</button></td>
 					</tr>
 				</table>
@@ -377,5 +377,7 @@ input#search-bar {
 												});
 							});
 		</script>
+		
+		<script src="./assets/js/MakerFeedPage.js"></script>
 </body>
 </html>

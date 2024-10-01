@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Main_01</title>
+<title>Team cook</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link
@@ -16,69 +16,6 @@
 </head>
 <style>
 @import url('./assets/css/MainPage.css');
-
-.mypage-container {
-	position: relative;
-	display: inline-block;
-}
-
-.mypage-icon {
-	width: 30px;
-	height: auto;
-	cursor: pointer;
-}
-
-.mypage-dropdown {
-	display: none; /* 기본적으로 숨김 */
-	position: absolute;
-	top: 40px;
-	left: 0;
-	background-color: white;
-	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 300;
-	border-radius: 5px;
-	padding: 10px;
-	width: 200px;
-	gap: 10px;
-	flex-wrap: wrap; /* 항목을 여러 줄로 나누기 위한 설정 */
-}
-
-.mypage-dropdown li {
-	flex: 1 1 45%; /* 각 항목의 너비를 45%로 설정 */
-	margin: 5px 0;
-	list-style: none;
-}
-
-.mypage-dropdown li a {
-	text-decoration: none;
-	color: black;
-	display: block;
-	padding: 10px;
-	text-align: center;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-}
-
-.mypage-dropdown li a:hover {
-	background-color: #f1f1f1;
-}
-
-.line {
-	color: black;
-	border-top: 1px solid #000; /* 선의 두께와 색상 */
-	margin-top: 0; /* 상단 여백 없애기 */
-	margin-bottom: 0; /* 하단 여백 없애기 */
-}
-.Write {
-    background-color: grey; /* 배경색을 검정색으로 설정 */
-    border-radius: 20px; /* 둥글게 만들기 */
-    display: inline-block; /* 요소를 inline-block으로 설정 */
-}
-
-.Write a {
-    color: white; /* 글자색을 흰색으로 설정 */
-    text-decoration: none; /* 링크의 밑줄 제거 */
-}
 </style>
 
 <body>
@@ -87,16 +24,7 @@
 		<div class="blocks-menus">
 			<div class="container">
 				<ul class="primary-menus">
-					<li>
-						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
-						<div class="logo-container">
-							<!-- 로고 이미지가 위치한 링크 -->
-							<a href="MainPage.jsp"> <img
-								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
-								alt="" class="logo-image">
-							</a>
-						</div>
-					</li>
+					<li><a href="WriteFeedService">Home</a></li>
 					<li class="search">
 						<form class="search-container">
 							<input type="text" id="search-bar" placeholder="챌린지를 검색하세요">
@@ -104,8 +32,8 @@
 								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 						</form>
 					</li>
-					<li><a href="FeedPage.jsp">피드</a></li>
-					<li><a href="ChattingPage.jsp">메세지</a></li>
+					<li><a href="">피드</a></li>
+					<li><a href="ChattingRoomService">메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
@@ -115,27 +43,21 @@
 								<li><a href="#">Submenu 2</a></li>
 								<li><a href="#">Submenu 3</a></li>
 							</div>
-						</ul></li>
-					<li><c:if test="${!empty info}">
-							<div class="mypage-container">
-								<img class="mypage-icon"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
-									alt="MyPageIcon">
-								<ul class="mypage-dropdown">
-									<li><a href="MyPage.jsp">마이 페이지</a></li>
-									<li><a href="LogoutService">로그아웃</a></li>
-								</ul>
+							<div class="section">
+								<h3>Pages 2</h3>
+								<li><a href="#">Submenu 1</a></li>
+								<li><a href="#">Submenu 2</a></li>
+								<li><a href="#">Submenu 3</a></li>
 							</div>
-						</c:if> <c:if test="${empty info}">
-							<a href="LoginAndJoinPage.jsp">로그인</a>
-						</c:if></li>
-					<li>
-						<div class="Write">
-							<a href="MakeFeedPage.jsp" > 작성하기
-						</div> </a>
-					</li>
+						</ul></li>
+					<c:if test="${empty info}">
+						<li><a href="LoginAndJoinPage.jsp">로그인</a></li>
+					</c:if>
+					<c:if test="${!empty info}">
+						<li><a href="">마이 페이지</a></li>
+						<li><a href="MakeFeedPage.jsp">작성하기</a></li>
+					</c:if>
 				</ul>
-				<hr class="line">
 			</div>
 		</div>
 
@@ -207,86 +129,27 @@
 					<div class="cal-part">
 						<!-- 컨텐츠 영역 -->
 
-						<!-- 컨텐츠1 -->
-						<div>
-							<!-- 각 컨텐츠영역 -->
-							<a href=""> <!-- 카테고리로 연결 --> <img src="" alt="">
+						<c:forEach items="${feedList}" var="feed">
+							<form action="WriteFeedService" method="post" enctype="multipart/form-data">
+								<!-- 컨텐츠1 -->
 								<div>
-									<!-- 카테고리 연결 할 부분 -->
-									<div>
-										<!-- 선택한 태그 영역 -->
-										<div>태그1</div>
-									</div>
-									<div>챌린지 제목</div>
-									<div>챌린지 기간</div>
-									<div>
-										참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
-										</span>
-									</div>
+									<!-- 각 컨텐츠영역 -->
+									<a href="#">
+										<div>
+											<!-- 카테고리로 연결 -->
+											<img src="<%= request.getContextPath() %>/img/${feed.img}"
+												alt="error" accept="image/*">
+											<div>${feed.chal_title}</div>
+											<div>${feed.chal_st_dt}~ ${feed.chal_ed_dt}</div>
+											<div>
+												참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
+												</span>
+											</div>
+										</div>
+									</a>
 								</div>
-							</a>
-						</div>
-
-						<!-- 컨텐츠2 -->
-						<div>
-							<!-- 각 컨텐츠영역 -->
-							<a href=""> <!-- 카테고리로 연결 --> <img src="" alt="">
-								<div>
-									<!-- 카테고리 연결 할 부분 -->
-									<div>
-										<!-- 선택한 태그 영역 -->
-										<div>태그1</div>
-									</div>
-									<div>챌린지 제목</div>
-									<div>챌린지 기간</div>
-									<div>
-										참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
-										</span>
-									</div>
-								</div>
-							</a>
-						</div>
-
-						<!-- 컨텐츠3 -->
-						<div>
-							<!-- 각 컨텐츠영역 -->
-							<a href=""> <!-- 카테고리로 연결 --> <img src="" alt="">
-								<div>
-									<!-- 카테고리 연결 할 부분 -->
-									<div>
-										<!-- 선택한 태그 영역 -->
-										<div>태그1</div>
-									</div>
-									<div>챌린지 제목</div>
-									<div>챌린지 기간</div>
-									<div>
-										참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
-										</span>
-									</div>
-								</div>
-							</a>
-						</div>
-
-						<!-- 컨텐츠4 -->
-						<div>
-							<!-- 각 컨텐츠영역 -->
-							<a href=""> <!-- 카테고리로 연결 --> <img src="" alt="">
-								<div>
-									<!-- 카테고리 연결 할 부분 -->
-									<div>
-										<!-- 선택한 태그 영역 -->
-										<div>태그1</div>
-									</div>
-									<div>챌린지 제목</div>
-									<div>챌린지 기간</div>
-									<div>
-										참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
-										</span>
-									</div>
-								</div>
-							</a>
-						</div>
-
+							</form>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -445,33 +308,6 @@
 
 	<script src="./assets/js/MainPage.js">
 		
-	</script>
-	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							const myPageIcon = document
-									.querySelector('.mypage-icon');
-							const myPageDropdown = document
-									.querySelector('.mypage-dropdown');
-
-							myPageIcon
-									.addEventListener(
-											'click',
-											function() {
-												myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
-														: 'flex';
-											});
-
-							window.addEventListener('click', function(event) {
-								if (!myPageIcon.contains(event.target)
-										&& !myPageDropdown
-												.contains(event.target)) {
-									myPageDropdown.style.display = 'none';
-								}
-							});
-						});
 	</script>
 </body>
 

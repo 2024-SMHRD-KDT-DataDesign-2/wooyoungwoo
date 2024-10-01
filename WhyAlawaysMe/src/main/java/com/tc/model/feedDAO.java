@@ -1,6 +1,6 @@
 package com.tc.model;
 
-
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,6 +11,15 @@ public class feedDAO {
 
 	SqlSessionFactory sqlSessionFactory = SQLSessionManager.getFactory();
 
+	public List<feedDTO> feedSelect() {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		List<feedDTO> feedList = sqlSession.selectList("feedSelect") ;
+		sqlSession.close();
+		
+		return feedList ;
+	}
+	
 	// 게시글 등록 기능
 	public int feed_insert(feedDTO dto) {
 	    SqlSession sqlSession = null;

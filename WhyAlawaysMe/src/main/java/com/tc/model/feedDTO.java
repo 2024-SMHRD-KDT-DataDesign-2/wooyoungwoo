@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 
 public class feedDTO {
-
+	private int chal_idx ;
 	private String chal_title ;
 	private String chal_content ;
 	private String chal_st_dt ;
