@@ -19,12 +19,21 @@
 </style>
 
 <body>
-	<div class="main-center">
+		<div class="main-center">
 		<!-- 상단 메뉴바 -->
 		<div class="blocks-menus">
 			<div class="container">
 				<ul class="primary-menus">
-					<li><a href="WriteFeedService">Home</a></li>
+					<li>
+						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
+						<div class="logo-container">
+							<!-- 로고 이미지가 위치한 링크 -->
+							<a href="MainPage.jsp"> <img
+								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+								alt="" class="logo-image">
+							</a>
+						</div>
+					</li>
 					<li class="search">
 						<form class="search-container">
 							<input type="text" id="search-bar" placeholder="챌린지를 검색하세요">
@@ -32,8 +41,8 @@
 								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
 						</form>
 					</li>
-					<li><a href="">피드</a></li>
-					<li><a href="ChattingRoomService">메세지</a></li>
+					<li><a href="FeedService">피드</a></li>
+					<li><a href="ChattingPage.jsp">메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
@@ -43,21 +52,27 @@
 								<li><a href="#">Submenu 2</a></li>
 								<li><a href="#">Submenu 3</a></li>
 							</div>
-							<div class="section">
-								<h3>Pages 2</h3>
-								<li><a href="#">Submenu 1</a></li>
-								<li><a href="#">Submenu 2</a></li>
-								<li><a href="#">Submenu 3</a></li>
-							</div>
 						</ul></li>
-					<c:if test="${empty info}">
-						<li><a href="LoginAndJoinPage.jsp">로그인</a></li>
-					</c:if>
-					<c:if test="${!empty info}">
-						<li><a href="">마이 페이지</a></li>
-						<li><a href="MakeFeedPage.jsp">작성하기</a></li>
-					</c:if>
+					<li><c:if test="${!empty info}">
+							<div class="mypage-container">
+								<img class="mypage-icon"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
+									alt="MyPageIcon">
+								<ul class="mypage-dropdown">
+									<li><a href="MyPage.jsp">마이 페이지</a></li>
+									<li><a href="LogoutService">로그아웃</a></li>
+								</ul>
+							</div>
+						</c:if> <c:if test="${empty info}">
+							<a href="LoginAndJoinPage.jsp">로그인</a>
+						</c:if></li>
+					<li>
+						<div class="Write">
+							<a href="MakeFeedPage.jsp" > 작성하기
+						</div> </a>
+					</li>
 				</ul>
+				<hr class="line">
 			</div>
 		</div>
 
@@ -307,7 +322,17 @@
 
 
 	<script src="./assets/js/MainPage.js">
-		
+	document.addEventListener('DOMContentLoaded',function() {const myPageIcon = document.querySelector('.mypage-icon');
+				const myPageDropdown = document.querySelector('.mypage-dropdown');
+				myPageIcon.addEventListener('click',function() {
+				myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none': 'flex';
+				});
+				window.addEventListener('click', function(event) {
+					if (!myPageIcon.contains(event.target)&& !myPageDropdown.contains(event.target)) {
+					myPageDropdown.style.display = 'none';
+					}
+					});
+			});
 	</script>
 </body>
 
