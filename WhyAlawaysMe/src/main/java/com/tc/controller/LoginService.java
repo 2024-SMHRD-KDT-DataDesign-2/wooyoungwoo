@@ -1,6 +1,8 @@
 package com.tc.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +31,10 @@ public class LoginService extends HttpServlet {
 		memberDAO dao = new memberDAO() ;
 		
 		dto.setUser_id(id);
-		dto.setUser_pw(pw);		
+		dto.setUser_pw(pw);
+		
+		System.out.println("Login userID : " + dto.getUser_id());
+		System.out.println("Login userPW : " + dto.getUser_pw());
 		
 		memberDTO resultDTO = dao.login(dto) ;
 		
@@ -42,7 +47,8 @@ public class LoginService extends HttpServlet {
 			HttpSession session = request.getSession() ;
 			session.setAttribute("info", resultDTO);
 			
-			response.sendRedirect("MainPage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("MainFeedService");
+			rd.forward(request, response);
 			
 		}
 		else {

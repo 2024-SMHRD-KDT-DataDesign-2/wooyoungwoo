@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team cook</title>
+<title>Main_01</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link
@@ -28,7 +28,7 @@
 						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
 						<div class="logo-container">
 							<!-- 로고 이미지가 위치한 링크 -->
-							<a href="MainPage.jsp"> <img
+							<a href="MainFeedService"> <img
 								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
 								alt="" class="logo-image">
 							</a>
@@ -68,7 +68,7 @@
 						</c:if></li>
 					<li>
 						<div class="Write">
-							<a href="MakeFeedPage.jsp"> 작성하기 
+							<a href="MakeFeedPage.jsp" > 작성하기
 						</div> </a>
 					</li>
 				</ul>
@@ -145,8 +145,7 @@
 						<!-- 컨텐츠 영역 -->
 
 						<c:forEach items="${feedList}" var="feed">
-							<form action="WriteFeedService" method="post"
-								enctype="multipart/form-data">
+							<form action="WriteFeedService" method="post" enctype="multipart/form-data">
 								<!-- 컨텐츠1 -->
 								<div>
 									<!-- 각 컨텐츠영역 -->
@@ -156,7 +155,7 @@
 											<img src="<%= request.getContextPath() %>/img/${feed.img}"
 												alt="error" accept="image/*">
 											<div>${feed.chal_title}</div>
-											<div>${feed.chal_st_dt}~${feed.chal_ed_dt}</div>
+											<div>${feed.chal_st_dt}~ ${feed.chal_ed_dt}</div>
 											<div>
 												참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
 												</span>
@@ -322,18 +321,36 @@
 	</div>
 
 
+
 	<script src="./assets/js/MainPage.js">
-	document.addEventListener('DOMContentLoaded',function() {const myPageIcon = document.querySelector('.mypage-icon');
-				const myPageDropdown = document.querySelector('.mypage-dropdown');
-				myPageIcon.addEventListener('click',function() {
-				myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none': 'flex';
-				});
-				window.addEventListener('click', function(event) {
-					if (!myPageIcon.contains(event.target)&& !myPageDropdown.contains(event.target)) {
-					myPageDropdown.style.display = 'none';
-					}
-					});
-			});
+		
+	</script>
+	<script>
+		document
+				.addEventListener(
+						'DOMContentLoaded',
+						function() {
+							const myPageIcon = document
+									.querySelector('.mypage-icon');
+							const myPageDropdown = document
+									.querySelector('.mypage-dropdown');
+
+							myPageIcon
+									.addEventListener(
+											'click',
+											function() {
+												myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
+														: 'flex';
+											});
+
+							window.addEventListener('click', function(event) {
+								if (!myPageIcon.contains(event.target)
+										&& !myPageDropdown
+												.contains(event.target)) {
+									myPageDropdown.style.display = 'none';
+								}
+							});
+						});
 	</script>
 </body>
 
