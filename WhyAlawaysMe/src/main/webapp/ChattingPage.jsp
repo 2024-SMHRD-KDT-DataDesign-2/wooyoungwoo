@@ -10,13 +10,6 @@
 <style>
 @import url('./assets/css/chattingPage.css');
 </style>
-<style>
-.container {
-	width: 60%;
-	left: 20%;
-	position: relative;
-}
-</style>
 </head>
 <body>
 	<div class="container">

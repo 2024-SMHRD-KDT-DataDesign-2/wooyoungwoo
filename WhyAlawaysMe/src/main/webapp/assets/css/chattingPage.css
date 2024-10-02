@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box;
 }
+.container {
+	width: 60%;
+	left: 20%;
+	position: relative;
+}
 
 a {
     color: rgb(56, 88, 152);
