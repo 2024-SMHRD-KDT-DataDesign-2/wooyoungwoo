@@ -19,7 +19,7 @@
 </style>
 
 <body>
-		<div class="main-center">
+	<div class="main-center">
 		<!-- 상단 메뉴바 -->
 		<div class="blocks-menus">
 			<div class="container">
@@ -68,7 +68,7 @@
 						</c:if></li>
 					<li>
 						<div class="Write">
-							<a href="MakeFeedPage.jsp" > 작성하기
+							<a href="MakeFeedPage.jsp"> 작성하기 
 						</div> </a>
 					</li>
 				</ul>
@@ -145,7 +145,8 @@
 						<!-- 컨텐츠 영역 -->
 
 						<c:forEach items="${feedList}" var="feed">
-							<form action="WriteFeedService" method="post" enctype="multipart/form-data">
+							<form action="WriteFeedService" method="post"
+								enctype="multipart/form-data">
 								<!-- 컨텐츠1 -->
 								<div>
 									<!-- 각 컨텐츠영역 -->
@@ -155,7 +156,7 @@
 											<img src="<%= request.getContextPath() %>/img/${feed.img}"
 												alt="error" accept="image/*">
 											<div>${feed.chal_title}</div>
-											<div>${feed.chal_st_dt}~ ${feed.chal_ed_dt}</div>
+											<div>${feed.chal_st_dt}~${feed.chal_ed_dt}</div>
 											<div>
 												참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
 												</span>
