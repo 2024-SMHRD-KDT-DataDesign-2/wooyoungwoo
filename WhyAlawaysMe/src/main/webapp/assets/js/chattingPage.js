@@ -29,7 +29,7 @@ function creatRoom(element) {
 	}
 
 	// WebSocket URL에 방 이름과 사용자 ID를 포함
-	let ws = new WebSocket("ws://" + location.host + "/Login/chat/" + roomIdx + "/" + userId);
+	let ws = new WebSocket("ws://" + location.host + "/WhyAlawaysMe/chat/" + roomIdx + "/" + userId);
 
 	ws.onmessage = function(event) {
 		var chatArea = document.getElementById("chatArea");
