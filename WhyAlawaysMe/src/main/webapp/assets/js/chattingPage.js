@@ -43,3 +43,25 @@ function creatRoom(element) {
 	// 폼을 제출
 	form.submit();
 }
+
+window.addEventListener('click', (event) => {
+    let button = event.target;
+    if (document.documentElement.contains(event.target)) {
+        do {
+            if (button.matches('.toggle-button[data-toggle-target-selector]')) {
+                event.preventDefault();
+                let target = document.querySelector(button.getAttribute('data-toggle-target-selector'));
+                if (target) {
+                    if (target.classList.contains('toggle-target-active')) {
+                        button.classList.remove('toggle-button-active');
+                        target.classList.remove('toggle-target-active');
+                    } else {
+                        button.classList.add('toggle-button-active');
+                        target.classList.add('toggle-target-active');
+                    }
+                }
+            }
+            button = button.parentElement;
+        } while (button !== null);
+    }
+});
