@@ -163,29 +163,30 @@
 
 		<!-- 상세 피드 내용  -->
 		<div class="content-container">
-			<div class="detail-challenge_content__Ggn9l">
-				<c:forEach items="${detailList}" var="ddto">
+			<div id="detailChallengeContent"
+				class="detail-challenge_content__Ggn9l">
+				<c:forEach items="${detailChalList}" var="cdto">
 					<div class="content-main">
 						<img alt="challenge-detail_image"
-							class="Main_template__image__OBRGn" loading="lazy"
-							style="color: transparent;">
+							class="Main_template__image__OBRGn" src="${cdto.img}"
+							loading="lazy">
 						<div class="Main_content__QSnMW">
 							<a href="MyPage.jsp">
 								<div class="ChallengeHostImage_host__ddIMk">
 									<img alt="challengehost"
 										srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
-										src="${ddto.user_profile}"
-										width="50" height="50" decoding="async" data-nimg="1"
+										src="${cdto.user_profile}" width="50" height="50"
+										decoding="async" data-nimg="1"
 										class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 										style="color: transparent;">
 								</div>
-								<div class="Main_content__host-name__ZVaSk">${ddto.user_nick}</div>
+								<div class="Main_content__host-name__ZVaSk">${cdto.user_nick}</div>
 							</a>
 						</div>
-						<div class="Main_content__title__xS6_f">[${ddto.feed_title}]</div>
+						<div class="Main_content__title__xS6_f">[${cdto.chal_title}]</div>
 					</div>
 					<div class="Commenter_introduce__URA1O">
-						<div class="Commenter_introduce__content__03SRv">${ddto.feed_content}</div>
+						<div class="Commenter_introduce__content__03SRv">${cdto.chal_content}</div>
 						<div class="Commenter_introduce__additional__KNK_K"
 							aria-hidden="true">더보기</div>
 					</div>

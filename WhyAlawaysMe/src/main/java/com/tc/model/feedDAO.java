@@ -74,7 +74,7 @@ public class feedDAO {
 		int cnt = 0;
 		try {
 			sqlSession = sqlSessionFactory.openSession(true);
-			cnt = sqlSession.insert("upload", dto);
+			cnt = sqlSession.insert("upload-feed", dto);
 		} catch (Exception e) {
 			e.printStackTrace(); // 예외 로그 출력
 		} finally {
@@ -84,6 +84,16 @@ public class feedDAO {
 			}
 		}
 		return cnt;
+	}
+
+	public List<feedDTO> myFeedSelect(feedDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		List<feedDTO> myfeedList = sqlSession.selectList("myFeedSelect", dto) ;
+		
+		sqlSession.close();
+		
+		return myfeedList;
 	}
 
 }

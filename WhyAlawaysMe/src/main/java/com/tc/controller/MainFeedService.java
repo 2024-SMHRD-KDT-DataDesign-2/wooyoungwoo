@@ -16,19 +16,19 @@ import com.tc.model.feedDTO;
 
 @WebServlet("/MainFeedService")
 public class MainFeedService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	feedDAO dao = new feedDAO() ;
-    	
-    	List<feedDTO> feedList = dao.feedSelect() ;
-    	
-    	request.setAttribute("feedList", feedList);
-		System.out.println("피드 목록 : " + feedList);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("MainPage.jsp") ;
-		rd.forward(request, response);
+       feedDAO dao = new feedDAO() ;
+       
+       List<feedDTO> feedList = dao.feedSelect() ;
+       
+       request.setAttribute("feedList", feedList);
+      System.out.println("피드 목록 : " + feedList);
+      
+      RequestDispatcher rd = request.getRequestDispatcher("MainPage.jsp") ;
+      rd.forward(request, response);
     }
 
 }

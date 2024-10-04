@@ -438,7 +438,7 @@ span {
 .mypage-dropdown {
 	display: none; /* 기본적으로 숨김 */
 	position: absolute;
-	top: 40px;
+	top: 50px;
 	left: 0;
 	background-color: white;
 	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
@@ -477,13 +477,48 @@ span {
 	margin-bottom: 0; /* 하단 여백 없애기 */
 }
 
-.Write {
-	background-color: grey; /* 배경색을 검정색으로 설정 */
-	border-radius: 20px; /* 둥글게 만들기 */
-	display: inline-block; /* 요소를 inline-block으로 설정 */
+.writeButton {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	writing-mode: horizontal-tb;
+	width: auto;
 }
 
-.Write a {
-	color: white; /* 글자색을 흰색으로 설정 */
-	text-decoration: none; /* 링크의 밑줄 제거 */
+.write-dropdown {
+	top: 70px;
+	left: 73%;
+	display: none; /* 기본적으로 숨김 */
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 300;
+	border-radius: 5px;
+	padding: 10px;
+	width: 200px;
+	gap: 10px;
+	flex-wrap: wrap; /* 항목을 여러 줄로 나누기 위한 설정 */
+}
+
+.write-dropdown li {
+	flex: 1 1 45%; /* 각 항목의 너비를 45%로 설정 */
+	margin: 5px 0;
+	list-style: none;
+}
+
+.write-dropdown li a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.write-dropdown li a:hover {
+	background-color: #f1f1f1;
 }

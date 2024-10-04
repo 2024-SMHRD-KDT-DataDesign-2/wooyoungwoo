@@ -8,9 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FeedPage</title>
+<title>ChallengePage</title>
 <style>
 @import url("./assets/css/FeedPage.css");
+
+.feed-con {
+	display: abosolute;
+}
 </style>
 </head>
 
@@ -71,7 +75,7 @@
 				<hr class="line">
 			</div>
 		</div>
-		
+
 		<div class="feed-con">
 			<!-- 피드 선택칸 -->
 			<div>
@@ -90,41 +94,42 @@
 				</form>
 			</div>
 
-			<c:forEach items="${resultList}" var="fdto">
-				<form action="FeedService" method="post"
-					enctype="multipart/form-data">
-					<a href="detailFeed" class="feed-move">
+			<c:forEach items="${chalResultList}" var="cdto">
+				<div class="content-main">
+					<a href="detailChal?feedIdx=${cdto.feed_idx}" class="feed-move">
 						<table>
 							<!-- c:forEach 문으로 리스트 출력 -->
 							<!-- 한 명의 정보를 하나의 tr에 표시 -->
 							<tr>
 								<!-- 사용자 프로필 이미지 및 닉네임 -->
 								<td class="mini-pro"><img class="mini-pro"
-									src="${fdto.user_profile}" alt="User Profile"></td>
-								<td class="mini-nic">${fdto.user_nick}</td>
+									src="${cdto.user_profile}" alt="User Profile"></td>
+								<td class="mini-nic">${cdto.user_nick}</td>
 							</tr>
 							<!-- 챌린지 제목 -->
 							<tr>
 								<td colspan="2">
-									<h2>${fdto.feed_title}</h2>
+									<h2>${cdto.chal_title}</h2>
 								</td>
 							</tr>
 							<!-- 피드 이미지 -->
 							<tr class="feed-img-td">
 								<td colspan="2"><img class="feed-img"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${fdto.feed_img}"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${cdto.img}"
 									alt="Feed Image"></td>
 							</tr>
 							<tr>
 								<td>
 									<button type="button" class="button-like">좋아요</button>
 								</td>
-								<td><a href="FeedContent.jsp" class="button-like">댓글</a></td>
+								<td><a href="detailChal" class="button-like"
+									data-id="${cdto.feed_idx}"
+									onclick="loadDetailChallenge(${cdto.feed_idx}); return false;">댓글</a></td>
 							</tr>
 						</table>
 					</a>
-				</form>
-				<br>
+					</form>
+					<br>
 			</c:forEach>
 		</div>
 	</div>

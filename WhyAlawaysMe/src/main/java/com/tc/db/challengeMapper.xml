@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.mapper.challengerMapper">
+
+	<select id="chalSelect" parameterType="com.tc.model.chalDTO"
+		resultType="com.tc.model.chalDTO">
+		select *
+		from CHALLENGES
+	</select>
+
+	<!-- 피드 삽입 sql문 -->
+	<insert id="upload-chal" parameterType="com.tc.model.chalDTO">
+		INSERT INTO CHALLENGES
+		VALUES
+		(chal_idx.nextval,#{chal_title},#{chal_content},#{chal_st_dt},#{chal_ed_dt},#{user_id},
+		<if test="img !=null">#{img}</if>
+		<if test="img == null">NULL</if>
+		)
+	</insert>
+
+	<!-- 피드 전체 정보 가져오기 sql -->
+	<select id="getchal" resultType="com.tc.model.chalDTO">
+		SELECT
+		U.USER_NICK,U.USER_PROFILE,CH.CHAL_TITLE,CH.IMG
+		FROM USERS U JOIN
+		CHALLENGES CH
+		ON U.USER_ID = CH.USER_ID
+	</select>
+
+	<select id="detailChal" resultType="com.tc.model.chalDTO">
+		SELECT
+		U.USER_NICK,U.USER_PROFILE,
+		CH.CHAL_TITLE,CH.CHAL_CONTENT,CH.IMG,CH.CHAL_ST_DT,CH.CHAL_ED_DT
+		FROM
+		USERS U JOIN CHALLENGES CH
+		ON U.USER_ID = CH.USER_ID
+	</select>
+
+	<select id="myChalSelect" parameterType="com.tc.model.chalDTO"
+		resultType="com.tc.model.chalDTO">
+		SELECT *
+		FROM CHALLENGES
+		WHERE USER_ID = #{user_id}
+	</select>
+
+	<select id="detailFeed" parameterType="int"
+		resultType="com.tc.model.chalDTO">
+		SELECT U.USER_NICK, U.USER_PROFILE, FD.FEED_TITLE, FD.FEED_CONTENT,
+		FD.FEED_IMG, FD.FEED_DATE
+		FROM USERS U
+		JOIN FEED FD ON U.USER_ID = FD.USER_ID
+		WHERE FD.FEED_IDX = #{feedIdx}
+	</select>
+
+</mapper>
+

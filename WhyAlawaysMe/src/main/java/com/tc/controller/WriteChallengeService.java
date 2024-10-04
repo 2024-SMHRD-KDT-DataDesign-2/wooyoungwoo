@@ -15,12 +15,12 @@ import org.apache.catalina.ant.jmx.JMXAccessorQueryTask;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.tc.model.feedDAO;
-import com.tc.model.feedDTO;
+import com.tc.model.chalDAO;
+import com.tc.model.chalDTO;
 import com.tc.model.memberDTO;
 
-@WebServlet("/WriteFeedService")
-public class WriteFeedService extends HttpServlet {
+@WebServlet("/WriteChallengeService")
+public class WriteChallengeService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -62,27 +62,32 @@ public class WriteFeedService extends HttpServlet {
 
         // 3. 데이터 처리
         String title = multi.getParameter("title"); // 제목 가져오기
-        String content = multi.getParameter("content"); // 내용 가져오기
         String img = multi.getFilesystemName("img"); // 업로드된 이미지 파일 이름 가져오기
+        String content = multi.getParameter("content"); // 내용 가져오기
+        String st = multi.getParameter("chal_st");
+        String ed = multi.getParameter("chal_ed");
 
         System.out.println("title: " + title);
-        System.out.println("content: " + content);
         System.out.println("img: " + img); // 선택된 파일 이름 출력
-
+        System.out.println("content: " + content);
+        System.out.println("st: " + st);
+        System.out.println("ed: " + ed);
 
 //		3. 데이터 처리
-		feedDAO dao = new feedDAO();
-		feedDTO dto = new feedDTO();
-		dto.setFeed_title(title);
-		dto.setFeed_content(content);
+		chalDAO dao = new chalDAO();
+		chalDTO dto = new chalDTO();
+		dto.setChal_title(title);
+		dto.setChal_content(content);
 		dto.setUser_id(user_id);
-		dto.setFeed_img(img);
+		dto.setImg(img);
+		dto.setChal_st_dt(st);
+		dto.setChal_ed_dt(ed);
 
-		int result = dao.feed_insert(dto);
+		int result = dao.chal_insert(dto);
 
 //		4. 결과 화면 출력
 //		Main 화면에서 게시글 전체 내용을 조회할 수 있는 BoardService로 먼저 이동
-		response.sendRedirect("FeedPage.jsp");
+		response.sendRedirect("ChallengePage.jsp");
 
 	}
 

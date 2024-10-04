@@ -16,6 +16,55 @@
 </head>
 <style>
 @import url('./assets/css/MainPage.css');
+
+.writeButton {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	writing-mode: horizontal-tb;
+	width: auto;
+}
+
+.write-dropdown {
+	top: 70px;
+	left: 73%;
+	display: none; /* 기본적으로 숨김 */
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 300;
+	border-radius: 5px;
+	padding: 10px;
+	width: 200px;
+	gap: 10px;
+	flex-wrap: wrap; /* 항목을 여러 줄로 나누기 위한 설정 */
+}
+
+.write-dropdown li {
+	flex: 1 1 45%; /* 각 항목의 너비를 45%로 설정 */
+	margin: 5px 0;
+	list-style: none;
+}
+
+.write-dropdown li a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.write-dropdown li a:hover {
+	background-color: #f1f1f1;
+}
+.logo-image{
+color :blue;
+}
 </style>
 
 <body>
@@ -29,7 +78,7 @@
 						<div class="logo-container">
 							<!-- 로고 이미지가 위치한 링크 -->
 							<a href="MainFeedService"> <img
-								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/littleLogo2.png
 								alt="" class="logo-image">
 							</a>
 						</div>
@@ -42,6 +91,7 @@
 						</form>
 					</li>
 					<li><a href="FeedService">피드</a></li>
+					<li><a href="ChalService">챌린지</a></li>
 					<li><a href="ChattingPage.jsp">메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
@@ -59,7 +109,7 @@
 									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
 									alt="MyPageIcon">
 								<ul class="mypage-dropdown">
-									<li><a href="MyPage.jsp">마이 페이지</a></li>
+									<li><a href="MyFeedService">마이 페이지</a></li>
 									<li><a href="LogoutService">로그아웃</a></li>
 								</ul>
 							</div>
@@ -67,8 +117,13 @@
 							<a href="LoginAndJoinPage.jsp">로그인</a>
 						</c:if></li>
 					<li>
-						<div class="Write">
-							<a href="MakeFeedPage.jsp" > 작성하기
+						<div class="write">
+							<button class="writeButton">작성하기</button>
+							<!-- 작성하기 버튼 클릭 시 나타나는 옵션 리스트 -->
+							<ul class="write-dropdown">
+								<li id="writeFeed"><a href="MakeFeedPage.jsp">피드작성</a></li>
+								<li id="writeChallenge"><a href="MakeChallengePage.jsp">챌린지작성</a></li>
+							</ul>
 						</div> </a>
 					</li>
 				</ul>
@@ -139,23 +194,24 @@
 			<!-- 챌린지 기능 -->
 			<div class="chal-par">
 				<!-- 전체 감싸는 용 -->
-				<div class="cal-body">
+				<div class="chal-body">
 					<!-- 아랫 부분 영역 차지 -->
-					<div class="cal-part">
+					<div class="chal-part">
 						<!-- 컨텐츠 영역 -->
 
 						<c:forEach items="${feedList}" var="feed">
-							<form action="WriteFeedService" method="post" enctype="multipart/form-data">
+							<form action="WriteFeedService" method="post"
+								enctype="multipart/form-data">
 								<!-- 컨텐츠1 -->
 								<div>
 									<!-- 각 컨텐츠영역 -->
 									<a href="#">
 										<div>
 											<!-- 카테고리로 연결 -->
-											<img src="<%= request.getContextPath() %>/img/${feed.img}"
+											<img src="<%= request.getContextPath() %>/img/${feed.feed_img}"
 												alt="error" accept="image/*">
-											<div>${feed.chal_title}</div>
-											<div>${feed.chal_st_dt}~ ${feed.chal_ed_dt}</div>
+											<div>${feed.feed_title}</div>
+											<div>${feed.feed_date}</div>
 											<div>
 												참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
 												</span>
@@ -173,150 +229,151 @@
 			<div class="ranking-part">
 				<!-- 랭크 감싸는 영역 -->
 				<h3>주간 인기</h3>
-				<div>
-					<!-- 랭크1 -->
-					<a href="">
-						<div class="ran-body">
-							<!-- 랭크 감싸는 영역 -->
-							<div class="ran-num-part">
-								<!-- 숫자 부분 -->
-								<span class="ran-num">1</span>
-							</div>
-							<div class="ran-con-part">
-								<!-- 내용 감싸는 부분 -->
-								<div class="ran-con-top">
-									<!-- 작성자 미니프로필,닉네임 -->
-									<div class="ran-pro">
-										<!-- 작성자 미니프로필 -->
-										<img class="mini-pro" src="" alt="">
-									</div>
-									<div>
-										<!-- 작성자 닉네임 -->
-										<p class="ran-nick">
-											<span>닉네임</span>
-										</p>
-									</div>
+				<c:forEach items="${chalList}" var="chal">
+					<div>
+						<!-- 랭크1 -->
+						<a href="">
+							<div class="ran-body">
+								<!-- 랭크 감싸는 영역 -->
+								<div class="ran-num-part">
+									<!-- 숫자 부분 -->
+									<span class="ran-num">1</span>
 								</div>
-								<p class="ran-cal-con">챌린지 내용 간략화</p>
-							</div>
-						</div>
-					</a>
-
-					<!-- 랭크2 -->
-					<a href="">
-						<div class="ran-body">
-							<!-- 랭크 감싸는 영역 -->
-							<div class="ran-num-part">
-								<!-- 숫자 부분 -->
-								<span class="ran-num">2</span>
-							</div>
-							<div class="ran-con-part">
-								<!-- 내용 감싸는 부분 -->
-								<div class="ran-con-top">
-									<!-- 작성자 미니프로필,닉네임 -->
-									<div class="ran-pro">
-										<!-- 작성자 미니프로필 -->
-										<img class="mini-pro" src="" alt="">
+								<div class="ran-con-part">
+									<!-- 내용 감싸는 부분 -->
+									<div class="ran-con-top">
+										<!-- 작성자 미니프로필,닉네임 -->
+										<div class="ran-pro">
+											<!-- 작성자 미니프로필 -->
+											<img class="mini-pro" src="" alt="">
+										</div>
+										<div>
+											<!-- 작성자 닉네임 -->
+											<p class="ran-nick">
+												<span>닉네임</span>
+											</p>
+										</div>
 									</div>
-									<div>
-										<!-- 작성자 닉네임 -->
-										<p class="ran-nick">
-											<span>닉네임</span>
-										</p>
-									</div>
+									<p class="ran-cal-con">챌린지 내용 간략화</p>
 								</div>
-								<p class="ran-cal-con">챌린지 내용 간략화</p>
 							</div>
-						</div>
-					</a>
+						</a>
 
-					<!-- 랭크3 -->
-					<a href="">
-						<div class="ran-body">
-							<!-- 랭크 감싸는 영역 -->
-							<div class="ran-num-part">
-								<!-- 숫자 부분 -->
-								<span class="ran-num">3</span>
-							</div>
-							<div class="ran-con-part">
-								<!-- 내용 감싸는 부분 -->
-								<div class="ran-con-top">
-									<!-- 작성자 미니프로필,닉네임 -->
-									<div class="ran-pro">
-										<!-- 작성자 미니프로필 -->
-										<img class="mini-pro" src="" alt="">
-									</div>
-									<div>
-										<!-- 작성자 닉네임 -->
-										<p class="ran-nick">
-											<span>닉네임</span>
-										</p>
-									</div>
+						<!-- 랭크2 -->
+						<a href="">
+							<div class="ran-body">
+								<!-- 랭크 감싸는 영역 -->
+								<div class="ran-num-part">
+									<!-- 숫자 부분 -->
+									<span class="ran-num">2</span>
 								</div>
-								<p class="ran-cal-con">챌린지 내용 간략화</p>
-							</div>
-						</div>
-					</a>
-
-					<!-- 랭크4 -->
-					<a href="">
-						<div class="ran-body">
-							<!-- 랭크 감싸는 영역 -->
-							<div class="ran-num-part">
-								<!-- 숫자 부분 -->
-								<span class="ran-num">4</span>
-							</div>
-							<div class="ran-con-part">
-								<!-- 내용 감싸는 부분 -->
-								<div class="ran-con-top">
-									<!-- 작성자 미니프로필,닉네임 -->
-									<div class="ran-pro">
-										<!-- 작성자 미니프로필 -->
-										<img class="mini-pro" src="" alt="">
+								<div class="ran-con-part">
+									<!-- 내용 감싸는 부분 -->
+									<div class="ran-con-top">
+										<!-- 작성자 미니프로필,닉네임 -->
+										<div class="ran-pro">
+											<!-- 작성자 미니프로필 -->
+											<img class="mini-pro" src="" alt="">
+										</div>
+										<div>
+											<!-- 작성자 닉네임 -->
+											<p class="ran-nick">
+												<span>닉네임</span>
+											</p>
+										</div>
 									</div>
-									<div>
-										<!-- 작성자 닉네임 -->
-										<p class="ran-nick">
-											<span>닉네임</span>
-										</p>
-									</div>
+									<p class="ran-cal-con">챌린지 내용 간략화</p>
 								</div>
-								<p class="ran-cal-con">챌린지 내용 간략화</p>
 							</div>
-						</div>
-					</a>
+						</a>
 
-					<!-- 랭크5 -->
-					<a href="">
-						<div class="ran-body">
-							<!-- 랭크 감싸는 영역 -->
-							<div class="ran-num-part">
-								<!-- 숫자 부분 -->
-								<span class="ran-num">5</span>
-							</div>
-							<div class="ran-con-part">
-								<!-- 내용 감싸는 부분 -->
-								<div class="ran-con-top">
-									<!-- 작성자 미니프로필,닉네임 -->
-									<div class="ran-pro">
-										<!-- 작성자 미니프로필 -->
-										<img class="mini-pro" src="" alt="">
-									</div>
-									<div>
-										<!-- 작성자 닉네임 -->
-										<p class="ran-nick">
-											<span>닉네임</span>
-										</p>
-									</div>
+						<!-- 랭크3 -->
+						<a href="">
+							<div class="ran-body">
+								<!-- 랭크 감싸는 영역 -->
+								<div class="ran-num-part">
+									<!-- 숫자 부분 -->
+									<span class="ran-num">3</span>
 								</div>
-								<p class="ran-cal-con">챌린지 내용 간략화</p>
+								<div class="ran-con-part">
+									<!-- 내용 감싸는 부분 -->
+									<div class="ran-con-top">
+										<!-- 작성자 미니프로필,닉네임 -->
+										<div class="ran-pro">
+											<!-- 작성자 미니프로필 -->
+											<img class="mini-pro" src="" alt="">
+										</div>
+										<div>
+											<!-- 작성자 닉네임 -->
+											<p class="ran-nick">
+												<span>닉네임</span>
+											</p>
+										</div>
+									</div>
+									<p class="ran-cal-con">챌린지 내용 간략화</p>
+								</div>
 							</div>
-						</div>
-					</a>
+						</a>
 
-				</div>
+						<!-- 랭크4 -->
+						<a href="">
+							<div class="ran-body">
+								<!-- 랭크 감싸는 영역 -->
+								<div class="ran-num-part">
+									<!-- 숫자 부분 -->
+									<span class="ran-num">4</span>
+								</div>
+								<div class="ran-con-part">
+									<!-- 내용 감싸는 부분 -->
+									<div class="ran-con-top">
+										<!-- 작성자 미니프로필,닉네임 -->
+										<div class="ran-pro">
+											<!-- 작성자 미니프로필 -->
+											<img class="mini-pro" src="" alt="">
+										</div>
+										<div>
+											<!-- 작성자 닉네임 -->
+											<p class="ran-nick">
+												<span>닉네임</span>
+											</p>
+										</div>
+									</div>
+									<p class="ran-cal-con">챌린지 내용 간략화</p>
+								</div>
+							</div>
+						</a>
+
+						<!-- 랭크5 -->
+						<a href="">
+							<div class="ran-body">
+								<!-- 랭크 감싸는 영역 -->
+								<div class="ran-num-part">
+									<!-- 숫자 부분 -->
+									<span class="ran-num">5</span>
+								</div>
+								<div class="ran-con-part">
+									<!-- 내용 감싸는 부분 -->
+									<div class="ran-con-top">
+										<!-- 작성자 미니프로필,닉네임 -->
+										<div class="ran-pro">
+											<!-- 작성자 미니프로필 -->
+											<img class="mini-pro" src="" alt="">
+										</div>
+										<div>
+											<!-- 작성자 닉네임 -->
+											<p class="ran-nick">
+												<span>닉네임</span>
+											</p>
+										</div>
+									</div>
+									<p class="ran-cal-con">챌린지 내용 간략화</p>
+								</div>
+							</div>
+						</a>
+				</c:forEach>
 			</div>
 		</div>
+	</div>
 
 	</div>
 
@@ -348,6 +405,33 @@
 										&& !myPageDropdown
 												.contains(event.target)) {
 									myPageDropdown.style.display = 'none';
+								}
+							});
+						});
+	</script>
+	<script>
+		document
+				.addEventListener(
+						'DOMContentLoaded',
+						function() {
+							const writePageIcon = document
+									.querySelector('.writeButton');
+							const writePageDropdown = document
+									.querySelector('.write-dropdown');
+
+							writePageIcon
+									.addEventListener(
+											'click',
+											function() {
+												writePageDropdown.style.display = writePageDropdown.style.display === 'flex' ? 'none'
+														: 'flex';
+											});
+
+							window.addEventListener('click', function(event) {
+								if (!writePageIcon.contains(event.target)
+										&& !writePageDropdown
+												.contains(event.target)) {
+									writePageDropdown.style.display = 'none';
 								}
 							});
 						});

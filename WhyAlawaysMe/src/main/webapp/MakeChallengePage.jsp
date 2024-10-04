@@ -1,4 +1,14 @@
-//* 전체 틀 사이즈 */
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 전체 틀 사이즈 */
 .main-center {
 	width: 60%;
 	/* 페이지 너비의 80%만 차지 */
@@ -103,13 +113,12 @@ a {
 	transition: all 0.2s ease-in-out;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
-	background-color: white; box-shadow : 0px 8px 16px rgba( 0, 0, 0, 0.2);
-	background-size : 100%;
+	background-image:
+		url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e86dd30876159.5637811adc76c.jpg");
+	background-size: 100%;
 	background-repeat: no-repeat; li { float : none;
 	text-align: left;
 	padding: 0;
-	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-	background-size: 100%;
 }
 
 }
@@ -134,7 +143,7 @@ a {
 
 input#search-bar {
 	margin: 0 auto;
-	width: 80%;
+	width: 100%;
 	height: 20px;
 	padding: 0 20px;
 	font-size: 0.7rem;
@@ -167,6 +176,7 @@ input#search-bar {
 	width: 40px;
 	height: 40px;
 	top: -35px;
+	right: -45px;
 }
 /* 로고 스타일 */
 .logo-container {
@@ -249,47 +259,131 @@ input#search-bar {
 	color: white; /* 글자색을 흰색으로 설정 */
 	text-decoration: none; /* 링크의 밑줄 제거 */
 }
+</style>
 
-.mini-pro {
-	height: 30px;
-	width: 30px;
-	border-radius: 10%;
-}
+</head>
+<body>
+	<div class="main-center">
+		<!-- 상단 메뉴바 -->
+		<div class="blocks-menus">
+			<div class="container">
+				<ul class="primary-menus">
+					<li>
+						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
+						<div class="logo-container">
+							<!-- 로고 이미지가 위치한 링크 -->
+							<a href="MainPage.jsp"> <img
+								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+								alt="" class="logo-image">
+							</a>
+						</div>
+					</li>
+					<li class="search">
+						<form class="search-container">
+							<input type="text" id="search-bar" placeholder="챌린지를 검색하세요">
+							<a href="#"><img class="search-icon"
+								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+						</form>
+					</li>
+					<li><a href="FeedPage.jsp">피드</a></li>
+					<li><a href="ChattingPage.jsp">메세지</a></li>
+					<li class="menus-megamenus"><a href="#">카테고리 <i
+							class="fa fa-angle-down"></i></a>
+						<ul class="mega-menus">
+							<div class="section">
+								<h3>Pages 1</h3>
+								<li><a href="#">Submenu 1</a></li>
+								<li><a href="#">Submenu 2</a></li>
+								<li><a href="#">Submenu 3</a></li>
+							</div>
+						</ul></li>
+					<li><c:if test="${!empty info}">
+							<div class="mypage-container">
+								<img class="mypage-icon"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
+									alt="MyPageIcon">
+								<ul class="mypage-dropdown">
+									<li><a href="MyFeedService">마이 페이지</a></li>
+									<li><a href="LogoutService">로그아웃</a></li>
+								</ul>
+							</div>
+						</c:if> <c:if test="${empty info}">
+							<a href="LoginAndJoinPage.jsp">로그인</a>
+						</c:if></li>
+					<li>
+						<div class="Write">
+							<a href="MakeFeedPage.jsp"> 작성하기 
+						</div> </a>
+					</li>
+				</ul>
+				<hr class="line">
+			</div>
+		</div>
 
-.mini-nic {
-	align-content: left;
-}
+		<div id="">
+			<!-- 파일 업로드시 사용해야하는 속성 ! enctype 
+					 1. 파일 업로드시 form 태그에서 꼭 필요한 속성
+					 2. post 방식일때만 사용이 가능 -->
+			<form action="WriteChallengeService" method="post"
+				enctype="multipart/form-data">
+				<table id="list" border="2">
+					<tr>
+						<td>제목</td>
+						<td><input type="text" name="title"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="file" name="img"
+							style="float: right;"></td>
+					<tr>
+					<tr>
+						<td>내용</td>
+					</tr>
+					<td colspan="2"><textarea name="content" rows="20"
+							style="resize: none;"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">시작 날짜<input type="date" name="chal_st"></td>
+					</tr>
+					<tr >
+						<td colspan="2">종료 날짜<input type="date" name="chal_ed"></td>
+					</tr>
+					<tr>
+						<td><input type="reset" value="초기화"></td>
+						<td><input type="submit" value="작성하기"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script>
+			document
+					.addEventListener(
+							'DOMContentLoaded',
+							function() {
+								const myPageIcon = document
+										.querySelector('.mypage-icon');
+								const myPageDropdown = document
+										.querySelector('.mypage-dropdown');
 
-.feed-img {
-	width: 500px;
-	/* 이미지가 부모 요소(td)에 꽉 차도록 설정 */
-	height: 300px;
-	/* 이미지의 비율을 유지하면서 크기를 조정 */
-}
+								myPageIcon
+										.addEventListener(
+												'click',
+												function() {
+													myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
+															: 'flex';
+												});
 
-.button-like {
-	width: 70px;
-	height: 30px;
-}
-
-.feed-move {
-	border: none;
-	background-color: white;
-}
-
-.cate-choice {
-	display: flex;
-	justify-content: space-between; /* 버튼 사이에 일정한 간격을 줍니다 */
-	padding: 0; /* 기본 패딩 제거 */
-	list-style: none; /* 기본 리스트 스타일 제거 */
-}
-
-.cate-choice li {
-	margin: 0 10px; /* 각 리스트 항목에 좌우 여백을 추가하여 간격을 설정 */
-}
-
-.cate-choice button {
-	padding: 10px 20px; /* 버튼의 크기를 조정 */
-	cursor: pointer;
-	border-radius: 10%;
-}
+								window
+										.addEventListener(
+												'click',
+												function(event) {
+													if (!myPageIcon
+															.contains(event.target)
+															&& !myPageDropdown
+																	.contains(event.target)) {
+														myPageDropdown.style.display = 'none';
+													}
+												});
+							});
+		</script>
+</body>
+</html>

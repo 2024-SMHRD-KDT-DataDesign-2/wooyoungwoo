@@ -3,6 +3,7 @@ package com.tc.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,13 +33,12 @@ public class detailFeed extends HttpServlet {
 
 		session.setAttribute("detailList", detailList);
 		System.out.println("전체 회원 정보 : " + session.getAttribute("detailList"));
-
-		response.sendRedirect("FeedContent.jsp");
+		
 //		4. select.jsp로 이동 forward 방식 
-		/*
-		 * RequestDispatcher rd = request.getRequestDispatcher("FeedPage.jsp");
-		 * rd.forward(request, response);
-		 */
+		
+		  RequestDispatcher rd = request.getRequestDispatcher("FeedContent.jsp");
+		  rd.forward(request, response);
+		 
 	
 	}
 

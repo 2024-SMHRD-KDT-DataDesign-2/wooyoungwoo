@@ -11,15 +11,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class feedDTO {
-	private int feed_idx ;
-	private String feed_title;
-	private String feed_content;
-	private String feed_date;
+public class chalDTO {
+	private int chal_idx ;
+	private String chal_title;
+	private String chal_content;
+	private String chal_st_dt;
+	private String chal_ed_dt;
 	private String user_id;
-	private String feed_img;
+	private String img;
 	private String user_profile;
 	private String user_nick;
-	
-
 }

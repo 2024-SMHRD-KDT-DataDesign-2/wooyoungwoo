@@ -45,10 +45,8 @@
 <body>
 	<div class="title">
 		<a href="MainFeedService"> <img
-			src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+			src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/logo2.png"	
 			alt="" class="logo-image">
-			<h1>Team Cook</h1>
-			<h3>도전의 연결, 요리 챌린지 SNS</h3>
 		</a>
 	</div>
 	</div>
