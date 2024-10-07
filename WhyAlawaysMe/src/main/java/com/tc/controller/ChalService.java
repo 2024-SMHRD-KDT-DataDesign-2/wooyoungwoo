@@ -39,15 +39,15 @@ public class ChalService extends HttpServlet {
 		chalDAO dao = new chalDAO();
 
 //		=> DB에서 전체 회원 조회하는 기능
-		List<chalDTO> chalResultList = dao.getchal();
-		System.out.println("DAO에서 가져온 피드 리스트: " + chalResultList);  // 가져온 데이터 전체 출력
-		System.out.println("chalResultList 크기: " + chalResultList.size());  // 리스트 크기 출력
+		List<chalDTO> resultChalList = dao.getchal();
+		System.out.println("chalDAO에서 가져온 피드 리스트: " + resultChalList);  // 가져온 데이터 전체 출력
+		System.out.println("resultChalList 크기: " + resultChalList.size());  // 리스트 크기 출력
 		
 //		3. request scope 에 전체 회원 정보 담기
 		HttpSession session = request.getSession();
 
-		session.setAttribute("chalResultList", chalResultList);
-		System.out.println("전체 회원 정보 : " + session.getAttribute("chalResultList"));
+		session.setAttribute("resultChalList", resultChalList);
+		System.out.println("전체 회원 정보 : " + session.getAttribute("resultChalList"));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("ChallengePage.jsp");
 		rd.forward(request, response);

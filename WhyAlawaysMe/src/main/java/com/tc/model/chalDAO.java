@@ -23,34 +23,15 @@ public class chalDAO {
 	}
 
 //	피드 상세 페이지
-	public chalDTO detailChal(int feedIdx) {
-	    chalDTO detailChal = null;
-	    SqlSession sqlSession = null;
-	    try {
-	        sqlSession = sqlSessionFactory.openSession(true);  // 자동 커밋 활성화
-	        detailChal = sqlSession.selectOne("detailFeed", feedIdx);  // "detailFeed"는 Mapper XML의 id
-	    } catch (Exception e) {
-	        e.printStackTrace();  // 예외 로그 출력
-	    } finally {
-	        if (sqlSession != null) {
-	            System.out.println("연결 성공");
-	            sqlSession.close();  // SQL 세션 닫기
-	        }
-	    }
-	    return detailChal;
-	}
-
-
-//	피드 페이지에 값 가져오기
-	public List<chalDTO> getchal() {
+	public List<chalDTO> detailchal() {
 		// 1) sqlSession 빌려오기
 		SqlSession sqlSession = null;
-		List<chalDTO> chalResultList = null; // 리턴할 리스트 변수를 try 밖에서 선언 및 초기화
+		List<chalDTO> detailChalList = null; // 리턴할 리스트 변수를 try 밖에서 선언 및 초기화
 
 		// 2) sqlSession 사용하기 (select 여러 개 값)
 		try {
 			sqlSession = sqlSessionFactory.openSession(true); // 자동 커밋 활성화
-			chalResultList = sqlSession.selectList("getchal"); // "getchal"는 Mapper XML의 id
+			detailChalList = sqlSession.selectList("detailchal"); // "detailchal"는 Mapper XML의 id
 		} catch (Exception e) {
 			e.printStackTrace(); // 예외 로그 출력
 		} finally {
@@ -61,7 +42,30 @@ public class chalDAO {
 		}
 
 		// resultList가 null이 아니면 데이터를 반환, 아니면 빈 리스트 반환
-		return chalResultList != null ? chalResultList : new ArrayList<chalDTO>();
+		return detailChalList != null ? detailChalList : new ArrayList<chalDTO>();
+	}
+
+//	피드 페이지에 값 가져오기
+	public List<chalDTO> getchal() {
+		// 1) sqlSession 빌려오기
+		SqlSession sqlSession = null;
+		List<chalDTO> resultChalList = null; // 리턴할 리스트 변수를 try 밖에서 선언 및 초기화
+
+		// 2) sqlSession 사용하기 (select 여러 개 값)
+		try {
+			sqlSession = sqlSessionFactory.openSession(true); // 자동 커밋 활성화
+			resultChalList = sqlSession.selectList("getchal"); // "getchal"는 Mapper XML의 id
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 로그 출력
+		} finally {
+			if (sqlSession != null) {
+				System.out.println("연결 성공");
+				sqlSession.close(); // SQL 세션 닫기
+			}
+		}
+
+		// resultList가 null이 아니면 데이터를 반환, 아니면 빈 리스트 반환
+		return resultChalList != null ? resultChalList : new ArrayList<chalDTO>();
 	}
 
 //	피드 등록
@@ -82,15 +86,14 @@ public class chalDAO {
 		return cnt;
 	}
 
-	public List<chalDTO> myChalSelect(chalDTO dto) {
+	public List<chalDTO> mychalSelect(chalDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-
-		List<chalDTO> myChalList = sqlSession.selectList("myChalSelect", dto);
-
+		
+		List<chalDTO> mychalList = sqlSession.selectList("mychalSelect", dto) ;
+		
 		sqlSession.close();
-
-		return myChalList;
+		
+		return mychalList;
 	}
-
 
 }

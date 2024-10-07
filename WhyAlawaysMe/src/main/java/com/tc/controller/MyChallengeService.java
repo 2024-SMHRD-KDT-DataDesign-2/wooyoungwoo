@@ -32,7 +32,7 @@ public class MyChallengeService extends HttpServlet {
 
 		dto.setUser_id(mbdto.getUser_id());
 
-		List<chalDTO> myChalList = dao.myChalSelect(dto);
+		List<chalDTO> myChalList = dao.mychalSelect(dto);
 
 		System.out.println("나의 챌린지 목록 : " + myChalList);
 

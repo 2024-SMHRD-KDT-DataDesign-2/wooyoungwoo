@@ -163,20 +163,19 @@
 
 		<!-- 상세 피드 내용  -->
 		<div class="content-container">
-			<div id="detailChallengeContent"
-				class="detail-challenge_content__Ggn9l">
+			<div class="detail-challenge_content__Ggn9l">
 				<c:forEach items="${detailChalList}" var="cdto">
 					<div class="content-main">
 						<img alt="challenge-detail_image"
-							class="Main_template__image__OBRGn" src="${cdto.img}"
-							loading="lazy">
+							class="Main_template__image__OBRGn" loading="lazy"
+							style="color: transparent;">
 						<div class="Main_content__QSnMW">
 							<a href="MyPage.jsp">
 								<div class="ChallengeHostImage_host__ddIMk">
 									<img alt="challengehost"
 										srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
-										src="${cdto.user_profile}" width="50" height="50"
-										decoding="async" data-nimg="1"
+										src="${cdto.user_profile}"
+										width="50" height="50" decoding="async" data-nimg="1"
 										class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 										style="color: transparent;">
 								</div>

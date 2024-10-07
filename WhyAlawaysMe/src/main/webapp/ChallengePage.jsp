@@ -8,13 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChallengePage</title>
+<title>FeedPage</title>
 <style>
 @import url("./assets/css/FeedPage.css");
-
-.feed-con {
-	display: abosolute;
-}
 </style>
 </head>
 
@@ -75,7 +71,7 @@
 				<hr class="line">
 			</div>
 		</div>
-
+		
 		<div class="feed-con">
 			<!-- 피드 선택칸 -->
 			<div>
@@ -94,9 +90,10 @@
 				</form>
 			</div>
 
-			<c:forEach items="${chalResultList}" var="cdto">
-				<div class="content-main">
-					<a href="detailChal?feedIdx=${cdto.feed_idx}" class="feed-move">
+			<c:forEach items="${resultChalList}" var="cdto">
+				<form action="FeedService" method="post"
+					enctype="multipart/form-data">
+					<a href="detailFeed" class="feed-move">
 						<table>
 							<!-- c:forEach 문으로 리스트 출력 -->
 							<!-- 한 명의 정보를 하나의 tr에 표시 -->
@@ -122,14 +119,12 @@
 								<td>
 									<button type="button" class="button-like">좋아요</button>
 								</td>
-								<td><a href="detailChal" class="button-like"
-									data-id="${cdto.feed_idx}"
-									onclick="loadDetailChallenge(${cdto.feed_idx}); return false;">댓글</a></td>
+								<td><a href="FeedContent.jsp" class="button-like">댓글</a></td>
 							</tr>
 						</table>
 					</a>
-					</form>
-					<br>
+				</form>
+				<br>
 			</c:forEach>
 		</div>
 	</div>
