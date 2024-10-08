@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="MyProfile.css">
+</head>
+
+<body>
+
+
+    <div class="content-center">
+        <div>
+            <!-- User Info Bar -->
+            <div class="user-info-bar">
+                <div class="ufo-bar-col1"></div>
+
+                <!-- 프로필 사진 수정 기능을 넣은 자리 (ufo-bar-col2) -->
+                <div class="ufo-bar-col2">
+                    <div class="profile-pic-wrapper">
+                        <img id="profile-pic"
+                            src="https://as1.ftcdn.net/jpg/07/95/95/14/220_F_795951406_h17eywwIo36DU2L8jXtsUcEXqPeScBUq.jpg"
+                            alt="Profile Picture" class="profile-pic" style="cursor: pointer; ">
+                        <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
+                        <!-- <p>프로필 사진 수정</p> -->
+                    </div>
+                </div>
+
+                <div class="ufo-bar-col3">
+                    <div class="ufo-bar-col3-inner">
+                        <div class="username-wrapper-outer">
+                            <div class="username-wrapper">
+                                <h3 class="username-dev">King Gang</h3>
+                            </div>
+                            <div>
+                                <a class="ufo-bar-fff" href=""><span>6</span> 팔로워</a>
+                                <a class="ufo-bar-fff" href=""><span>66</span> 팔로잉</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ufo-bar-col4">
+                    <div class="ufo-bar-col4-inner">
+                        <!-- 팔로우 버튼 교체 -->
+                        <button id="followButton" type="button"
+                            class="tw-inline-flex tw-items-center tw-justify-center tw-border tw-border-solid tw-bg-color-background-button-completed tw-text-color-text-button-completed tw-border-color-slate-200 tw-text-base tw-px-4 tw-py-3 tw-rounded-md tw-font-bold focus:tw-outline-none focus-visible:tw-outline-none focus-visible:tw-ring-2 focus-visible:tw-ring-offset-2 focus-visible:tw-ring-color-slate-500 tw-bg-color-background-button-primary-bold-enabled">
+                            <svg width="24" height="24" stroke-width="0" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <g id="style=outline">
+                                        <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M19.669 6.25671C20.0795 6.62617 20.1128 7.25846 19.7433 7.66897L10.7433 17.669C10.5598 17.8729 10.3005 17.9925 10.0263 17.9997C9.75204 18.0069 9.48688 17.9011 9.29289 17.7071L4.29289 12.707C3.90237 12.3165 3.90237 11.6833 4.2929 11.2928C4.68343 10.9023 5.31659 10.9023 5.70711 11.2928L9.96181 15.5476L18.2567 6.33104C18.6262 5.92053 19.2585 5.88726 19.669 6.25671Z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="tw-text-ellipsis tw-line-clamp-1 tw-ml-1">팔로우</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Button Tabs -->
+        <div class="user-info-bar2">
+            <div class="ufo-bar2-col1"></div>
+            <div id="ufo-home" class="ufo-bar2-col2 ufo-bar2-block">
+                <div class="ufo-bar2-col2-inner flexbox">
+                    <span><i class="uil uil-trophy"></i></span>
+                    <h3>정보수정</h3>
+                </div>
+            </div>
+            <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block">
+                <div class="ufo-bar2-col3-inner flexbox">
+                    <span><i class="uil uil-star"></i></span>
+                    <h3>게시물</h3>
+                </div>
+            </div>
+            <div id="ufo-images" class="ufo-bar2-col4 ufo-bar2-block">
+                <div class="ufo-bar2-col4-inner flexbox">
+                    <span><i class="uil uil-comment-alt"></i></span>
+                    <h3>팔로워</h3>
+                </div>
+            </div>
+            <div id="ufo-about" class="ufo-bar2-col6 ufo-bar2-block">
+                <div class="ufo-bar2-col6-inner flexbox">
+                    <span><i class="uil uil-user"></i></span>
+                    <h3>팔로잉</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content area for displaying the selected content -->
+        <div id="content-area">
+            <!-- Content for each section will be dynamically inserted here -->
+        </div>
+    </div>
+
+
+    <script>
+        // 프로필 사진 클릭 시 파일 선택 창 열기
+        document.getElementById('profile-pic').addEventListener('click', function () {
+            document.getElementById('upload-profile-pic').click();
+        });
+
+        // 파일 선택 후 미리보기 이미지 변경
+        document.getElementById('upload-profile-pic').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('profile-pic').src = e.target.result;
+            };
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 각 버튼 클릭 시 하단에 텍스트가 표시되도록 하는 함수
+        function showTabContent(buttonId, contentHTML) {
+            // 기존에 표시된 내용 삭제
+            document.getElementById('content-area').innerHTML = '';
+
+            // 새로운 내용을 표시
+            const contentDiv = document.createElement('div');
+            contentDiv.classList.add('content-section'); // content-section 클래스를 추가
+            contentDiv.innerHTML = contentHTML;
+            document.getElementById('content-area').appendChild(contentDiv);
+        }
+
+        // 각 버튼에 클릭 이벤트 추가
+        document.getElementById('ufo-home').addEventListener('click', function () {
+            const editContent = `
+            <div>
+                <button id="edit-password">비밀번호 수정</button>
+                <button id="edit-username">닉네임 수정</button>
+                <div id="edit-fields"></div>
+            </div>
+        `;
+            showTabContent('ufo-home', editContent);
+
+            // 비밀번호 수정 버튼 클릭 이벤트
+            document.getElementById('edit-password').addEventListener('click', function () {
+                document.getElementById('edit-fields').innerHTML = `
+                <input type="password" placeholder="새 비밀번호 입력">
+            `;
+            });
+
+            // 닉네임 수정 버튼 클릭 이벤트
+            document.getElementById('edit-username').addEventListener('click', function () {
+                document.getElementById('edit-fields').innerHTML = `
+                <input type="text" placeholder="새 닉네임 입력">
+            `;
+            });
+        });
+
+        document.getElementById('ufo-videos').addEventListener('click', function () {
+            showTabContent('ufo-videos', '킹킹강');
+        });
+
+        document.getElementById('ufo-images').addEventListener('click', function () {
+            showTabContent('ufo-images', '킹킹킹강');
+        });
+
+        document.getElementById('ufo-about').addEventListener('click', function () {
+            showTabContent('ufo-about', '킹킹킹킹강');
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const svg = document.getElementById('followButton').querySelector('svg');
+            svg.setAttribute('class', 'tw-w-5 tw-h-5 tw-fill-white');
+        });
+
+
+        // 팔로우 버튼 스크립트
+        document.getElementById('followButton').addEventListener('click', function () {
+            console.log('184 line addListen')
+            const buttonText = this.querySelector('span');
+            const svg = this.querySelector('svg');
+
+            if (buttonText.textContent === '팔로잉') {
+                console.log('if1')
+                buttonText.textContent = '팔로우';
+                svg.setAttribute('class', 'tw-w-5 tw-h-5 tw-fill-white'); // 팔로우 상태의 SVG 색상
+                this.classList.remove('tw-bg-color-background-button-completed'); // 배경 색상 변경
+                this.classList.add('tw-bg-color-background-button-primary-bold-enabled'); // 팔로우 색상
+            } else {
+                console.log('else')
+                buttonText.textContent = '팔로잉';
+
+                svg.setAttribute('class', 'tw-w-5 tw-h-5 tw-fill-slate-700'); // 팔로잉 상태의 SVG 색상
+                this.classList.remove('tw-bg-color-background-button-primary-bold-enabled'); // 배경 색상 변경
+                this.classList.add('tw-bg-color-background-button-completed'); // 팔로잉 색상
+            }
+        });
+    </script>
+
+</body>
+
+</html>
