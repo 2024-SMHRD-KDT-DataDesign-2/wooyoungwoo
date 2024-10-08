@@ -22,5 +22,6 @@
 		<mapper resource="com/tc/db/ChattingMapper.xml" />
 		<mapper resource="com/tc/db/feedMapper.xml" />
 		<mapper resource="com/tc/db/challengeMapper.xml" />
+		<mapper resource="com/tc/db/myPageMapper.xml" />
 	</mappers>
 </configuration>

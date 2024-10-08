@@ -115,7 +115,7 @@
 									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
 									alt="MyPageIcon">
 								<ul class="mypage-dropdown">
-									<li><a href="MyFeedService">마이 페이지</a></li>
+									<li><a href="followListService">마이 페이지</a></li>
 									<li><a href="LogoutService">로그아웃</a></li>
 								</ul>
 							</div>
