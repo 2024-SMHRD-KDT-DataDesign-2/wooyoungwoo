@@ -108,7 +108,7 @@
 							<!-- 피드 이미지 -->
 							<tr class="feed-img-td">
 								<td colspan="2"><img class="feed-img"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${odbl.chal_img}"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${odbl.img}"
 									alt="Feed Image"></td>
 							</tr>
 							<tr>
