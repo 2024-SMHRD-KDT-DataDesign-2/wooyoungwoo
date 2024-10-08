@@ -61,17 +61,19 @@ public class WriteChallengeService extends HttpServlet {
         }
 
         // 3. 데이터 처리
-        String title = multi.getParameter("title"); // 제목 가져오기
-        String img = multi.getFilesystemName("img"); // 업로드된 이미지 파일 이름 가져오기
+        String title = multi.getParameter("title"); 	// 제목 가져오기
+        String img = multi.getFilesystemName("img"); 	// 업로드된 이미지 파일 이름 가져오기
         String content = multi.getParameter("content"); // 내용 가져오기
-        String st = multi.getParameter("chal_st");
-        String ed = multi.getParameter("chal_ed");
+        String st = multi.getParameter("chal_st");		// 시작 일자 가져오기
+        String ed = multi.getParameter("chal_ed");		// 종료 일자 가져오기
+        String cate = multi.getParameter("category") ;	// 카테고리 가져오기
 
         System.out.println("title: " + title);
-        System.out.println("img: " + img); // 선택된 파일 이름 출력
+        System.out.println("img: " + img); 				// 선택된 파일 이름 출력
         System.out.println("content: " + content);
         System.out.println("st: " + st);
         System.out.println("ed: " + ed);
+        System.out.println("cate: " + cate);
 
 //		3. 데이터 처리
 		chalDAO dao = new chalDAO();
@@ -82,6 +84,7 @@ public class WriteChallengeService extends HttpServlet {
 		dto.setImg(img);
 		dto.setChal_st_dt(st);
 		dto.setChal_ed_dt(ed);
+		dto.setTag_name(cate);
 
 		int result = dao.chal_insert(dto);
 

@@ -21,4 +21,6 @@ public class chalDTO {
 	private String img;
 	private String user_profile;
 	private String user_nick;
+	
+	private String tag_name ;
 }

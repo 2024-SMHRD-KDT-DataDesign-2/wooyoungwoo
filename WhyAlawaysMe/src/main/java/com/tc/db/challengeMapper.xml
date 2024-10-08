@@ -14,7 +14,8 @@
 		VALUES
 		(chal_idx.nextval,#{chal_title},#{chal_content},#{chal_st_dt},#{chal_ed_dt},#{user_id},
 		<if test="img !=null">#{img}</if>
-		<if test="img == null">NULL</if>
+		<if test="img == null">NULL</if>,
+		#{tag_name}
 		)
 	</insert>
 
@@ -73,10 +74,7 @@
 	
 	<select id="orderBy" parameterType="String" resultType="com.tc.model.chalDTO">
 		SELECT *
-		FROM CHALLENGES CH JOIN CHALLENGE_TAGS CHT
-		ON CH.CHAL_IDX = CHT.CHAL_IDX
-		JOIN TAGS
-		ON CHT.TAG_IDX = TAGS.TAG_IDX
+		FROM CHALLENGES
 		WHERE TAG_NAME = #{ob}
 	</select>
 </mapper>
