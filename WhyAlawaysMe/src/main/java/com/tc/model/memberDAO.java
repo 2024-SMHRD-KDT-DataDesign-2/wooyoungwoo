@@ -59,4 +59,14 @@ public class memberDAO {
 
 		return updateMember;
 	}
+	
+	public int updateImg(memberDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		int cnt = sqlSession.update("updateImg", dto) ;
+		
+		sqlSession.close();
+		
+		return cnt ;
+	}
 }

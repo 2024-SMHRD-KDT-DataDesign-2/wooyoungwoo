@@ -5,14 +5,35 @@ document.getElementById('profile-pic').addEventListener('click', function() {
 
 // 파일 선택 후 미리보기 이미지 변경
 document.getElementById('upload-profile-pic').addEventListener('change', function(event) {
-	const file = event.target.files[0];
-	const reader = new FileReader();
-	reader.onload = function(e) {
-		document.getElementById('profile-pic').src = e.target.result;
-	};
-	if (file) {
-		reader.readAsDataURL(file);
-	}
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        document.getElementById('profile-pic').src = e.target.result;
+
+        // FormData 객체 생성
+        const formData = new FormData();
+        formData.append('user_profile', file); // 'user_profile'이라는 키로 파일 추가
+
+        // AJAX 요청
+        $.ajax({
+            url: 'ProfileUpdate',
+            type: 'POST',
+            data: formData, // FormData 객체를 data로 전송
+            processData: false, // jQuery가 데이터를 처리하지 않도록 설정
+            contentType: false, // jQuery가 콘텐츠 유형을 설정하지 않도록 설정
+            success: function(response) {
+                console.log('파일 업로드 성공:', response);
+            },
+            error: function(xhr, status, error) {
+                console.error('파일 업로드 실패:', error);
+            }
+        });
+    };
+
+    if (file) {
+        reader.readAsDataURL(file); // 파일 읽기
+    }
 });
 
 // 각 버튼 클릭 시 하단에 텍스트가 표시되도록 하는 함수

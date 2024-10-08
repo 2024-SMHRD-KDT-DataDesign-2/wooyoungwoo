@@ -312,8 +312,8 @@ input#search-bar {
 						</c:if></li>
 					<li>
 						<div class="Write">
-							<a href="MakeFeedPage.jsp"> 작성하기 
-						</div> </a>
+							<a href="MakeFeedPage.jsp">작성하기</a>
+						</div>
 					</li>
 				</ul>
 				<hr class="line">

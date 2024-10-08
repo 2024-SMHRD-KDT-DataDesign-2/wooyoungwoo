@@ -25,8 +25,8 @@
 						<img id="profile-pic"
 							src="https://as1.ftcdn.net/jpg/07/95/95/14/220_F_795951406_h17eywwIo36DU2L8jXtsUcEXqPeScBUq.jpg"
 							alt="Profile Picture" class="profile-pic"
-							style="cursor: pointer;"> <input type="file"
-							id="upload-profile-pic" accept="image/*" style="display: none;">
+							style="cursor: pointer;">
+							<input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
 						<!-- <p>프로필 사진 수정</p> -->
 					</div>
 				</div>
@@ -162,6 +162,8 @@
 	</div>
 
 	<script src="./assets/js/MyPage.js"></script>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </body>
 
 </html>

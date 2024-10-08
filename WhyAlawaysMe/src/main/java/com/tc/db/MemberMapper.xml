@@ -23,4 +23,10 @@
 			<if test="user_nick != null and user_pw == null"> user_nick = #{user_nick}</if>
 		WHERE USER_ID = #{user_id}
 	</update>
+	
+	<update id="updateImg" parameterType="com.tc.model.memberDTO">
+		UPDATE USERS
+		SET USER_PROFILE = #{user_profile}
+		WHERE USER_ID = #{user_id}
+	</update>
 </mapper>
