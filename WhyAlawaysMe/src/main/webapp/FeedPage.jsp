@@ -87,7 +87,7 @@ color :blue;
 						</form>
 					</li>
 					<li><a href="FeedService">피드</a></li>
-					<li><a href="ChattingPage.jsp">메세지</a></li>
+					<li><a href="ChattingRoomService">메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
