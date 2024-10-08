@@ -58,7 +58,7 @@
 					<input type="email" name="id" placeholder="아이디(이메일)" /> <input
 						type="password" name="pw" placeholder="패스워드"> <input
 						type="text" name="nick" placeholder="닉네임">
-					<button id="openPopupBtn" type="button">관심분야 선택</button>
+					<!-- <button id="openPopupBtn" type="button">관심분야 선택</button>-->
 					<input type="submit" value="회원가입" class="jlbtn">
 				</div>
 			</form>
@@ -88,7 +88,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="popup-overlay" id="popup">
+	<!-- <div class="popup-overlay" id="popup">
 		<div class="popup">
 			<span class="close-btn" id="closePopupBtn">&times;</span>
 			<h2>관심 분야를 선택해주세요</h2>
@@ -127,7 +127,7 @@
 					완료</button>
 			</form>
 		</div>
-	</div>
+	</div> -->
 
 	<script src="assets/js/LoginAndJoinPage.js"></script>
 </body>

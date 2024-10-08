@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FeedPage</title>
+<title>ChallengePage</title>
 <style>
 @import url("./assets/css/FeedPage.css");
 </style>
@@ -24,8 +24,8 @@
 						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
 						<div class="logo-container">
 							<!-- 로고 이미지가 위치한 링크 -->
-							<a href="MainPage.jsp"> <img
-								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
+							<a href="MainFeedService"> <img
+								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/littleLogo2.png
 								alt="" class="logo-image">
 							</a>
 						</div>
@@ -38,6 +38,7 @@
 						</form>
 					</li>
 					<li><a href="FeedService">피드</a></li>
+					<li><a href="ChalService">챌린지</a></li>
 					<li><a href="ChattingPage.jsp">메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
@@ -63,8 +64,13 @@
 							<a href="LoginAndJoinPage.jsp">로그인</a>
 						</c:if></li>
 					<li>
-						<div class="Write">
-							<a href="MakeFeedPage.jsp"> 작성하기 
+						<div class="write">
+							<button class="writeButton">작성하기</button>
+							<!-- 작성하기 버튼 클릭 시 나타나는 옵션 리스트 -->
+							<ul class="write-dropdown">
+								<li id="writeFeed"><a href="MakeFeedPage.jsp">피드작성</a></li>
+								<li id="writeChallenge"><a href="MakeChallengePage.jsp">챌린지작성</a></li>
+							</ul>
 						</div> </a>
 					</li>
 				</ul>
@@ -91,9 +97,9 @@
 			</div>
 
 			<c:forEach items="${resultChalList}" var="cdto">
-				<form action="FeedService" method="post"
+				<form action="ChalService" method="post"
 					enctype="multipart/form-data">
-					<a href="detailFeed" class="feed-move">
+					<a href="detailChal?id=${cdto.chal_idx}" class="feed-move">
 						<table>
 							<!-- c:forEach 문으로 리스트 출력 -->
 							<!-- 한 명의 정보를 하나의 tr에 표시 -->
@@ -119,7 +125,7 @@
 								<td>
 									<button type="button" class="button-like">좋아요</button>
 								</td>
-								<td><a href="FeedContent.jsp" class="button-like">댓글</a></td>
+								<td><a href="ChallengeContent.jsp" class="button-like">댓글</a></td>
 							</tr>
 						</table>
 					</a>

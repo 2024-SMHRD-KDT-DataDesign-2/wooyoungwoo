@@ -22,29 +22,6 @@ public class feedDAO {
 		return feedList;
 	}
 
-//	피드 상세 페이지
-	public List<feedDTO> detailFeed() {
-		// 1) sqlSession 빌려오기
-		SqlSession sqlSession = null;
-		List<feedDTO> detailList = null; // 리턴할 리스트 변수를 try 밖에서 선언 및 초기화
-
-		// 2) sqlSession 사용하기 (select 여러 개 값)
-		try {
-			sqlSession = sqlSessionFactory.openSession(true); // 자동 커밋 활성화
-			detailList = sqlSession.selectList("detailFeed"); // "detailFeed"는 Mapper XML의 id
-		} catch (Exception e) {
-			e.printStackTrace(); // 예외 로그 출력
-		} finally {
-			if (sqlSession != null) {
-				System.out.println("연결 성공");
-				sqlSession.close(); // SQL 세션 닫기
-			}
-		}
-
-		// resultList가 null이 아니면 데이터를 반환, 아니면 빈 리스트 반환
-		return detailList != null ? detailList : new ArrayList<feedDTO>();
-	}
-
 //	피드 페이지에 값 가져오기
 	public List<feedDTO> getFeed() {
 		// 1) sqlSession 빌려오기
@@ -96,4 +73,29 @@ public class feedDAO {
 		return myfeedList;
 	}
 
+	// 특정 챌린지 정보 조회
+		public feedDTO getFeedDetail(String feed_idx) {
+			SqlSession sqlSession = null;
+			feedDTO feed = null; // 리턴할 DTO 변수를 초기화
+
+			try {
+				sqlSession = sqlSessionFactory.openSession(true);
+				if (feed_idx != null) {
+					feed = sqlSession.selectOne("getFeedDetail", Integer.parseInt(feed_idx)); // Integer로 변환
+				} else {
+					System.out.println("feed_idx is null");
+				}
+			} catch (NumberFormatException e) {
+				e.printStackTrace(); // ID 변환 오류 처리
+			} catch (Exception e) {
+				e.printStackTrace(); // 예외 로그 출력
+			} finally {
+				if (sqlSession != null) {
+					System.out.println("연결 성공");
+					sqlSession.close(); // SQL 세션 닫기
+				}
+			}
+
+			return feed; // 조회한 chalDTO 객체 반환
+		}
 }

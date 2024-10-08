@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tc.model.chalDAO;
+import com.tc.model.chalDTO;
 import com.tc.model.feedDAO;
 import com.tc.model.feedDTO;
 
@@ -20,26 +22,24 @@ public class detailFeed extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//		1. DAO 생성
-		feedDAO dao = new feedDAO();
+//	     // 1. DAO 생성
+        feedDAO dao = new feedDAO();
 
-//		=> DB에서 전체 회원 조회하는 기능
-		List<feedDTO> detailList = dao.detailFeed();
-		System.out.println("DAO에서 가져온 피드 리스트: " + detailList);  // 가져온 데이터 전체 출력
-		System.out.println("List 크기: " + detailList.size());  // 리스트 크기 출력
-		
-//		3. request scope 에 전체 회원 정보 담기
-		HttpSession session = request.getSession();
+        // 2. URL 파라미터에서 챌린지 ID 받기
+        String feed_idx = request.getParameter("id");
+        System.out.println("피드에서 가져오니?2:"+feed_idx);
 
-		session.setAttribute("detailList", detailList);
-		System.out.println("전체 회원 정보 : " + session.getAttribute("detailList"));
-		
-//		4. select.jsp로 이동 forward 방식 
-		
-		  RequestDispatcher rd = request.getRequestDispatcher("FeedContent.jsp");
-		  rd.forward(request, response);
+        // 3. DAO를 통해 특정 챌린지 정보 조회
+        feedDTO feedDetail = dao.getFeedDetail(feed_idx); // ID에 해당하는 챌린지 정보를 조회하는 메서드
+
+        // 4. 요청 속성에 챌린지 정보 담기
+        request.setAttribute("feedDetail", feedDetail);
+        System.out.println("조회한 챌린지 정보: " + feedDetail);
+
+        // 5. ChallengeContent.jsp로 이동 forward 방식
+        RequestDispatcher rd = request.getRequestDispatcher("FeedContent.jsp");
+        rd.forward(request, response);
 		 
 	
 	}
-
 }

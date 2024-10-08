@@ -1,4 +1,5 @@
 package com.tc.model;
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

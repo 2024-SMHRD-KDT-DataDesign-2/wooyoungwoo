@@ -94,6 +94,47 @@ public class chalDAO {
 		sqlSession.close();
 
 		return mychalList;
+
+	}
+	public chalDTO getChalDetail(String chal_idx) {
+		SqlSession sqlSession = null;
+		chalDTO chal = null; // 리턴할 DTO 변수를 초기화
+
+		try
+
+		{
+			// SQL 세션을 오픈하여 자동 커밋 모드로 설정 (true)
+			sqlSession = sqlSessionFactory.openSession(true);
+
+			// chal_idx가 null이 아닌 경우에만 변환 및 쿼리 실행
+			if (chal_idx != null && !chal_idx.isEmpty()) {
+				try {
+					// chal_idx를 Integer로 변환하여 SQL 쿼리 호출
+					int chalIndex = Integer.parseInt(chal_idx);
+					chal = sqlSession.selectOne("getChalDetail", chalIndex); // getChalDetail에 정수형 ID 전달
+					System.out.println("DAO에서 가져온 chalDetail: " + chal);
+				} catch (NumberFormatException e) {
+					// Integer로 변환 시 오류 발생 처리
+					System.err.println("chal_idx 변환 오류: " + chal_idx + "는 정수형이 아닙니다.");
+					e.printStackTrace();
+				}
+			} else {
+				// chal_idx가 null이거나 빈 문자열일 경우
+				System.out.println("유효하지 않은 chal_idx: " + chal_idx);
+			}
+		} catch (Exception e) {
+			// 예외 로그 출력
+			System.err.println("getChalDetail 메서드 실행 중 예외 발생");
+			e.printStackTrace();
+		} finally {
+			// SQL 세션을 닫아 자원 해제
+			if (sqlSession != null) {
+				System.out.println("연결 성공, SQL 세션을 닫습니다.");
+				sqlSession.close();
+			}
+		}
+
+		return chal; // 조회한 chalDTO 객체 반환
 	}
 
 	// 태그 별로 정렬

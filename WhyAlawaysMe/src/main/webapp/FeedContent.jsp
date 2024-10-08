@@ -164,7 +164,6 @@
 		<!-- 상세 피드 내용  -->
 		<div class="content-container">
 			<div class="detail-challenge_content__Ggn9l">
-				<c:forEach items="${detailList}" var="ddto">
 					<div class="content-main">
 						<img alt="challenge-detail_image"
 							class="Main_template__image__OBRGn" loading="lazy"
@@ -174,18 +173,18 @@
 								<div class="ChallengeHostImage_host__ddIMk">
 									<img alt="challengehost"
 										srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
-										src="${ddto.user_profile}"
+										src="${feedDetail.user_profile}"
 										width="50" height="50" decoding="async" data-nimg="1"
 										class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 										style="color: transparent;">
 								</div>
-								<div class="Main_content__host-name__ZVaSk">${ddto.user_nick}</div>
+								<div class="Main_content__host-name__ZVaSk">${feedDetail.user_nick}</div>
 							</a>
 						</div>
-						<div class="Main_content__title__xS6_f">[${ddto.feed_title}]</div>
+						<div class="Main_content__title__xS6_f">[${feedDetail.feed_title}]</div>
 					</div>
 					<div class="Commenter_introduce__URA1O">
-						<div class="Commenter_introduce__content__03SRv">${ddto.feed_content}</div>
+						<div class="Commenter_introduce__content__03SRv">${feedDetail.feed_content}</div>
 						<div class="Commenter_introduce__additional__KNK_K"
 							aria-hidden="true">더보기</div>
 					</div>
@@ -202,27 +201,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="Info_notification__sdE9J">
-						<div class="Info_notification__title__HZ925">안내사항</div>
-						<div class="Info_notification__introduce__JJNE2">자세한 정보를
-							알려드릴게요</div>
-						<div class="Info_notification__detail__RdfMP">
-							<span class="Info_detail__kAjrp"><img alt="map"
-								srcset="https://images.munto.kr/munto-web/info_group.svg?s=32x32 1x, https://images.munto.kr/munto-web/info_group.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/info_group.svg?s=48x48"
-								width="24" height="24" decoding="async" data-nimg="1"
-								class="Info_detail__image__CiTMF" loading="lazy"
-								style="color: transparent;">
-								<div class="Info_detail__info__lpAiz">25명</div> </span><span
-								class="Info_detail__kAjrp"><img alt="member"
-								srcset="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48"
-								width="24" height="24" decoding="async" data-nimg="1"
-								class="Info_detail__image__CiTMF" loading="lazy"
-								style="color: transparent;">
-								<div class="Info_detail__info__lpAiz">주 1회 인증</div> </span>
-						</div>
-					</div>
+					
 					<!-- 좋아요 및 댓글 기능 추가 -->
 					<div class="like-comment-section"
 						style="padding: 20px; text-align: center;">
@@ -256,7 +235,6 @@
 						</div>
 					</div>
 			</div>
-			</c:forEach>
 		</div>
 		<script src="./assets/js/FeedContent.js">
 			document

@@ -62,8 +62,14 @@
 .write-dropdown li a:hover {
 	background-color: #f1f1f1;
 }
-.logo-image{
-color :blue;
+
+.logo-image {
+	color: blue;
+}
+
+.all-chal{
+	background-image : url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/all-mini.png");
+	
 }
 </style>
 
@@ -135,13 +141,29 @@ color :blue;
 		<div class="hero-images">
 			<div class="carousel">
 				<div class="carousel-item active">
-					<img src="/category_img/미술.jfif" alt="Image 1">
+					<img
+						src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/env.png"
+						alt="Image 1">
 				</div>
 				<div class="carousel-item">
-					<img src="/category_img/뷰티.jfif" alt="Image 2">
+					<img
+						src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/price.png"
+						alt="Image 2">
 				</div>
 				<div class="carousel-item">
-					<img src="/category_img/스포츠.jpg" alt="Image 3">
+					<img
+						src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/veg.png"
+						alt="Image 3">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/wt.png"
+						alt="Image 4">
+				</div>
+				<div class="carousel-item">
+					<img
+						src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/conv.png"
+						alt="Image 5">
 				</div>
 			</div>
 			<a class="carousel-control left" href="#" onclick="prevSlide()">&#10094;</a>
@@ -149,48 +171,50 @@ color :blue;
 		</div>
 
 		<!-- 미니 카테고리 -> 선택시 피드로 이동 -->
-		<div class="mini-cate-bar">
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/스포츠.jpg"></a>
-				<span>스포츠</span>
+		<form action="orderByService" method="post">
+			<div class="mini-cate-bar">
+				<div class="mini-cate">
+					<a form="ChalService?"> <input class="cate-img all-chal"
+						type="submit" name="ob" value="all">
+					</a>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/요리.jfif"></a>
+					<span>요리</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/음악.jfif"></a>
+					<span>음악</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/뷰티.jfif"></a>
+					<span>뷰티</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/여행.jfif"></a>
+					<span>여행</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/피트니스.JPG"></a>
+					<span>피트니스</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/미술.jfif"></a>
+					<span>미술</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/수집.jfif"></a>
+					<span>수집</span>
+				</div>
+				<div class="mini-cate">
+					<a href=""><img class="cate-img" src="/category_img/공예DIY.jfif"></a>
+					<span>DIY</span>
+				</div>
 			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/요리.jfif"></a>
-				<span>요리</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/음악.jfif"></a>
-				<span>음악</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/뷰티.jfif"></a>
-				<span>뷰티</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/여행.jfif"></a>
-				<span>여행</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/피트니스.JPG"></a>
-				<span>피트니스</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/미술.jfif"></a>
-				<span>미술</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/수집.jfif"></a>
-				<span>수집</span>
-			</div>
-			<div class="mini-cate">
-				<a href=""><img class="cate-img" src="/category_img/공예DIY.jfif"></a>
-				<span>DIY</span>
-			</div>
-		</div>
+		</form>
 
 		<!-- 하단 전체 -->
 		<div class="bottom-total">
-
 			<!-- 챌린지 기능 -->
 			<div class="chal-par">
 				<!-- 전체 감싸는 용 -->
@@ -198,27 +222,26 @@ color :blue;
 					<!-- 아랫 부분 영역 차지 -->
 					<div class="chal-part">
 						<!-- 컨텐츠 영역 -->
-
 						<c:forEach items="${feedList}" var="feed">
 							<form action="WriteFeedService" method="post"
 								enctype="multipart/form-data">
-								<!-- 컨텐츠1 -->
-								<div>
-									<!-- 각 컨텐츠영역 -->
-									<a href="#">
+								<a href="detailFeed?id=${feed.feed_idx}"> <!-- 컨텐츠1 -->
+									<div>
+										<!-- 각 컨텐츠영역 -->
 										<div>
 											<!-- 카테고리로 연결 -->
-											<img src="<%= request.getContextPath() %>/img/${feed.feed_img}"
+											<img
+												src="<%= request.getContextPath() %>/img/${feed.feed_img}"
 												alt="error" accept="image/*">
 											<div>${feed.feed_title}</div>
 											<div>${feed.feed_date}</div>
 											<div>
-												참여자 미니 아이콘 공간 <span>참여자 사진 <img src="" alt="">
-												</span>
+												참여자 미니 아이콘 공간 <span>참여자 사진 <img
+													src="${feed.user_profile}" alt=""></span>
 											</div>
 										</div>
-									</a>
-								</div>
+									</div>
+								</a>
 							</form>
 						</c:forEach>
 					</div>
@@ -229,213 +252,106 @@ color :blue;
 			<div class="ranking-part">
 				<!-- 랭크 감싸는 영역 -->
 				<h3>주간 인기</h3>
-				<c:forEach items="${chalList}" var="chal">
-					<div>
-						<!-- 랭크1 -->
-						<a href="">
-							<div class="ran-body">
-								<!-- 랭크 감싸는 영역 -->
-								<div class="ran-num-part">
-									<!-- 숫자 부분 -->
-									<span class="ran-num">1</span>
-								</div>
-								<div class="ran-con-part">
-									<!-- 내용 감싸는 부분 -->
-									<div class="ran-con-top">
-										<!-- 작성자 미니프로필,닉네임 -->
-										<div class="ran-pro">
-											<!-- 작성자 미니프로필 -->
-											<img class="mini-pro" src="" alt="">
-										</div>
-										<div>
-											<!-- 작성자 닉네임 -->
-											<p class="ran-nick">
-												<span>닉네임</span>
-											</p>
-										</div>
+				<div>
+					<!-- 랭크1 -->
+					<form action="detailChal" method="post"
+						enctype="multipart/form-data">
+						<c:forEach items="${resultCppList}" var="rank">
+							<a href="detailChal?id=${rank.chal_idx}">
+								<div class="ran-body">
+									<!-- 랭크 감싸는 영역 -->
+									<div class="ran-num-part">
+										<!-- 숫자 부분 -->
+										<span class="ran-num">1</span>
 									</div>
-									<p class="ran-cal-con">챌린지 내용 간략화</p>
-								</div>
-							</div>
-						</a>
-
-						<!-- 랭크2 -->
-						<a href="">
-							<div class="ran-body">
-								<!-- 랭크 감싸는 영역 -->
-								<div class="ran-num-part">
-									<!-- 숫자 부분 -->
-									<span class="ran-num">2</span>
-								</div>
-								<div class="ran-con-part">
-									<!-- 내용 감싸는 부분 -->
-									<div class="ran-con-top">
-										<!-- 작성자 미니프로필,닉네임 -->
-										<div class="ran-pro">
-											<!-- 작성자 미니프로필 -->
-											<img class="mini-pro" src="" alt="">
+									<div class="ran-con-part">
+										<!-- 내용 감싸는 부분 -->
+										<div class="ran-con-top">
+											<!-- 작성자 미니프로필,닉네임 -->
+											<div class="ran-pro">
+												<!-- 작성자 미니프로필 -->
+												<img class="mini-pro" src="${rank.user_profile}" alt="">
+											</div>
+											<div>
+												<!-- 작성자 닉네임 -->
+												<p class="ran-nick">
+													<span>${rank.user_nick}</span>
+												</p>
+											</div>
 										</div>
-										<div>
-											<!-- 작성자 닉네임 -->
-											<p class="ran-nick">
-												<span>닉네임</span>
-											</p>
-										</div>
+										<p class="ran-cal-con">${rank.chal_title}</p>
 									</div>
-									<p class="ran-cal-con">챌린지 내용 간략화</p>
 								</div>
-							</div>
-						</a>
-
-						<!-- 랭크3 -->
-						<a href="">
-							<div class="ran-body">
-								<!-- 랭크 감싸는 영역 -->
-								<div class="ran-num-part">
-									<!-- 숫자 부분 -->
-									<span class="ran-num">3</span>
-								</div>
-								<div class="ran-con-part">
-									<!-- 내용 감싸는 부분 -->
-									<div class="ran-con-top">
-										<!-- 작성자 미니프로필,닉네임 -->
-										<div class="ran-pro">
-											<!-- 작성자 미니프로필 -->
-											<img class="mini-pro" src="" alt="">
-										</div>
-										<div>
-											<!-- 작성자 닉네임 -->
-											<p class="ran-nick">
-												<span>닉네임</span>
-											</p>
-										</div>
-									</div>
-									<p class="ran-cal-con">챌린지 내용 간략화</p>
-								</div>
-							</div>
-						</a>
-
-						<!-- 랭크4 -->
-						<a href="">
-							<div class="ran-body">
-								<!-- 랭크 감싸는 영역 -->
-								<div class="ran-num-part">
-									<!-- 숫자 부분 -->
-									<span class="ran-num">4</span>
-								</div>
-								<div class="ran-con-part">
-									<!-- 내용 감싸는 부분 -->
-									<div class="ran-con-top">
-										<!-- 작성자 미니프로필,닉네임 -->
-										<div class="ran-pro">
-											<!-- 작성자 미니프로필 -->
-											<img class="mini-pro" src="" alt="">
-										</div>
-										<div>
-											<!-- 작성자 닉네임 -->
-											<p class="ran-nick">
-												<span>닉네임</span>
-											</p>
-										</div>
-									</div>
-									<p class="ran-cal-con">챌린지 내용 간략화</p>
-								</div>
-							</div>
-						</a>
-
-						<!-- 랭크5 -->
-						<a href="">
-							<div class="ran-body">
-								<!-- 랭크 감싸는 영역 -->
-								<div class="ran-num-part">
-									<!-- 숫자 부분 -->
-									<span class="ran-num">5</span>
-								</div>
-								<div class="ran-con-part">
-									<!-- 내용 감싸는 부분 -->
-									<div class="ran-con-top">
-										<!-- 작성자 미니프로필,닉네임 -->
-										<div class="ran-pro">
-											<!-- 작성자 미니프로필 -->
-											<img class="mini-pro" src="" alt="">
-										</div>
-										<div>
-											<!-- 작성자 닉네임 -->
-											<p class="ran-nick">
-												<span>닉네임</span>
-											</p>
-										</div>
-									</div>
-									<p class="ran-cal-con">챌린지 내용 간략화</p>
-								</div>
-							</div>
-						</a>
-				</c:forEach>
+							</a>
+						</c:forEach>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	</div>
+		<script src="./assets/js/MainPage.js"></script>
+		<script>
+			document
+					.addEventListener(
+							'DOMContentLoaded',
+							function() {
+								const myPageIcon = document
+										.querySelector('.mypage-icon');
+								const myPageDropdown = document
+										.querySelector('.mypage-dropdown');
 
+								myPageIcon
+										.addEventListener(
+												'click',
+												function() {
+													myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
+															: 'flex';
+												});
 
-
-	<script src="./assets/js/MainPage.js">
-		
-	</script>
-	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							const myPageIcon = document
-									.querySelector('.mypage-icon');
-							const myPageDropdown = document
-									.querySelector('.mypage-dropdown');
-
-							myPageIcon
-									.addEventListener(
-											'click',
-											function() {
-												myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
-														: 'flex';
-											});
-
-							window.addEventListener('click', function(event) {
-								if (!myPageIcon.contains(event.target)
-										&& !myPageDropdown
-												.contains(event.target)) {
-									myPageDropdown.style.display = 'none';
-								}
+								window
+										.addEventListener(
+												'click',
+												function(event) {
+													if (!myPageIcon
+															.contains(event.target)
+															&& !myPageDropdown
+																	.contains(event.target)) {
+														myPageDropdown.style.display = 'none';
+													}
+												});
 							});
-						});
-	</script>
-	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							const writePageIcon = document
-									.querySelector('.writeButton');
-							const writePageDropdown = document
-									.querySelector('.write-dropdown');
+		</script>
+		<script>
+			document
+					.addEventListener(
+							'DOMContentLoaded',
+							function() {
+								const writePageIcon = document
+										.querySelector('.writeButton');
+								const writePageDropdown = document
+										.querySelector('.write-dropdown');
 
-							writePageIcon
-									.addEventListener(
-											'click',
-											function() {
-												writePageDropdown.style.display = writePageDropdown.style.display === 'flex' ? 'none'
-														: 'flex';
-											});
+								writePageIcon
+										.addEventListener(
+												'click',
+												function() {
+													writePageDropdown.style.display = writePageDropdown.style.display === 'flex' ? 'none'
+															: 'flex';
+												});
 
-							window.addEventListener('click', function(event) {
-								if (!writePageIcon.contains(event.target)
-										&& !writePageDropdown
-												.contains(event.target)) {
-									writePageDropdown.style.display = 'none';
-								}
+								window
+										.addEventListener(
+												'click',
+												function(event) {
+													if (!writePageIcon
+															.contains(event.target)
+															&& !writePageDropdown
+																	.contains(event.target)) {
+														writePageDropdown.style.display = 'none';
+													}
+												});
 							});
-						});
-	</script>
+		</script>
 </body>
 
 </html>

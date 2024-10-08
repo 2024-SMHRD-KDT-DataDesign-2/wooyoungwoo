@@ -20,26 +20,23 @@ public class detailChal extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//		1. DAO 생성
-		chalDAO dao = new chalDAO();
+	      // 1. DAO 생성
+        chalDAO dao = new chalDAO();
 
-//		=> DB에서 전체 회원 조회하는 기능
-		List<chalDTO> detailChalList = dao.detailchal();
-		System.out.println("chalDAO에서 가져온 피드 리스트: " + detailChalList);  // 가져온 데이터 전체 출력
-		System.out.println("List 크기: " + detailChalList.size());  // 리스트 크기 출력
-		
-//		3. request scope 에 전체 회원 정보 담기
-		HttpSession session = request.getSession();
+        // 2. URL 파라미터에서 챌린지 ID 받기
+        String chal_idx = request.getParameter("id");
+        System.out.println("챌린지에서 가져오니?:"+chal_idx);
 
-		session.setAttribute("detailChalList", detailChalList);
-		System.out.println("전체 회원 정보 : " + session.getAttribute("detailChalList"));
-		
-//		4. select.jsp로 이동 forward 방식 
-		
-		  RequestDispatcher rd = request.getRequestDispatcher("ChallengeContent.jsp");
-		  rd.forward(request, response);
-		 
-	
+        // 3. DAO를 통해 특정 챌린지 정보 조회
+        chalDTO chalDetail = dao.getChalDetail(chal_idx); // ID에 해당하는 챌린지 정보를 조회하는 메서드
+
+        // 4. 요청 속성에 챌린지 정보 담기
+        request.setAttribute("chalDetail", chalDetail);
+        System.out.println("조회한 챌린지 정보: " + chalDetail);
+
+        // 5. ChallengeContent.jsp로 이동 forward 방식
+        RequestDispatcher rd = request.getRequestDispatcher("ChallengeContent.jsp");
+        rd.forward(request, response);
 	}
 
 }

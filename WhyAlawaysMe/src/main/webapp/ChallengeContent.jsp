@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -164,99 +165,109 @@
 		<!-- 상세 피드 내용  -->
 		<div class="content-container">
 			<div class="detail-challenge_content__Ggn9l">
-				<c:forEach items="${detailChalList}" var="cdto">
-					<div class="content-main">
-						<img alt="challenge-detail_image"
-							class="Main_template__image__OBRGn" loading="lazy"
-							style="color: transparent;">
-						<div class="Main_content__QSnMW">
-							<a href="MyPage.jsp">
-								<div class="ChallengeHostImage_host__ddIMk">
-									<img alt="challengehost"
-										srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
-										src="${cdto.user_profile}"
-										width="50" height="50" decoding="async" data-nimg="1"
-										class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
-										style="color: transparent;">
-								</div>
-								<div class="Main_content__host-name__ZVaSk">${cdto.user_nick}</div>
-							</a>
-						</div>
-						<div class="Main_content__title__xS6_f">[${cdto.chal_title}]</div>
-					</div>
-					<div class="Commenter_introduce__URA1O">
-						<div class="Commenter_introduce__content__03SRv">${cdto.chal_content}</div>
-						<div class="Commenter_introduce__additional__KNK_K"
-							aria-hidden="true">더보기</div>
-					</div>
-					<div class="Info_template__XuHUA">
-						<div class="Info_member__zouhM">
+				<div class="content-main">
+					<img src="${chalDetail.img}" alt="challenge-detail_image"
+						class="Main_template__image__OBRGn" loading="lazy"
+						style="color: transparent;">
+					<div class="Main_content__QSnMW">
+						<a href="MyPage.jsp">
 							<div class="ChallengeHostImage_host__ddIMk">
 								<img alt="challengehost"
-									srcset="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48 2x"
-									src="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48"
-									width="24" height="24" decoding="async" data-nimg="1"
-									class="ChallengeHostImage_host__state__6gKQO" loading="lazy"
+									srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
+									src="${chalDetail.user_profile}" width="50" height="50"
+									decoding="async" data-nimg="1"
+									class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 									style="color: transparent;">
 							</div>
-							</a>
-						</div>
+							<div class="Main_content__host-name__ZVaSk">${chalDetail.user_nick}</div>
+						</a>
 					</div>
-					<div class="Info_notification__sdE9J">
-						<div class="Info_notification__title__HZ925">안내사항</div>
-						<div class="Info_notification__introduce__JJNE2">자세한 정보를
-							알려드릴게요</div>
-						<div class="Info_notification__detail__RdfMP">
-							<span class="Info_detail__kAjrp"><img alt="map"
-								srcset="https://images.munto.kr/munto-web/info_group.svg?s=32x32 1x, https://images.munto.kr/munto-web/info_group.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/info_group.svg?s=48x48"
+					<div class="Main_content__title__xS6_f">[${chalDetail.chal_title}]</div>
+				</div>
+				<div class="Commenter_introduce__URA1O">
+					<div class="Commenter_introduce__content__03SRv">${chalDetail.chal_content}</div>
+					<div class="Commenter_introduce__additional__KNK_K"
+						aria-hidden="true">더보기</div>
+				</div>
+				<div class="Info_template__XuHUA">
+					<div class="Info_member__zouhM">
+						<div class="ChallengeHostImage_host__ddIMk">
+							<img alt="challengehost"
+								srcset="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48 2x"
+								src="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48"
 								width="24" height="24" decoding="async" data-nimg="1"
-								class="Info_detail__image__CiTMF" loading="lazy"
+								class="ChallengeHostImage_host__state__6gKQO" loading="lazy"
 								style="color: transparent;">
-								<div class="Info_detail__info__lpAiz">25명</div> </span><span
-								class="Info_detail__kAjrp"><img alt="member"
-								srcset="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48"
-								width="24" height="24" decoding="async" data-nimg="1"
-								class="Info_detail__image__CiTMF" loading="lazy"
-								style="color: transparent;">
-								<div class="Info_detail__info__lpAiz">주 1회 인증</div> </span>
 						</div>
+						</a>
 					</div>
-					<!-- 좋아요 및 댓글 기능 추가 -->
-					<div class="like-comment-section"
-						style="padding: 20px; text-align: center;">
-						<div class="like-button"
-							style="display: inline-block; margin-right: 20px;">
-							<button id="likeBtn"
-								style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-								<span id="likeText">좋아요</span> (<span id="likeCount">0</span>)
-							</button>
-						</div>
-
-						<div class="comment-section" style="display: inline-block;">
-							<button id="commentBtn"
-								style="background-color: #2ecc71; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-								댓글 남기기</button>
-						</div>
-
-						<!-- 댓글 작성 폼 -->
-						<div id="commentForm" style="display: none; margin-top: 20px;">
-							<textarea id="commentInput" placeholder="댓글을 입력하세요"
-								style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-							<button id="submitComment"
-								style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer;">댓글
-								등록</button>
-						</div>
-
-						<!-- 댓글 목록 -->
-						<div id="commentList" style="margin-top: 20px;">
-							<h3>댓글</h3>
-							<ul id="comments" style="list-style: none; padding: 0;"></ul>
-						</div>
+				</div>
+				<div class="Info_notification__sdE9J">
+					<div class="Info_notification__title__HZ925">안내사항</div>
+					<div class="Info_notification__introduce__JJNE2">자세한 정보를
+						알려드릴게요</div>
+					<div class="Info_notification__detail__RdfMP">
+						<span class="Info_detail__kAjrp"><img alt="map"
+							srcset="https://images.munto.kr/munto-web/info_group.svg?s=32x32 1x, https://images.munto.kr/munto-web/info_group.svg?s=48x48 2x"
+							src="https://images.munto.kr/munto-web/info_group.svg?s=48x48"
+							width="24" height="24" decoding="async" data-nimg="1"
+							class="Info_detail__image__CiTMF" loading="lazy"
+							style="color: transparent;">
+							<div class="Info_detail__info__lpAiz">25명</div> </span> <span
+							class="Info_detail__kAjrp"><img alt="member"
+							srcset="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48 2x"
+							src="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48"
+							width="24" height="24" decoding="async" data-nimg="1"
+							class="Info_detail__image__CiTMF" loading="lazy"
+							style="color: transparent;">
+							<div class="Info_detail__info__lpAiz">주 1회 인증</div> </span> <span>
+							<div>${chalDetail.chal_st_dt}~${chalDetail.chal_ed_dt}</div>
+							<div>진행 기간</div>
+						</span>
 					</div>
+				</div>
+				<!-- 좋아요 및 댓글 기능 추가 -->
+				<div class="like-comment-section"
+					style="padding: 20px; text-align: center;">
+					<div class="like-button"
+						style="display: inline-block; margin-right: 20px;">
+						<button id="likeBtn"
+							style="background-color: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+							<span id="likeText">좋아요</span> (<span id="likeCount">0</span>)
+						</button>
+					</div>
+						<form action="parChalService" method="post">
+							<input type="hidden" name="chal_idx" value="${chalDetail.chal_idx}">
+							<!-- 챌린지 ID -->
+							<input type="hidden" name="user_id" value="${chalDetail.user_id}">
+							<!-- 사용자 ID -->
+							<div class="par_chal">
+								<input type="submit" value="참여하기">
+							</div>
+						</form>
+					<div class="comment-section" style="display: inline-block;">
+						<button id="commentBtn"
+							style="background-color: #2ecc71; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+							댓글 남기기</button>
+					</div>
+
+					<!-- 댓글 작성 폼 -->
+					<div id="commentForm" style="display: none; margin-top: 20px;">
+						<textarea id="commentInput" placeholder="댓글을 입력하세요"
+							style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+						<button id="submitComment"
+							style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer;">댓글
+							등록</button>
+					</div>
+
+
+					<!-- 댓글 목록 -->
+					<div id="commentList" style="margin-top: 20px;">
+						<h3>댓글</h3>
+						<ul id="comments" style="list-style: none; padding: 0;"></ul>
+					</div>
+				</div>
 			</div>
-			</c:forEach>
 		</div>
 		<script src="./assets/js/FeedContent.js">
 			document

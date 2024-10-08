@@ -11,6 +11,55 @@
 <title>FeedPage</title>
 <style>
 @import url("./assets/css/FeedPage.css");
+
+.writeButton {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	writing-mode: horizontal-tb;
+	width: auto;
+}
+
+.write-dropdown {
+	top: 70px;
+	left: 73%;
+	display: none; /* 기본적으로 숨김 */
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 300;
+	border-radius: 5px;
+	padding: 10px;
+	width: 200px;
+	gap: 10px;
+	flex-wrap: wrap; /* 항목을 여러 줄로 나누기 위한 설정 */
+}
+
+.write-dropdown li {
+	flex: 1 1 45%; /* 각 항목의 너비를 45%로 설정 */
+	margin: 5px 0;
+	list-style: none;
+}
+
+.write-dropdown li a {
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.write-dropdown li a:hover {
+	background-color: #f1f1f1;
+}
+.logo-image{
+color :blue;
+}
 </style>
 </head>
 
@@ -72,28 +121,10 @@
 			</div>
 		</div>
 		
-		<div class="feed-con">
-			<!-- 피드 선택칸 -->
-			<div>
-				<form action="orderByService" method="post">
-					<ul class=cate-choice>
-						<li><input type="submit" name="ob" value="랜덤"></li>
-						<li><input type="submit" name="ob" value="관심"></li>
-						<li><input type="submit" name="ob" value="이웃"></li>
-						<li><input type="submit" name="ob" value="카테1"></li>
-						<li><input type="submit" name="ob" value="카테2"></li>
-						<li><input type="submit" name="ob" value="카테3"></li>
-						<li><input type="submit" name="ob" value="카테4"></li>
-						<li><input type="submit" name="ob" value="카테5"></li>
-						<li><input type="submit" name="ob" value="카테6"></li>
-					</ul>
-				</form>
-			</div>
-
 			<c:forEach items="${resultList}" var="fdto">
 				<form action="FeedService" method="post"
 					enctype="multipart/form-data">
-					<a href="detailFeed" class="feed-move">
+					<a href="detailFeed?id=${fdto.feed_idx}" class="feed-move">
 						<table>
 							<!-- c:forEach 문으로 리스트 출력 -->
 							<!-- 한 명의 정보를 하나의 tr에 표시 -->

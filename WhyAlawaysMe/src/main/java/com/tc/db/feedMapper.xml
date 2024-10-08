@@ -22,7 +22,7 @@
 	<!-- 피드 전체 정보 가져오기 sql -->
 	<select id="getFeed" resultType="com.tc.model.feedDTO">
 		SELECT
-		U.USER_NICK,U.USER_PROFILE,FD.FEED_TITLE,FD.FEED_IMG
+		U.USER_NICK,U.USER_PROFILE,FD.FEED_TITLE,FD.FEED_IMG,FD.FEED_IDX
 		FROM USERS U JOIN
 		FEED FD
 		ON U.USER_ID = FD.USER_ID
@@ -43,5 +43,14 @@
 		FROM FEED
 		WHERE USER_ID = #{user_id}
 	</select>
+
+	<select id="getFeedDetail" parameterType="int"
+		resultType="com.tc.model.feedDTO">
+		SELECT U.USER_NICK,U.USER_PROFILE,FD.FEED_TITLE,FD.FEED_IMG,FD.FEED_CONTENT
+		FROM USERS U JOIN FEED FD
+		ON U.USER_ID = FD.USER_ID
+		WHERE fd.feed_idx = #{feed_idx}
+	</select>
+
 </mapper>
 
