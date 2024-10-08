@@ -88,12 +88,23 @@ public class chalDAO {
 
 	public List<chalDTO> mychalSelect(chalDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
-		List<chalDTO> mychalList = sqlSession.selectList("mychalSelect", dto) ;
-		
+
+		List<chalDTO> mychalList = sqlSession.selectList("mychalSelect", dto);
+
 		sqlSession.close();
-		
+
 		return mychalList;
+	}
+
+	// 태그 별로 정렬
+	public List<chalDTO> orderBy(String ob) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+
+		List<chalDTO> orderByList = sqlSession.selectList("orderBy", ob);
+
+		sqlSession.close();
+
+		return orderByList;
 	}
 
 }

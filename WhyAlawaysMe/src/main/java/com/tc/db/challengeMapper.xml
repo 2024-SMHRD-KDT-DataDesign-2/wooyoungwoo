@@ -37,5 +37,14 @@
 		FROM CHALLENGES
 		WHERE USER_ID = #{user_id}
 	</select>
+	
+	<select id="orderBy" parameterType="String" resultType="com.tc.model.chalDTO">
+		SELECT *
+		FROM CHALLENGES CH JOIN CHALLENGE_TAGS CHT
+		ON CH.CHAL_IDX = CHT.CHAL_IDX
+		JOIN TAGS
+		ON CHT.TAG_IDX = TAGS.TAG_IDX
+		WHERE TAG_NAME = #{ob}
+	</select>
 </mapper>
 
