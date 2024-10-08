@@ -90,10 +90,9 @@
 						</div>
 					</li>
 					<li class="search">
-						<form class="search-container">
-							<input type="text" id="search-bar" placeholder="챌린지를 검색하세요">
-							<a href="#"><img class="search-icon"
-								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+						<form action="searchService" class="search-container" method="post">
+							<input type="text" name="search" id="search-bar" placeholder="챌린지를 검색하세요">
+							<input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" alt="Submit" />
 						</form>
 					</li>
 					<li><a href="FeedService">피드</a></li>
