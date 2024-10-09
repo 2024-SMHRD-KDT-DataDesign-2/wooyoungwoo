@@ -145,16 +145,17 @@ span {
 
 
 .feed-title {
-	font-size: 1.5em;
+	font-size: 14px;
 	font-weight: bold;
 }
 
 .feed-con {
 	height: 70px;
-	width: 150px;
-	font-size: 1.5em;
-	margin: 10px 0;
-	color: #555;
+    width: 100%;
+    font-size: 12px;
+    margin: 10px 0;
+    color: #555;
+    overflow: hidden
 }
 
 /* 유저 프로필 스타일 */

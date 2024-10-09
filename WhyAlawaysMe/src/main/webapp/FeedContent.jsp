@@ -30,6 +30,18 @@
 	href="/_next/static/chunks/pages/privacyV2-a3bb0e3b154c0658.js">
 <style data-n-href="/_next/static/css/12f6d34bc1f84336.css">
 @import url("./assets/css/FeedContent.css");
+
+.content-container{
+	height: auto;
+	width: 80%;
+}
+.content-main{
+	width: 100%
+}
+
+.challenge-detail_image{
+	width : 100% ;
+}
 </style>
 
 </head>
@@ -40,14 +52,13 @@
 		<div class="content-container">
 			<div class="detail-challenge_content__Ggn9l">
 				<div class="content-main">
-					<img alt="challenge-detail_image"
+					<img src="${feedDetail.feed_img}"alt="challenge-detail_image"
 						class="Main_template__image__OBRGn" loading="lazy"
 						style="color: transparent;">
 					<div class="Main_content__QSnMW">
 						<a href="MyPage.jsp">
 							<div class="ChallengeHostImage_host__ddIMk">
 								<img alt="challengehost"
-									srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
 									src="${feedDetail.user_profile}" width="50" height="50"
 									decoding="async" data-nimg="1"
 									class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
@@ -66,12 +77,6 @@
 				<div class="Info_template__XuHUA">
 					<div class="Info_member__zouhM">
 						<div class="ChallengeHostImage_host__ddIMk">
-							<img alt="challengehost"
-								srcset="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48"
-								width="24" height="24" decoding="async" data-nimg="1"
-								class="ChallengeHostImage_host__state__6gKQO" loading="lazy"
-								style="color: transparent;">
 						</div>
 						</a>
 					</div>

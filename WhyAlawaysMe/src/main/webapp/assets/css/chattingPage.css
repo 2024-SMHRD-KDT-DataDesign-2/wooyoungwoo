@@ -47,7 +47,7 @@ a {
 }
 
 .messenger {
-	width: 100%;
+	width: 110%;
 	height: 100vh;
 	background-color: #FFFFFF;
 	font-size: 0px;
@@ -55,12 +55,12 @@ a {
 }
 
 .conversations-list {
-	width: 350px;
-	height: 100%;
-	font-size: initial;
-	vertical-align: top;
-	display: inline-block;
-	border-right: solid 1px rgba(0, 0, 0, .1);
+	width: 322px;
+    height: 100%;
+    font-size: initial;
+    vertical-align: top;
+    display: inline-block;
+    border-right: solid 1px rgba(0, 0, 0, .1)
 }
 
 .conversations-list .head {
@@ -97,10 +97,11 @@ a {
 }
 
 .conversations-list .search {
-	margin: 12px;
-	border-radius: 8px;
-	background-color: rgba(0, 0, 0, .05);
-	padding: 8px 12px;
+	height: 30px;
+    margin: 12px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .05);
+    padding: 5px 9px;
 }
 
 .conversations-list .search-icon {
@@ -325,7 +326,7 @@ a {
 }
 
 .conversation>.head>.dashboard>.name {
-	padding-top: 9px;
+	padding-top: 16px;
 	text-align: center;
 	font-size: initial;
 	color: initial;
@@ -839,6 +840,12 @@ a {
 		width: 100%;
 		background-color: #FFFFFF;
 	}
+}
+
+.user-profile{
+	object-fit : cover ;
+	
+	
 }
 
 

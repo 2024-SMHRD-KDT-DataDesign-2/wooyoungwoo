@@ -90,7 +90,7 @@
 									<div class='avatar-name' onclick="creatRoom(this)">
 										<input type="hidden" name="user_id" value="${cr.user_id}">
 										<div class='avatar-frame'>
-											<img src="${cr.user_profile}" alt="user_profile">
+											<img src="${cr.user_profile}" alt="user_profile" class="user-profile">
 										</div>
 										<div class='name-frame'>${cr.room_title}</div>
 										<input type="hidden" name="room_idx" value="${cr.room_idx}">
