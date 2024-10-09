@@ -1,23 +1,29 @@
 .mini-pro {
-	height: 30px;
-	width: 30px;
-	border-radius: 10%;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
 }
 
 .mini-nic {
-	align-content: left;
+	padding-left: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.feed-title {
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .feed-img {
-	width: 500px;
-	/* 이미지가 부모 요소(td)에 꽉 차도록 설정 */
-	height: 300px;
-	/* 이미지의 비율을 유지하면서 크기를 조정 */
+	width: 60%;
+	height: 90%;
+	border-radius:30px;
 }
 
 .button-like {
-	width: 70px;
-	height: 30px;
+	width: 50%;
+	height: 80%;
 }
 
 .feed-move {
@@ -26,18 +32,164 @@
 }
 
 .cate-choice {
-	display: flex;
-	justify-content: space-between; /* 버튼 사이에 일정한 간격을 줍니다 */
-	padding: 0; /* 기본 패딩 제거 */
-	list-style: none; /* 기본 리스트 스타일 제거 */
+    list-style: none; /* 기본 목록 스타일 제거 */
+    padding: 0; /* 패딩 제거 */
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: space-around; /* 버튼 간격 조정 */
+    flex-wrap: wrap; /* 여러 줄로 배치 */
 }
 
 .cate-choice li {
-	margin: 0 10px; /* 각 리스트 항목에 좌우 여백을 추가하여 간격을 설정 */
+    margin: 5px; /* 각 버튼 간의 여백 */
 }
 
-.cate-choice button {
-	padding: 10px 20px; /* 버튼의 크기를 조정 */
+.cate-choice input[type="submit"] {
+    background-color: #4CAF50; /* 버튼 배경색 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 15px; /* 패딩 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    text-decoration: none; /* 텍스트 장식 제거 */
+    display: inline-block; /* 인라인 블록으로 설정 */
+    font-size: 16px; /* 글꼴 크기 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 커서 모양 변경 */
+    transition: background-color 0.3s; /* 배경색 변경 애니메이션 */
+}
+
+.cate-choice input[type="submit"]:hover {
+    background-color: #45a049; /* 호버 시 배경색 변경 */
+}
+
+
+.feedContainer {
+	padding: 20px;
+	width: 58%;
+	left: 30%;
+	position: relative;
+	height: 200px;
+}
+
+.feed-profile {
+	padding-bottom: 5px;
+}
+
+.feed-content {
+	font-size: 15px;
+	padding: 5px;
+	width: 100%;
+	height: 60px;
+}
+
+.feed-img-container {
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+}
+
+.feed-actions {
+	right: 3%;
+	position: relative;
+	width: 20%;
+	display: flex;
+	gap: 10px;
+	top : 5px;
+}
+
+.button-like {
+	background-color: #f0f0f0;
+	/* 버튼 배경색 */
+	border: 1px solid #ccc;
+	/* 테두리 색 */
+	padding: 10px 15px;
+	/* 패딩 추가 */
+	border-radius: 5px;
+	/* 둥근 모서리 */
 	cursor: pointer;
-	border-radius: 10%;
+	/* 커서 모양 변경 */
+	font-size: 14px;
+	/* 글자 크기 */
+}
+
+.button-comment {
+	color: blue;
+	/* 글자 색상 */
+	text-decoration: none;
+	/* 밑줄 제거 */
+	font-size: 14px;
+	/* 글자 크기 */
+	align-self: center;
+	/* 가운데 정렬 */
+	padding: 10px 15px;
+	/* 패딩 추가 */
+}
+
+/* 좋아요 버튼에 대한 CSS 스타일 */
+.button-like {
+	background: none;
+	/* 배경 제거 */
+	border: none;
+	/* 테두리 제거 */
+	outline: none;
+	/* 클릭 시 외곽선 제거 */
+	padding: 0;
+	/* 내부 여백 제거 */
+	cursor: pointer;
+	/* 클릭 시 포인터 모양으로 변경 */
+}
+
+/* 댓글 버튼 스타일 */
+.button-comment {
+	display: inline-block;
+	/* 인라인 블록으로 표시 */
+	background: none;
+	/* 배경 제거 */
+	border: none;
+	/* 테두리 제거 */
+	text-decoration: none;
+	/* 텍스트 밑줄 제거 */
+	cursor: pointer;
+	/* 포인터 모양으로 변경 */
+	padding: 0;
+	/* 내부 여백 제거 */
+}
+
+/* 댓글 버튼 이미지 스타일 */
+.comment-icon {
+	position: relative;
+	bottom: 18px;
+	width: 45px;
+	height: 30px;
+}
+
+/* 좋아요 버튼 이미지 스타일 */
+.thumb {
+	position: relative;
+	bottom: 20px;
+	width: 45px;
+	height: 30px;
+}
+
+/* 좋아요 갯수 스타일 */
+.like-count {
+	right:5px;
+	position: relative;
+	bottom: 12px;
+	font-size: 16px;
+	margin-left: -20px;
+	vertical-align: middle;
+}
+
+.feed-end {
+	bottom: 20%;
+	padding-bottom: 3px;
+	right: 15%;
+	position: relative;
+	width: 70%
+}
+
+.feed-pick{
+	position : relative;
+	left:30% ;
+	width:40%;
 }
