@@ -67,80 +67,19 @@
 .carousel-control.right {
 	right: 35px;
 }
+
+.feed-body {
+	object-fit: cover;
+    left: 35px;
+    position: relative;
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+}
 </style>
-
 <body>
+<jsp:include page="MenuBar.jsp" />
 	<div class="main-center">
-		<!-- 상단 메뉴바 -->
-		<div class="blocks-menus">
-			<div class="container">
-				<ul class="primary-menus">
-					<li>
-						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
-						<div class="logo-container">
-							<!-- 로고 이미지가 위치한 링크 -->
-							<a href="MainFeedService"> <img
-								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/littleLogo2.png
-								alt="" class="logo-image">
-							</a>
-						</div>
-					</li>
-					<li class="search">
-						<form action="searchService" class="search-container"
-							method="post">
-							<input type="text" name="search" id="search-bar"
-								placeholder="챌린지를 검색하세요"> <input type="image"
-								class="search-icon"
-								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
-								alt="Submit" />
-						</form>
-					</li>
-					<li><a href="FeedService" class="search-container">피드</a></li>
-					<li><a href="ChalService" class="search-container">챌린지</a></li>
-					<li><a href="ChattingRoomService" class="search-container">
-							메세지</a></li>
-					<li class="menus-megamenus"><a href="#"
-						class="search-container">카테고리 <i class="fa fa-angle-down"></i></a>
-						<ul class="mega-menus">
-							<div class="section">
-								<li><a href="#">타임 어택</a></li>
-								<li><a href="#">가격 제한</a></li>
-								<li><a href="#">친환경 요리</a></li>
-								<li><a href="#">세계 테마</a></li>
-								<li><a href="#">편의점 재료</a></li>
-								<li><a href="#">비건 요리</a></li>
-								<li><a href="#">비쥬얼 요리</a></li>
-								<li><a href="#">반려동물 간식</a></li>
-							</div>
-						</ul></li>
-					<li><c:if test="${!empty info}">
-							<div class="mypage-container">
-								<img class="mypage-icon"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${info.user_profile}"
-									alt="MyPageIcon">
-								<ul class="mypage-dropdown">
-									<li><a href="followListService">마이 페이지</a></li>
-									<li><a href="LogoutService">로그아웃</a></li>
-								</ul>
-							</div>
-						</c:if> <c:if test="${empty info}">
-							<a href="LoginAndJoinPage.jsp" class="login-con">로그인</a>
-						</c:if></li>
-					<li>
-						<div class="write">
-							<button class="writeButton">작성하기</button>
-							<!-- 작성하기 버튼 클릭 시 나타나는 옵션 리스트 -->
-							<ul class="write-dropdown">
-								<li id="writeFeed"><a href="MakeFeedPage.jsp">피드작성</a></li>
-								<li id="writeChallenge"><a href="MakeChallengePage.jsp">챌린지작성</a></li>
-							</ul>
-						</div> </a>
-					</li>
-				</ul>
-				<hr class="line">
-			</div>
-		</div>
-
 		<!-- 오늘의 챌린지 움직이게 -->
 		<div class="hero-images">
 			<div class="carousel">
@@ -222,7 +161,7 @@
 						type="submit" name="ob" value="asn"> <span>반려동물 간식</span>
 					</a>
 				</div>
-				
+
 			</div>
 		</form>
 
@@ -248,8 +187,9 @@
 										<div class="feed-title">${feed.feed_title}</div>
 										<div class="feed-con">내용${feed.feed_content}</div>
 										<div class="profile-part">
-											<img class="user-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.user_profile}" alt=""><span
-												class="user-nick">${feed.user_nick}</span>
+											<img class="user-pro"
+												src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.user_profile}"
+												alt=""><span class="user-nick">${feed.user_nick}</span>
 										</div>
 									</div>
 								</a>
@@ -281,7 +221,9 @@
 											<!-- 작성자 미니프로필,닉네임 -->
 											<div class="ran-pro">
 												<!-- 작성자 미니프로필 -->
-												<img class="mini-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${rank.user_profile}" alt="">
+												<img class="mini-pro"
+													src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${rank.user_profile}"
+													alt="">
 											</div>
 											<div>
 												<!-- 작성자 닉네임 -->
@@ -299,74 +241,7 @@
 				</div>
 			</div>
 		</div>
-
-
-		<script src="./assets/js/MainPage.js"></script>
-		<script>
-			document
-					.addEventListener(
-							'DOMContentLoaded',
-							function() {
-								const myPageIcon = document
-										.querySelector('.mypage-icon');
-								const myPageDropdown = document
-										.querySelector('.mypage-dropdown');
-
-								myPageIcon
-										.addEventListener(
-												'click',
-												function() {
-													myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
-															: 'flex';
-												});
-
-								window
-										.addEventListener(
-												'click',
-												function(event) {
-													if (!myPageIcon
-															.contains(event.target)
-															&& !myPageDropdown
-																	.contains(event.target)) {
-														myPageDropdown.style.display = 'none';
-													}
-												});
-							});
-		</script>
-		<script>
-			document
-					.addEventListener(
-							'DOMContentLoaded',
-							function() {
-								const writePageIcon = document
-										.querySelector('.writeButton');
-								const writePageDropdown = document
-										.querySelector('.write-dropdown');
-
-								writePageIcon
-										.addEventListener(
-												'click',
-												function() {
-													writePageDropdown.style.display = writePageDropdown.style.display === 'flex' ? 'none'
-															: 'flex';
-												});
-
-								window
-										.addEventListener(
-												'click',
-												function(event) {
-													if (!writePageIcon
-															.contains(event.target)
-															&& !writePageDropdown
-																	.contains(event.target)) {
-														writePageDropdown.style.display = 'none';
-													}
-												});
-							});
-		</script>
-		
+	</div>
+	<script src="./assets/js/MainPage.js"></script>
 </body>
-
-</html>
-
 </html>

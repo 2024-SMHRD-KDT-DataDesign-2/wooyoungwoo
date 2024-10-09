@@ -1,289 +1,96 @@
 :root {
-            --primary-color: #94c2e3;
-            --accent-color: #febe98;
-            --text-color: #303030;
-            --bg-color: #ffffff;
-            --hover-bg-color: #6096ba;
-            --hover-text-color: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --font-family: Arial, sans-serif;
-        }
+	--primary-color: #94c2e3;
+	--accent-color: #febe98;
+	--text-color: #303030;
+	--bg-color: #ffffff;
+	--hover-bg-color: #6096ba;
+	--hover-text-color: #ffffff;
+	--shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--transition: all 0.3s ease;
+	--font-family: Arial, sans-serif;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 
-        body,
-        html {
-            width: 100%;
-            min-height: 100vh;
-            font-family: var(--font-family);
-            background-color: #f9f9f9;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            transition: var(--transition);
-        }
+body, html {
+	width: 100%;
+	min-height: 100vh;
+	font-family: var(--font-family);
+	background-color: #f9f9f9;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	transition: var(--transition);
+}
 
-        .main-center {
-            width: 60%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+#list {
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto;
+	border-collapse: collapse;
+	box-shadow: var(--shadow);
+	font-family: var(--font-family);
+	background-color: var(--bg-color);
+	border-radius: 8px;
+	overflow: hidden;
+}
 
-        .container {
-            padding: 0 15px;
-        }
+#list th {
+	background-color: var(--accent-color);
+	color: var(--hover-text-color);
+	padding: 15px;
+	font-size: 1.2rem;
+	text-align: center;
+}
 
-        .logo-container {
-            display: inline-block;
-            margin-right: 30px;
-        }
+#list td {
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+	font-size: 1rem;
+}
 
-        .logo-image {
-            height: 40px;
-            width: auto;
-            transition: transform 0.3s ease-in-out;
-        }
+#list tr:last-child td {
+	border-bottom: none;
+}
 
-        .logo-container a:hover .logo-image {
-            transform: scale(1.1);
-        }
+#list input[type="text"], #list textarea, #list input[type="date"],
+	#list input[type="file"], #list select {
+	width: 100%;
+	padding: 10px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1rem;
+	box-sizing: border-box;
+}
 
-        .blocks-menus {
-            width: 100%;
-            background: var(--bg-color);
-            padding: 20px 10px;
-            text-align: center;
-            display: inline-block;
-            box-shadow: var(--shadow);
-        }
+.button-row input[type="reset"], .button-row input[type="submit"] {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: var(--transition);
+}
 
-        .primary-menus {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
+.button-row input[type="reset"] {
+	background-color: #f5f5f5;
+	color: var(--text-color);
+}
 
-        .primary-menus li {
-            float: left;
-            padding: 0 15px;
-        }
+.button-row input[type="submit"] {
+	background-color: var(--accent-color);
+	color: var(--hover-text-color);
+}
 
-        .primary-menus li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
+.button-row input[type="reset"]:hover {
+	background-color: #eee;
+}
 
-        .primary-menus li a:hover {
-            background-color: var(--accent-color);
-            color: var(--hover-text-color);
-        }
-
-        .menus-megamenus:hover .mega-menus {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mega-menus {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: 15px auto;
-            width: 50%;
-            border: 1px solid #ECECEC;
-            padding: 0 15px;
-            background-color: var(--bg-color);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            z-index: 500;
-        }
-
-        .mega-menus li {
-            margin: 10px 0;
-        }
-
-        .mega-menus a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .mega-menus a:hover {
-            color: var(--accent-color);
-        }
-
-        .search-container {
-            width: 60%;
-            position: relative;
-            display: inline-block;
-        }
-
-        input#search-bar {
-            width: 100%;
-            height: 40px;
-            padding: 0 15px;
-            border-radius: 20px;
-            border: 1px solid #D0CFCE;
-            font-size: 0.9rem;
-            transition: border 0.3s ease;
-        }
-
-        input#search-bar:focus {
-            border-color: #008ABF;
-        }
-
-        .search-icon {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .mypage-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .mypage-icon {
-            width: 30px;
-            height: auto;
-            cursor: pointer;
-        }
-
-        .mypage-dropdown {
-            display: none;
-            position: absolute;
-            top: 40px;
-            left: 0;
-            background-color: var(--bg-color);
-            box-shadow: var(--shadow);
-            border-radius: 5px;
-            padding: 10px;
-            width: 200px;
-            gap: 10px;
-        }
-
-        .mypage-dropdown li {
-            list-style: none;
-            margin: 5px 0;
-        }
-
-        .mypage-dropdown li a {
-            text-decoration: none;
-            color: var(--text-color);
-            display: block;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .mypage-dropdown li a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .Write {
-            background-color: var(--primary-color);
-            border-radius: 20px;
-            display: inline-block;
-            padding: 10px 20px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .Write a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        #list {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: var(--shadow);
-            font-family: var(--font-family);
-            background-color: var(--bg-color);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        #list th {
-            background-color: var(--accent-color);
-            color: var(--hover-text-color);
-            padding: 15px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        #list td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            font-size: 1rem;
-        }
-
-        #list tr:last-child td {
-            border-bottom: none;
-        }
-
-        #list input[type="text"],
-        #list textarea,
-        #list input[type="date"],
-        #list input[type="file"],
-        #list select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        .button-row input[type="reset"],
-        .button-row input[type="submit"] {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .button-row input[type="reset"] {
-            background-color: #f5f5f5;
-            color: var(--text-color);
-        }
-
-        .button-row input[type="submit"] {
-            background-color: var(--accent-color);
-            color: var(--hover-text-color);
-        }
-
-        .button-row input[type="reset"]:hover {
-            background-color: #eee;
-        }
-
-        .button-row input[type="submit"]:hover {
-            background-color: var(--hover-bg-color);
-        }
+.button-row input[type="submit"]:hover {
+	background-color: var(--hover-bg-color);
+}

@@ -7,26 +7,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>MyPage</title>
 <link rel="stylesheet" href="./assets/css/MyPage.css">
+<style>
+.menu-bar .blocks-menus {
+	width: 100%;
+	background: white;
+	padding-top: 20px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	z-index: 120;
+	left: 11px;
+	top: 8px;
+}
 
+.menu-bar .search-icon {
+	position: relative;
+	float: right;
+	width: 40px;
+	height: 40px;
+	top: -6px;
+	right: 46px;
+}
+
+.menu-bar .search-container {
+	height: 60px;
+	width: 125%;
+	display: inline-block;
+	margin: 0px auto;
+	left: -8%;
+	position: relative;
+	top: 15px;
+}
+
+.menu-bar .input#search-bar {
+	margin: 0 auto;
+	width: 80%;
+	height: 22px;
+	padding: 0 20px;
+	font-size: 0.7rem;
+	border-radius: 10px;
+	border: 1px solid #D0CFCE;
+	outline: none;
+}
+
+</style>
 </head>
-
 <body>
+	<jsp:include page="MenuBar.jsp" />
 	<div class="content-center">
 		<div>
 			<!-- User Info Bar -->
 			<div class="user-info-bar">
 				<div class="ufo-bar-col1"></div>
-
 				<!-- 프로필 사진 수정 기능을 넣은 자리 (ufo-bar-col2) -->
 				<div class="ufo-bar-col2">
 					<div class="profile-pic-wrapper">
 						<img id="profile-pic"
 							src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${info.user_profile}"
 							alt="Profile Picture" class="profile-pic"
-							style="cursor: pointer;">
-							<input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
+							style="cursor: pointer;"> <input type="file"
+							id="upload-profile-pic" accept="image/*" style="display: none;">
 						<!-- <p>프로필 사진 수정</p> -->
 					</div>
 				</div>
@@ -66,7 +108,6 @@
 						</button>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<!-- Button Tabs -->
@@ -101,28 +142,29 @@
 		<!-- feed-area -->
 		<div id="Feed-area">
 			<!-- Content for each section will be dynamically inserted here -->
-			<c:forEach items="${myFeedList}" var="feed">
-				<div class="content-section">
-					<form action="FeedService" method="post"
-						enctype="multipart/form-data">
-						<a href="detailFeed" class="feed-move">
-							<table>
-								<tr>
-									<td colspan="2">
-										<h2>${feed.feed_title}</h2>
-									</td>
-								</tr>
-								<tr class="feed-img-td">
-									<td colspan="2"><img class="feed-img"
-										src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.feed_img}"
-										alt="Feed Image"></td>
-								</tr>
-							</table>
+			<div class="feed-container content-section">
+				<form action="FeedService" method="post"
+					enctype="multipart/form-data">
+					<c:forEach items="${myFeedList}" var="feed">
+						<a href="detailFeed" class="feed-move"> <!-- 반복되는 각 항목에 .feed-item 클래스를 추가 -->
+							<div class="feed-item">
+								<table>
+									<tr>
+										<td colspan="2">
+											<span class="feed-title">${feed.feed_title}</span>
+										</td>
+									</tr>
+									<tr class="feed-img-td">
+										<td colspan="2"><img class="feed-img"
+											src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.feed_img}"
+											alt="Feed Image"></td>
+									</tr>
+								</table>
+							</div>
 						</a>
-					</form>
-					<br>
-				</div>
-			</c:forEach>
+					</c:forEach>
+				</form>
+			</div>
 		</div>
 
 		<!-- 팔로워 -->
@@ -156,11 +198,9 @@
 				</div>
 			</c:forEach>
 		</div>
-
 		<!-- 개인정보 수정 -->
 		<div id="content-area"></div>
 	</div>
-
 	<script src="./assets/js/MyPage.js"></script>
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-3.7.1.js"></script>

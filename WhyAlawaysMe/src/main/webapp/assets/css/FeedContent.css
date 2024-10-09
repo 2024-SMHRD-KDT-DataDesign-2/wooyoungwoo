@@ -1,194 +1,3 @@
-/* 전체 틀 사이즈 */
-.main-center {
-	width: 60%;
-	/* 페이지 너비의 80%만 차지 */
-	margin: 0 auto;
-	/* 가운데 정렬 */
-	display: flex;
-	flex-direction: column;
-	/* 아래쪽으로 나열 */
-	align-items: center;
-	/* 가운데 정렬 */
-}
-
-/* 상단 메뉴바 */
-.container {
-	padding-left: 15px;
-	padding-right: 15px;
-}
-
-/* 로고 스타일 */
-.logo-container {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 30px; /* 메뉴와 로고 간격 */
-}
-
-.logo-image {
-	height: 40px; /* 로고 높이 조절 */
-	width: auto; /* 자동 너비 비율 */
-	transition: transform 0.3s ease-in-out;
-}
-
-/* 로고에 호버 효과 추가 */
-.logo-container a:hover .logo-image {
-	transform: scale(1.1); /* 호버 시 로고 확대 */
-}
-
-.blocks-menus {
-	width: 100%;
-	background: white;
-	padding-top: 20px;
-	text-align: center;
-	display: inline-block;
-}
-
-.primary-menus {
-	display: inline-block;
-	margin: 0;
-	padding: 0; li { list-style : none;
-	float: left;
-	padding: 0 10px; a { text-decoration : none;
-	font-family: $ primary-font;
-	text-transform: uppercase;
-	font-weight: normal;
-	color: #303030;
-	font-size: 12px;
-	font-weight: 600;
-	transition: all 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	&:
-	hover
-	{
-	color
-	:
-	#D4B062;
-}
-
-}
-}
-}
-.menus-dropdown { &:hover .dropdown { visibility:visible;
-	opacity: 1;
-}
-
-}
-li {
-	line-height: 30px;
-	float: none;
-}
-
-a {
-	font-size: 11px;
-	font-weight: normal;
-}
-
-.menus-megamenus { &:hover .mega-menus { opacity:1;
-	visibility: visible;
-}
-
-}
-.mega-menus {
-	opacity: 0;
-	visibility: hidden;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: 15px auto;
-	width: 80%;
-	border: 1px solid #ECECEC;
-	padding: 0 15px;
-	min-height: 330px;
-	transition: all 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	background-color: white;
-	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 500;
-	background-size: 100%;
-	background-repeat: no-repeat; li { float : none;
-	text-align: left;
-	padding: 0;
-}
-
-}
-.section {
-	float: left;
-	margin: 35px 15px; h3 { font-family : $ primary-font;
-	position: relative;
-	font-size: 16px;
-	padding: 10px 0;
-	text-transform: uppercase;
-	border-bottom: 1px solid #d6d6d6;
-}
-
-}
-}
-.search-container {
-	width: 60%;
-	display: inline-block;
-	margin: 0 auto;
-	left: 10%;
-}
-
-input#search-bar {
-	margin: 0 auto;
-	width: 80%;
-	height: 20px;
-	padding: 0 20px;
-	font-size: 0.7rem;
-	border-radius: 10px;
-	border: 1px solid #D0CFCE;
-	outline: none; &: focus { border : 1px solid #008ABF;
-	transition: 0.35s ease;
-	color: #008ABF; &:: -webkit-input-placeholder { transition : opacity
-	0.45s ease;
-	opacity: 0;
-}
-
-/* 로고 스타일 */
-.logo-container {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 30px; /* 메뉴와 로고 간격 */
-}
-
-.logo-image {
-	height: 40px; /* 로고 높이 조절 */
-	width: auto; /* 자동 너비 비율 */
-	transition: transform 0.3s ease-in-out;
-}
-
-/* 로고에 호버 효과 추가 */
-.logo-container a:hover .logo-image {
-	transform: scale(1.1); /* 호버 시 로고 확대 */
-}
-
-
-
-&
-::-moz-placeholder {
-	transition: opacity 0.45s ease;
-	opacity: 0;
-}
-
-&
-:-ms-placeholder {
-	transition: opacity 0.45s ease;
-	opacity: 0;
-}
-
-}
-}
-.search-icon {
-	position: relative;
-	float: right;
-	width: 40px;
-	height: 40px;
-	top: -35px;
-}
-
 .__404_template__F7fDj {
 	width: 100vw;
 	height: 100vh;
@@ -2859,8 +2668,8 @@ to {
 
 </
 style> <script defer ="" nomodule ="" src ="/_next /static /chunks /polyfills-c67a75d1b6f99dc8.js 
-	"> </script> <script src ="/_next /static /chunks /webpack-08fdee9e67704792.js 
-	" defer
+	 "> </script> <script src ="/_next /static /chunks /webpack-08fdee9e67704792.js 
+	 " defer
 	 =""> </script> <script src ="/_next /static /chunks /framework-dfb66ead2ff5a1a7.js
 	 " defer =""> </script> <script src ="/_next /static /chunks /main-1ec2277c0a3dc8b4.js
 	 " defer =""> </script> <script src ="/_next /static /chunks /pages /_app-156746edc356ab73.js
@@ -2874,7 +2683,7 @@ style> <script defer ="" nomodule ="" src ="/_next /static /chunks /polyfills-c6
 	 " defer =""> </script> <script src ="/_next /static /cOtKFhsLLG9uUrB_78kM8
 	/_buildManifest.js " defer =""> </script> <script src ="/_next /static
 	/cOtKFhsLLG9uUrB_78kM8 /_ssgManifest.js " defer =""> </script> <style type 
-	="text /css " data-fbcssmodules ="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe
+	 ="text /css " data-fbcssmodules ="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe
 	 ">.fb_hidden {
 	position: absolute;
 	top: -10000px;
@@ -3257,9 +3066,13 @@ keyframes rotateSpinner { 0% {
 
 
 
+
+
 %
 {
 transform
+
+
 
 
 
@@ -3273,12 +3086,18 @@ transform
 
 
 
+
+
 rotate
 
 
 
 
+
+
 (
+
+
 
 
 
@@ -3292,7 +3111,11 @@ rotate
 
 
 
+
+
 )
+
+
 
 
 
@@ -3418,9 +3241,13 @@ keyframes fb_mpn_landing_page_slide_out { 0% {
 
 
 
+
+
 %
 {
 border-radius
+
+
 
 
 
@@ -3434,7 +3261,11 @@ border-radius
 
 
 
+
+
 18px
+
+
 
 
 
@@ -3449,9 +3280,13 @@ border-radius
 
 
 
+
+
 %
 {
 border-radius
+
+
 
 
 
@@ -3465,7 +3300,11 @@ border-radius
 
 
 
+
+
 50
+
+
 
 
 
@@ -3478,7 +3317,11 @@ margin
 
 
 
+
+
 :
+
+
 
 
 
@@ -3492,13 +3335,19 @@ margin
 
 
 
+
+
 24px
+
+
 
 
 
 
 ;
 width
+
+
 
 
 
@@ -3512,7 +3361,11 @@ width
 
 
 
+
+
 60px
+
+
 
 
 
@@ -3534,9 +3387,13 @@ keyframes fb_mpn_landing_page_slide_out_from_left { 0% {
 
 
 
+
+
 %
 {
 border-radius
+
+
 
 
 
@@ -3550,7 +3407,11 @@ border-radius
 
 
 
+
+
 18px
+
+
 
 
 
@@ -3565,9 +3426,13 @@ border-radius
 
 
 
+
+
 %
 {
 border-radius
+
+
 
 
 
@@ -3581,7 +3446,11 @@ border-radius
 
 
 
+
+
 50
+
+
 
 
 
@@ -3594,6 +3463,8 @@ left
 
 
 
+
+
 :
 
 
@@ -3601,7 +3472,11 @@ left
 
 
 
+
+
 12px
+
+
 
 
 
@@ -3614,6 +3489,8 @@ width
 
 
 
+
+
 :
 
 
@@ -3621,7 +3498,11 @@ width
 
 
 
+
+
 60px
+
+
 
 
 
@@ -3643,9 +3524,13 @@ keyframes fb_mpn_landing_page_slide_up { 0% {
 
 
 
+
+
 %
 {
 bottom
+
+
 
 
 
@@ -3659,7 +3544,11 @@ bottom
 
 
 
+
+
 24px
+
+
 
 
 
@@ -3672,6 +3561,8 @@ opacity
 
 
 
+
+
 :
 
 
@@ -3679,7 +3570,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -3701,9 +3596,13 @@ keyframes fb_mpn_bounce_in { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -3717,7 +3616,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -3730,6 +3633,8 @@ top
 
 
 
+
+
 :
 
 
@@ -3737,7 +3642,11 @@ top
 
 
 
+
+
 0
+
+
 
 
 
@@ -3759,9 +3668,13 @@ keyframes fb_mpn_fade_out { 0% {
 
 
 
+
+
 %
 {
 bottom
+
+
 
 
 
@@ -3775,7 +3688,11 @@ bottom
 
 
 
+
+
 0
+
+
 
 
 
@@ -3788,6 +3705,8 @@ opacity
 
 
 
+
+
 :
 
 
@@ -3795,7 +3714,11 @@ opacity
 
 
 
+
+
 0
+
+
 
 
 
@@ -3817,9 +3740,13 @@ keyframes fb_mpn_bounce_out { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -3833,7 +3760,11 @@ opacity
 
 
 
+
+
 .5
+
+
 
 
 
@@ -3846,6 +3777,8 @@ top
 
 
 
+
+
 :
 
 
@@ -3853,7 +3786,11 @@ top
 
 
 
+
+
 100
+
+
 
 
 
@@ -3875,9 +3812,13 @@ keyframes fb_bounce_in_v2 { 0% {
 
 
 
+
+
 %
 {
 transform
+
+
 
 
 
@@ -3891,7 +3832,11 @@ transform
 
 
 
+
+
 scale
+
+
 
 
 
@@ -3903,7 +3848,11 @@ scale
 
 
 
+
+
 1
+
+
 
 
 
@@ -3915,6 +3864,8 @@ scale
 
 
 
+
+
 .03
 
 
@@ -3922,7 +3873,11 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
@@ -3935,7 +3890,11 @@ transform-origin
 
 
 
+
+
 :
+
+
 
 
 
@@ -3949,7 +3908,11 @@ bottom
 
 
 
+
+
 right
+
+
 
 
 
@@ -3958,6 +3921,8 @@ right
 
 }
 100
+
+
 
 
 
@@ -3973,6 +3938,8 @@ opacity
 
 
 
+
+
 :
 
 
@@ -3980,7 +3947,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -3993,7 +3964,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4005,7 +3980,11 @@ scale
 
 
 
+
+
 (
+
+
 
 
 
@@ -4021,13 +4000,19 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
 
 ;
 transform-origin
+
+
 
 
 
@@ -4041,6 +4026,8 @@ transform-origin
 
 
 
+
+
 bottom
 
 
@@ -4048,7 +4035,11 @@ bottom
 
 
 
+
+
 right
+
+
 
 
 
@@ -4071,9 +4062,13 @@ keyframes fb_bounce_in_from_left { 0% {
 
 
 
+
+
 %
 {
 transform
+
+
 
 
 
@@ -4087,7 +4082,11 @@ transform
 
 
 
+
+
 scale
+
+
 
 
 
@@ -4099,7 +4098,11 @@ scale
 
 
 
+
+
 1
+
+
 
 
 
@@ -4111,6 +4114,8 @@ scale
 
 
 
+
+
 .03
 
 
@@ -4118,7 +4123,11 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
@@ -4131,7 +4140,11 @@ transform-origin
 
 
 
+
+
 :
+
+
 
 
 
@@ -4145,7 +4158,11 @@ bottom
 
 
 
+
+
 left
+
+
 
 
 
@@ -4154,6 +4171,8 @@ left
 
 }
 100
+
+
 
 
 
@@ -4169,6 +4188,8 @@ opacity
 
 
 
+
+
 :
 
 
@@ -4176,7 +4197,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -4189,7 +4214,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4201,7 +4230,11 @@ scale
 
 
 
+
+
 (
+
+
 
 
 
@@ -4217,13 +4250,19 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
 
 ;
 transform-origin
+
+
 
 
 
@@ -4237,6 +4276,8 @@ transform-origin
 
 
 
+
+
 bottom
 
 
@@ -4244,7 +4285,11 @@ bottom
 
 
 
+
+
 left
+
+
 
 
 
@@ -4267,9 +4312,13 @@ keyframes fb_bounce_out_v2 { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -4283,7 +4332,11 @@ opacity
 
 
 
+
+
 0
+
+
 
 
 
@@ -4296,7 +4349,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4308,7 +4365,11 @@ scale
 
 
 
+
+
 (
+
+
 
 
 
@@ -4324,13 +4385,19 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
 
 ;
 transform-origin
+
+
 
 
 
@@ -4344,6 +4411,8 @@ transform-origin
 
 
 
+
+
 bottom
 
 
@@ -4351,7 +4420,11 @@ bottom
 
 
 
+
+
 right
+
+
 
 
 
@@ -4374,9 +4447,13 @@ keyframes fb_bounce_out_from_left { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -4390,7 +4467,11 @@ opacity
 
 
 
+
+
 0
+
+
 
 
 
@@ -4403,7 +4484,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4415,7 +4500,11 @@ scale
 
 
 
+
+
 (
+
+
 
 
 
@@ -4431,13 +4520,19 @@ scale
 
 
 
+
+
 )
+
+
 
 
 
 
 ;
 transform-origin
+
+
 
 
 
@@ -4451,6 +4546,8 @@ transform-origin
 
 
 
+
+
 bottom
 
 
@@ -4458,7 +4555,11 @@ bottom
 
 
 
+
+
 left
+
+
 
 
 
@@ -4480,9 +4581,13 @@ keyframes slideInFromBottom { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -4496,7 +4601,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -4509,7 +4618,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4521,7 +4634,11 @@ translateY
 
 
 
+
+
 (
+
+
 
 
 
@@ -4535,7 +4652,11 @@ translateY
 
 
 
+
+
 )
+
+
 
 
 
@@ -4557,9 +4678,13 @@ keyframes slideInFromBottomDelay { 0% {
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -4573,7 +4698,11 @@ opacity
 
 
 
+
+
 0
+
+
 
 
 
@@ -4586,7 +4715,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4598,7 +4731,11 @@ translateY
 
 
 
+
+
 (
+
+
 
 
 
@@ -4610,8 +4747,12 @@ translateY
 
 
 
+
+
 %
 )
+
+
 
 
 
@@ -4626,9 +4767,13 @@ translateY
 
 
 
+
+
 %
 {
 opacity
+
+
 
 
 
@@ -4642,7 +4787,11 @@ opacity
 
 
 
+
+
 1
+
+
 
 
 
@@ -4655,7 +4804,11 @@ transform
 
 
 
+
+
 :
+
+
 
 
 
@@ -4667,7 +4820,11 @@ translateY
 
 
 
+
+
 (
+
+
 
 
 
@@ -4681,7 +4838,11 @@ translateY
 
 
 
+
+
 )
+
+
 
 
 

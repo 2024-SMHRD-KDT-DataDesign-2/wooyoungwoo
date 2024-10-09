@@ -14,12 +14,29 @@
 .title {
 	align-content: center;
 }
+.container {
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.22);
+   position: relative;
+   overflow: hidden;
+   width: 768px;
+   max-width: 100%;
+   min-height: 480px;
+   display: inline-block;
+   top: 25%;
+   left: 20%
+}
 
 .logo-container {
+	bottom: 100px;
+	position: relative;
+	right: 200px;
 	background: #f6f5f7;
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 30px; /* 메뉴와 로고 간격 */
+	margin-right: 30px;
 }
 
 .logo-image {
@@ -44,8 +61,8 @@
 </head>
 <body>
 	<div class="title">
-		<a href="MainFeedService"> <img
-			src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/logo2.png"	
+		<a href="MainFeedService" class="logo-container"> <img
+			src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/logo2.png"
 			alt="" class="logo-image">
 		</a>
 	</div>

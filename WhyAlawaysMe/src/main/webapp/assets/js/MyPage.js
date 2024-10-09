@@ -5,35 +5,35 @@ document.getElementById('profile-pic').addEventListener('click', function() {
 
 // 파일 선택 후 미리보기 이미지 변경
 document.getElementById('upload-profile-pic').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    
-    reader.onload = function(e) {
-        document.getElementById('profile-pic').src = e.target.result;
+	const file = event.target.files[0];
+	const reader = new FileReader();
 
-        // FormData 객체 생성
-        const formData = new FormData();
-        formData.append('user_profile', file); // 'user_profile'이라는 키로 파일 추가
+	reader.onload = function(e) {
+		document.getElementById('profile-pic').src = e.target.result;
 
-        // AJAX 요청
-        $.ajax({
-            url: 'ProfileUpdate',
-            type: 'POST',
-            data: formData, // FormData 객체를 data로 전송
-            processData: false, // jQuery가 데이터를 처리하지 않도록 설정
-            contentType: false, // jQuery가 콘텐츠 유형을 설정하지 않도록 설정
-            success: function(response) {
-                console.log('파일 업로드 성공:', response);
-            },
-            error: function(xhr, status, error) {
-                console.error('파일 업로드 실패:', error);
-            }
-        });
-    };
+		// FormData 객체 생성
+		const formData = new FormData();
+		formData.append('user_profile', file); // 'user_profile'이라는 키로 파일 추가
 
-    if (file) {
-        reader.readAsDataURL(file); // 파일 읽기
-    }
+		// AJAX 요청
+		$.ajax({
+			url: 'ProfileUpdate',
+			type: 'POST',
+			data: formData, // FormData 객체를 data로 전송
+			processData: false, // jQuery가 데이터를 처리하지 않도록 설정
+			contentType: false, // jQuery가 콘텐츠 유형을 설정하지 않도록 설정
+			success: function(response) {
+				console.log('파일 업로드 성공:', response);
+			},
+			error: function(xhr, status, error) {
+				console.error('파일 업로드 실패:', error);
+			}
+		});
+	};
+
+	if (file) {
+		reader.readAsDataURL(file); // 파일 읽기
+	}
 });
 
 // 각 버튼 클릭 시 하단에 텍스트가 표시되도록 하는 함수
@@ -62,27 +62,32 @@ document.getElementById('ufo-home').addEventListener('click', function() {
 
 
 	const editContent = `
-            <form action="updateService" method="post" id="updateForm">
-                <button type="button" id="edit-password">비밀번호 수정</button>
-                <button type="button" id="edit-username">닉네임 수정</button>
-                <div id="edit-fields"></div>
-            </form>
+	<form action="updateService" method="post" id="updateForm">
+	        <!-- 버튼에 edit-button 클래스를 추가 -->
+	        <button type="button" id="edit-password" class="edit-button">
+	            <span>비밀번호 수정</span>
+	        </button>
+	        <button type="button" id="edit-username" class="edit-button">
+	            <span>닉네임 수정</span>
+	        </button>
+	        <div id="edit-fields" class="edit-button"></div>
+	    </form>
         `;
 	showTabContent('ufo-home', editContent);
 
 	// 비밀번호 수정 버튼 클릭 이벤트
 	document.getElementById('edit-password').addEventListener('click', function() {
 		document.getElementById('edit-fields').innerHTML = `
-                <input type="password" name="newPw" placeholder="새 비밀번호 입력">
-				<input type="submit" value="비밀번호 변경">
+                <input type="password" name="newPw" placeholder="새 비밀번호 입력" class="input-field">
+				<input type="submit" value="비밀번호 변경" class="submit-button">
             `;
 	});
 
 	// 닉네임 수정 버튼 클릭 이벤트
 	document.getElementById('edit-username').addEventListener('click', function() {
 		document.getElementById('edit-fields').innerHTML = `
-                <input type="text" name="newNick" placeholder="새 닉네임 입력">
-				<input type="submit" value="닉네임 변경">
+                <input type="text" name="newNick" placeholder="새 닉네임 입력" class="input-field">
+				<input type="submit" value="닉네임 변경" class="submit-button">
             `;
 	});
 
