@@ -37,7 +37,6 @@
 					 class="custom-button"><div class="cate-con">비건 요리</div></li>
 				<li><input type="submit" name="ob" value="vsl"
 					 class="custom-button"><div class="cate-con">비쥬얼 요리</div></li>
-
 			</ul>
 		</form>
 	</div>
