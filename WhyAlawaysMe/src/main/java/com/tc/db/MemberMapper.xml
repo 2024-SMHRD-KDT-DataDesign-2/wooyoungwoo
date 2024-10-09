@@ -6,8 +6,8 @@
 		USER_PW, USER_NICK, USER_PROFILE, USER_PREFERENCE, JOINED_AT)
 		VALUES
 		(#{user_id}, #{user_pw}, #{user_nick},
-		'https://www.studiopeople.kr/common/img/default_profile.png',
-		#{user_preference} , SYSDATE)
+		'default_profile.png',
+		NULL , SYSDATE)
 	</insert>
 
 	<select id="login" parameterType="com.tc.model.memberDTO"

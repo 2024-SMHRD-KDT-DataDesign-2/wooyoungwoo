@@ -24,10 +24,6 @@ public class JoinService extends HttpServlet {
 		String pw = request.getParameter("pw") ;
 		// nick 객체 가져오기
 		String nick = request.getParameter("nick") ;
-		// 관심 분야 객체 가져오기
-		String preference = request.getParameterValues("preference")[0] ;
-		
-		System.out.println("pre : " + preference);
 		
 		memberDTO dto = new memberDTO() ;			
 		memberDAO dao = new memberDAO() ;
@@ -35,7 +31,6 @@ public class JoinService extends HttpServlet {
 		dto.setUser_id(id);
 		dto.setUser_pw(pw);
 		dto.setUser_nick(nick);
-		dto.setUser_preference(preference);
 		
 		int cnt = dao.join(dto);
 		
