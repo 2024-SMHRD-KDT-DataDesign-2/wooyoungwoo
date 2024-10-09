@@ -44,10 +44,14 @@
 							class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
 							<div class="section">
-								<h3>Pages 1</h3>
-								<li><a href="#">Submenu 1</a></li>
-								<li><a href="#">Submenu 2</a></li>
-								<li><a href="#">Submenu 3</a></li>
+								<li><a href="#">타임 어택</a></li>
+								<li><a href="#">가격 제한</a></li>
+								<li><a href="#">친환경 요리</a></li>
+								<li><a href="#">세계 테마</a></li>
+								<li><a href="#">편의점 재료</a></li>
+								<li><a href="#">비건 요리</a></li>
+								<li><a href="#">비쥬얼 요리</a></li>
+								<li><a href="#">반려동물 간식</a></li>
 							</div>
 						</ul></li>
 					<li><c:if test="${!empty info}">
