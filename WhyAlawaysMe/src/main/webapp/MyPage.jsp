@@ -23,7 +23,7 @@
 				<div class="ufo-bar-col2">
 					<div class="profile-pic-wrapper">
 						<img id="profile-pic"
-							src="https://as1.ftcdn.net/jpg/07/95/95/14/220_F_795951406_h17eywwIo36DU2L8jXtsUcEXqPeScBUq.jpg"
+							src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${info.user_profile}"
 							alt="Profile Picture" class="profile-pic"
 							style="cursor: pointer;">
 							<input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">

@@ -112,7 +112,7 @@
 					<li><c:if test="${!empty info}">
 							<div class="mypage-container">
 								<img class="mypage-icon"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${info.user_profile}"
 									alt="MyPageIcon">
 								<ul class="mypage-dropdown">
 									<li><a href="followListService">마이 페이지</a></li>
@@ -237,14 +237,14 @@
 									<!-- 각 컨텐츠영역 --> <!-- 카테고리로 연결 -->
 									<div class="img-container">
 										<img
-											src="<%= request.getContextPath() %>/img/${feed.feed_img}"
+											src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.feed_img}"
 											alt="error" accept="image/*" class="feed-img">
 									</div>
 									<div class="feed-body">
 										<div class="feed-title">${feed.feed_title}</div>
 										<div class="feed-con">내용${feed.feed_content}</div>
 										<div class="profile-part">
-											<img class="user-pro" src="${feed.user_profile}" alt=""><span
+											<img class="user-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.user_profile}" alt=""><span
 												class="user-nick">${feed.user_nick}</span>
 										</div>
 									</div>
@@ -277,7 +277,7 @@
 											<!-- 작성자 미니프로필,닉네임 -->
 											<div class="ran-pro">
 												<!-- 작성자 미니프로필 -->
-												<img class="mini-pro" src="${rank.user_profile}" alt="">
+												<img class="mini-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${rank.user_profile}" alt="">
 											</div>
 											<div>
 												<!-- 작성자 닉네임 -->

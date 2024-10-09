@@ -187,7 +187,6 @@ input#search-bar {
 	transform: translate(-50%, -50%);
 }
 
-
 /* 미니 카테고리 */
 .mini-cate-bar {
 	display: flex;
@@ -294,6 +293,7 @@ span {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/1.jpg");
 }
+
 .tak-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/2.png");
@@ -303,26 +303,32 @@ span {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/3.png");
 }
+
 .evn-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/4.png");
 }
+
 .wtc-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/5.png");
 }
+
 .gsu-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/6.png");
 }
+
 .veg-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/7.png");
 }
+
 .vsl-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/8.png");
 }
+
 .asn-chal {
 	background-image:
 		url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/9.png");
@@ -344,10 +350,10 @@ span {
 }
 
 .main-feed {
- 	display: grid;
+	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	width: 350px;
-	height: 200px;  
+	height: 200px;
 	box-sizing: border-box;
 	background-color: #f9f9f9;
 	padding: 15px;
@@ -371,8 +377,8 @@ span {
 /* 본문 스타일 */
 .feed-body {
 	width: 150px;
-    height: 150px;
-    padding: 10px;
+	height: 150px;
+	padding: 10px;
 }
 
 .feed-title {
@@ -382,10 +388,10 @@ span {
 
 .feed-con {
 	height: 70px;
-    width: 150px;
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: #555;
+	width: 150px;
+	font-size: 1.5em;
+	margin: 10px 0;
+	color: #555;
 }
 
 /* 유저 프로필 스타일 */
@@ -463,6 +469,7 @@ span {
 	display: block;
 	width: 100%;
 	height: 100%;
+	border-radius: 50px;
 }
 
 .ran-nick {
@@ -520,8 +527,6 @@ span {
 	margin: 0 auto;
 	/* 가운데 정렬 */
 }
-
-
 
 .form-container {
 	display: contents; /* form의 외부 박스가 아닌 내부 콘텐츠만 렌더링 */
@@ -588,6 +593,7 @@ span {
 	width: 30px;
 	height: auto;
 	cursor: pointer;
+	border-radius : 50px ;
 }
 
 .mypage-dropdown {
