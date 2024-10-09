@@ -17,59 +17,55 @@
 <style>
 @import url('./assets/css/MainPage.css');
 
-.writeButton {
-	padding: 10px 20px;
-	background-color: #4CAF50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	writing-mode: horizontal-tb;
-	width: auto;
+.chal-po {
+	display: flex;
 }
 
-.write-dropdown {
-	top: 70px;
-	left: 73%;
-	display: none; /* 기본적으로 숨김 */
+.ran-body {
+	border: 1px solid #e0e0e0; /* 테두리 색상 및 두께 설정 */
+	border-radius: 8px; /* 테두리 모서리를 둥글게 설정 */
+	margin: 10px 0; /* 각 랭크 아이템 사이 간격 설정 */
+	padding: 10px; /* 내부 패딩 설정 */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 추가 */
+	transition: all 0.3s ease-in-out; /* 애니메이션 효과 */
+}
+
+.ran-body:hover, .main-feed:hover {
+	border-color: #3498db; /* 마우스를 올렸을 때 테두리 색상 변경 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 마우스를 올렸을 때 그림자 강도 증가 */
+}
+
+.carousel {
 	position: absolute;
-	background-color: white;
-	box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-	z-index: 300;
-	border-radius: 5px;
-	padding: 10px;
-	width: 200px;
-	gap: 10px;
-	flex-wrap: wrap; /* 항목을 여러 줄로 나누기 위한 설정 */
+	width: 100%;
+	height: 100%;
+	transition: transform 1s ease-in-out;
+	/* 전환 시 부드럽게 */
 }
 
-.write-dropdown li {
-	flex: 1 1 45%; /* 각 항목의 너비를 45%로 설정 */
-	margin: 5px 0;
-	list-style: none;
+.carousel-item {
+	display: none;
 }
 
-.write-dropdown li a {
-	text-decoration: none;
-	color: black;
+.carousel-item.active {
 	display: block;
-	padding: 10px;
-	text-align: center;
-	border: 1px solid #ddd;
-	border-radius: 5px;
 }
 
-.write-dropdown li a:hover {
-	background-color: #f1f1f1;
+.carousel-control {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2em;
+	color: #fff;
+	text-decoration: none;
 }
 
-.logo-image {
-	color: blue;
+.carousel-control.left {
+	left: 35px;
 }
 
-.all-chal{
-	background-image : url("https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/all-mini.png");
-	
+.carousel-control.right {
+	right: 35px;
 }
 </style>
 
@@ -90,16 +86,21 @@
 						</div>
 					</li>
 					<li class="search">
-						<form action="searchService" class="search-container" method="post">
-							<input type="text" name="search" id="search-bar" placeholder="챌린지를 검색하세요">
-							<input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" alt="Submit" />
+						<form action="searchService" class="search-container"
+							method="post">
+							<input type="text" name="search" id="search-bar"
+								placeholder="챌린지를 검색하세요"> <input type="image"
+								class="search-icon"
+								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+								alt="Submit" />
 						</form>
 					</li>
-					<li><a href="FeedService">피드</a></li>
-					<li><a href="ChalService">챌린지</a></li>
-					<li><a href="ChattingRoomService">메세지</a></li>
-					<li class="menus-megamenus"><a href="#">카테고리 <i
-							class="fa fa-angle-down"></i></a>
+					<li><a href="FeedService" class="search-container">피드</a></li>
+					<li><a href="ChalService" class="search-container">챌린지</a></li>
+					<li><a href="ChattingRoomService" class="search-container">
+							메세지</a></li>
+					<li class="menus-megamenus"><a href="#"
+						class="search-container">카테고리 <i class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
 							<div class="section">
 								<h3>Pages 1</h3>
@@ -119,7 +120,7 @@
 								</ul>
 							</div>
 						</c:if> <c:if test="${empty info}">
-							<a href="LoginAndJoinPage.jsp">로그인</a>
+							<a href="LoginAndJoinPage.jsp" class="login-con">로그인</a>
 						</c:if></li>
 					<li>
 						<div class="write">
@@ -173,42 +174,51 @@
 		<form action="orderByService" method="post">
 			<div class="mini-cate-bar">
 				<div class="mini-cate">
-					<a form="ChalService?"> <input class="cate-img all-chal"
-						type="submit" name="ob" value="all">
+					<a form="ChalService"> <input class="cate-img all-chal"
+						type="submit" name="ob" value="all"> <span>모든 챌린지</span>
 					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/요리.jfif"></a>
-					<span>요리</span>
+					<a form="ChalService"> <input class="cate-img tak-chal"
+						type="submit" name="ob" value="tak"> <span>타임 어택</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/음악.jfif"></a>
-					<span>음악</span>
+					<a form="ChalService"> <input class="cate-img plt-chal"
+						type="submit" name="ob" value="plt"> <span>가격 제한</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/뷰티.jfif"></a>
-					<span>뷰티</span>
+					<a form="ChalService"> <input class="cate-img evn-chal"
+						type="submit" name="ob" value="evn"> <span>친환경 요리</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/여행.jfif"></a>
-					<span>여행</span>
+					<a form="ChalService"> <input class="cate-img wtc-chal"
+						type="submit" name="ob" value="wtc"> <span>세계 테마</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/피트니스.JPG"></a>
-					<span>피트니스</span>
+					<a form="ChalService"> <input class="cate-img gsu-chal"
+						type="submit" name="ob" value="gsu"> <span>편의점 재료</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/미술.jfif"></a>
-					<span>미술</span>
+					<a form="ChalService"> <input class="cate-img veg-chal"
+						type="submit" name="ob" value="veg"> <span>비건 요리</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/수집.jfif"></a>
-					<span>수집</span>
+					<a form="ChalService"> <input class="cate-img vsl-chal"
+						type="submit" name="ob" value="vsl"> <span>비쥬얼 요리</span>
+					</a>
 				</div>
 				<div class="mini-cate">
-					<a href=""><img class="cate-img" src="/category_img/공예DIY.jfif"></a>
-					<span>DIY</span>
+					<a form="ChalService"> <input class="cate-img asn-chal"
+						type="submit" name="ob" value="asn"> <span>반려동물 간식</span>
+					</a>
 				</div>
+				
 			</div>
 		</form>
 
@@ -216,52 +226,50 @@
 		<div class="bottom-total">
 			<!-- 챌린지 기능 -->
 			<div class="chal-par">
-				<!-- 전체 감싸는 용 -->
-				<div class="chal-body">
-					<!-- 아랫 부분 영역 차지 -->
-					<div class="chal-part">
-						<!-- 컨텐츠 영역 -->
-						<c:forEach items="${feedList}" var="feed">
+				<!-- 아랫 부분 영역 차지 -->
+				<div class="content-container">
+					<!-- 컨텐츠 영역 -->
+					<c:forEach items="${feedList}" var="feed">
+						<div class="main-feed">
 							<form action="WriteFeedService" method="post"
 								enctype="multipart/form-data">
-								<a href="detailFeed?id=${feed.feed_idx}"> <!-- 컨텐츠1 -->
-									<div>
-										<!-- 각 컨텐츠영역 -->
-										<div>
-											<!-- 카테고리로 연결 -->
-											<img
-												src="<%= request.getContextPath() %>/img/${feed.feed_img}"
-												alt="error" accept="image/*">
-											<div>${feed.feed_title}</div>
-											<div>${feed.feed_date}</div>
-											<div>
-												참여자 미니 아이콘 공간 <span>참여자 사진 <img
-													src="${feed.user_profile}" alt=""></span>
-											</div>
+								<a class="chal-po" href="detailFeed?id=${feed.feed_idx}"> <!-- 컨텐츠1 -->
+									<!-- 각 컨텐츠영역 --> <!-- 카테고리로 연결 -->
+									<div class="img-container">
+										<img
+											src="<%= request.getContextPath() %>/img/${feed.feed_img}"
+											alt="error" accept="image/*" class="feed-img">
+									</div>
+									<div class="feed-body">
+										<div class="feed-title">${feed.feed_title}</div>
+										<div class="feed-con">내용${feed.feed_content}</div>
+										<div class="profile-part">
+											<img class="user-pro" src="${feed.user_profile}" alt=""><span
+												class="user-nick">${feed.user_nick}</span>
 										</div>
 									</div>
 								</a>
 							</form>
-						</c:forEach>
-					</div>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 
 			<!-- 랭크 기능 -->
 			<div class="ranking-part">
 				<!-- 랭크 감싸는 영역 -->
-				<h3>주간 인기</h3>
+				<h3>주간 인기 챌린지</h3>
 				<div>
 					<!-- 랭크1 -->
 					<form action="detailChal" method="post"
 						enctype="multipart/form-data">
-						<c:forEach items="${resultCppList}" var="rank">
-							<a href="detailChal?id=${rank.chal_idx}">
+						<c:forEach items="${resultCppList}" var="rank" varStatus="status">
+							<a href="detailChal?id=${rank.chal_idx}" class="rank-body">
 								<div class="ran-body">
 									<!-- 랭크 감싸는 영역 -->
 									<div class="ran-num-part">
 										<!-- 숫자 부분 -->
-										<span class="ran-num">1</span>
+										<span class="ran-num">${status.count}</span>
 									</div>
 									<div class="ran-con-part">
 										<!-- 내용 감싸는 부분 -->
@@ -287,6 +295,7 @@
 				</div>
 			</div>
 		</div>
+
 
 		<script src="./assets/js/MainPage.js"></script>
 		<script>
@@ -351,6 +360,9 @@
 												});
 							});
 		</script>
+		
 </body>
+
+</html>
 
 </html>
