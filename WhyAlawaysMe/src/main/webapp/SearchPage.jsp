@@ -31,13 +31,19 @@
 						</div>
 					</li>
 					<li class="search">
-						<form action="searchService" class="search-container" method="post">
-							<input type="text" name="search" id="search-bar" placeholder="챌린지를 검색하세요">
-							<input type="image" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png" alt="Submit" />
+						<form action="searchService" class="search-container"
+							method="post">
+							<input type="text" name="search" id="search-bar"
+								placeholder="챌린지를 검색하세요"> <input type="image"
+								class="search-icon"
+								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+								alt="Submit" />
 						</form>
 					</li>
-					<li><a href="FeedPage.jsp">피드</a></li>
-					<li><a href="ChattingPage.jsp">메세지</a></li>
+					<li><a href="FeedService" class="search-container">피드</a></li>
+					<li><a href="ChalService" class="search-container">챌린지</a></li>
+					<li><a href="ChattingRoomService" class="search-container">
+							메세지</a></li>
 					<li class="menus-megamenus"><a href="#">카테고리 <i
 							class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">

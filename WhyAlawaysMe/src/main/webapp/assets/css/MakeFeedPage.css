@@ -1,216 +1,289 @@
-/* 전체 틀 사이즈 */
-.main-center {
-    width: 60%; /* 페이지 너비의 60%만 차지 */
-    margin: 0 auto; /* 가운데 정렬 */
-    display: flex;
-    flex-direction: column; /* 아래쪽으로 나열 */
-    align-items: center; /* 가운데 정렬 */
-}
+:root {
+            --primary-color: #94c2e3;
+            --accent-color: #febe98;
+            --text-color: #303030;
+            --bg-color: #ffffff;
+            --hover-bg-color: #6096ba;
+            --hover-text-color: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --font-family: Arial, sans-serif;
+        }
 
-/* 상단 메뉴바 */
-.container {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.blocks-menus {
-    width: 100%;
-    background: white;
-    padding: 20px 10px;
-    text-align: center;
-    display: inline-block;
-}
+        body,
+        html {
+            width: 100%;
+            min-height: 100vh;
+            font-family: var(--font-family);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: var(--transition);
+        }
 
-.primary-menus {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
+        .main-center {
+            width: 60%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.primary-menus li {
-    list-style: none;
-    float: left;
-    padding: 0 10px;
-}
+        .container {
+            padding: 0 15px;
+        }
 
-.primary-menus a {
-    text-decoration: none;
-    font-family: "ink free"; /* 변수 사용 시 Sass 필요 */
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #303030;
-    font-size: 12px;
-    transition: all 0.2s ease-in-out;
-}
+        .logo-container {
+            display: inline-block;
+            margin-right: 30px;
+        }
 
-.primary-menus a:hover {
-    color: #D4B062;
-}
+        .logo-image {
+            height: 40px;
+            width: auto;
+            transition: transform 0.3s ease-in-out;
+        }
 
-.menus-dropdown:hover .dropdown {
-    visibility: visible;
-    opacity: 1;
-}
+        .logo-container a:hover .logo-image {
+            transform: scale(1.1);
+        }
 
-li {
-    line-height: 30px;
-    float: none;
-}
+        .blocks-menus {
+            width: 100%;
+            background: var(--bg-color);
+            padding: 20px 10px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: var(--shadow);
+        }
 
-a {
-    font-size: 11px;
-    font-weight: normal;
-}
+        .primary-menus {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
-.menus-megamenus:hover .mega-menus {
-    opacity: 1;
-    visibility: visible;
-}
+        .primary-menus li {
+            float: left;
+            padding: 0 15px;
+        }
 
-.mega-menus {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 15px auto;
-    width: 50%;
-    border: 1px solid #ECECEC;
-    padding: 0 15px;
-    min-height: 330px;
-    transition: all 0.2s ease-in-out;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 500;
-}
+        .primary-menus li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
 
-.mega-menus li {
-    float: none;
-    text-align: left;
-    padding: 0;
-}
+        .primary-menus li a:hover {
+            background-color: var(--accent-color);
+            color: var(--hover-text-color);
+        }
 
-.section {
-    float: left;
-    margin: 35px 15px;
-}
+        .menus-megamenus:hover .mega-menus {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.section h3 {
-    font-family: "ink free"; /* 변수 사용 시 Sass 필요 */
-    position: relative;
-    font-size: 16px;
-    padding: 10px 0;
-    text-transform: uppercase;
-    border-bottom: 1px solid #d6d6d6;
-}
+        .mega-menus {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 15px auto;
+            width: 50%;
+            border: 1px solid #ECECEC;
+            padding: 0 15px;
+            background-color: var(--bg-color);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 500;
+        }
 
-.search-container {
-    width: 60%;
-    display: inline-block;
-    margin: 0 auto;
-}
+        .mega-menus li {
+            margin: 10px 0;
+        }
 
-input#search-bar {
-    margin: 0 auto;
-    width: 100%;
-    height: 20px;
-    padding: 0 20px;
-    font-size: 0.7rem;
-    border-radius: 10px;
-    border: 1px solid #D0CFCE;
-    outline: none;
-}
+        .mega-menus a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
 
-input#search-bar:focus {
-    border: 1px solid #008ABF;
-    transition: 0.35s ease;
-    color: #008ABF;
-}
+        .mega-menus a:hover {
+            color: var(--accent-color);
+        }
 
-input#search-bar::placeholder {
-    transition: opacity 0.45s ease;
-    opacity: 0;
-}
+        .search-container {
+            width: 60%;
+            position: relative;
+            display: inline-block;
+        }
 
-.search-icon {
-    position: relative;
-    float: right;
-    width: 40px;
-    height: 40px;
-    top: -35px;
-    right: -45px;
-}
+        input#search-bar {
+            width: 100%;
+            height: 40px;
+            padding: 0 15px;
+            border-radius: 20px;
+            border: 1px solid #D0CFCE;
+            font-size: 0.9rem;
+            transition: border 0.3s ease;
+        }
 
-.mypage-container {
-    position: relative;
-    display: inline-block;
-}
+        input#search-bar:focus {
+            border-color: #008ABF;
+        }
 
-.mypage-icon {
-    width: 30px;
-    height: auto;
-    cursor: pointer;
-}
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
 
-.mypage-dropdown {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 300;
-    border-radius: 5px;
-    padding: 10px;
-    width: 200px;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+        .mypage-container {
+            position: relative;
+            display: inline-block;
+        }
 
-.mypage-dropdown li {
-    flex: 1 1 45%;
-    margin: 5px 0;
-    list-style: none;
-}
+        .mypage-icon {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+        }
 
-.mypage-dropdown li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+        .mypage-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: var(--bg-color);
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            gap: 10px;
+        }
 
-.mypage-dropdown li a:hover {
-    background-color: #f1f1f1;
-}
+        .mypage-dropdown li {
+            list-style: none;
+            margin: 5px 0;
+        }
 
-.line {
-    color: black;
-    border-top: 1px solid #000;
-    margin: 0;
-}
+        .mypage-dropdown li a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-.Write {
-    background-color: grey;
-    border-radius: 20px;
-    display: inline-block;
-}
+        .mypage-dropdown li a:hover {
+            background-color: #f1f1f1;
+        }
 
-.Write a {
-    color: white;
-    text-decoration: none;
-}
+        .Write {
+            background-color: var(--primary-color);
+            border-radius: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.logo-image {
-    height: 40px; /* 로고 높이 조절 */
-    width: auto; /* 자동 너비 비율 */
-    transition: transform 0.3s ease-in-out;
-}
+        .Write a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-/* 로고에 호버 효과 추가 */
-.logo-container a:hover .logo-image {
-    transform: scale(1.1); /* 호버 시 로고 확대 */
-}
+        #list {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: var(--shadow);
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #list th {
+            background-color: var(--accent-color);
+            color: var(--hover-text-color);
+            padding: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        #list td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 1rem;
+        }
+
+        #list tr:last-child td {
+            border-bottom: none;
+        }
+
+        #list input[type="text"],
+        #list textarea,
+        #list input[type="date"],
+        #list input[type="file"],
+        #list select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .button-row input[type="reset"],
+        .button-row input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .button-row input[type="reset"] {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+        }
+
+        .button-row input[type="submit"] {
+            background-color: var(--accent-color);
+            color: var(--hover-text-color);
+        }
+
+        .button-row input[type="reset"]:hover {
+            background-color: #eee;
+        }
+
+        .button-row input[type="submit"]:hover {
+            background-color: var(--hover-bg-color);
+        }
