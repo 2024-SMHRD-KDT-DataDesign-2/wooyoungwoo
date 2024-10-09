@@ -14,59 +14,96 @@
 </style>
 </head>
 <body>
-<jsp:include page="MenuBar.jsp" />
-<!-- 피드 선택칸 -->
+	<jsp:include page="MenuBar.jsp" />
+	<!-- 피드 선택칸 -->
 	<div class="feed-pick">
 		<form action="orderByService" method="post">
 			<ul class=cate-choice>
-				<li><input type="submit" name="ob" value="랜덤"></li>
-				<li><input type="submit" name="ob" value="관심"></li>
-				<li><input type="submit" name="ob" value="이웃"></li>
-				<li><input type="submit" name="ob" value="카테1"></li>
-				<li><input type="submit" name="ob" value="카테2"></li>
-				<li><input type="submit" name="ob" value="카테3"></li>
-				<li><input type="submit" name="ob" value="카테4"></li>
-				<li><input type="submit" name="ob" value="카테5"></li>
-				<li><input type="submit" name="ob" value="카테6"></li>
+				<li><input type="submit" name="ob" value="all" data-value="모든 챌린지"></li>
+				<li><input type="submit" name="ob" value="tak" data-value="타임 어택"></li>
+				<li><input type="submit" name="ob" value="evn" data-value="친환경 요리"></li>
+				<li><input type="submit" name="ob" value="wtc" data-value="세계 테마"></li>
+				<li><input type="submit" name="ob" value="asn" data-value="반려동물 간식"></li>
+				<li><input type="submit" name="ob" value="gsu" data-value="편의점 재료"></li>
+				<li><input type="submit" name="ob" value="plt" data-value="가격 제한"></li>
+				<li><input type="submit" name="ob" value="veg" data-value="비건 요리"></li>
+				<li><input type="submit" name="ob" value="vsl" data-value="비쥬얼 요리"></li>
 			</ul>
 		</form>
 	</div>
 	<div class="feedContainer">
-			<c:forEach items="${orderByList}" var="odbl">
+		<c:forEach items="${orderByList}" var="odbl">
 			<div class="feedContent">
 				<form action="FeedService" method="post"
 					enctype="multipart/form-data">
-						<a href="detailChal?id=${cdto.chal_idx}" class="feed-move">
+					<a href="detailChal?id=${odbl.chal_idx}" class="feed-move">
 						<div class="feed-container">
 							<!-- 사용자 프로필 이미지 및 닉네임 -->
 							<div class="feed-profile">
-							<img class="mini-pro" src="${odbl.chal_title}" alt="User">
-								<span class="mini-nic">${odbl.user_nick}</span>
+								<img class="mini-pro" src="${obdl.user_profile}" alt="User">
+								<span class="mini-nic">${obdl.user_nick}</span>
+							</div>
+							<!-- 챌린지 제목 -->
+							<div class="feed-title">
+								<span>${obdl.chal_title}</span>
+							</div>
+							<div class="feed-content">
+								<span>${obdl.chal_content}</span>
+							</div>
 							<!-- 피드 이미지 -->
-							<tr class="feed-img-td">
-								<td colspan="2"><img class="feed-img"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${odbl.img}"
-									alt="Feed Image"></td>
-							</tr>
-							<tr>
-								<td>${odbl.chal_st_dt} ~ ${odbl.chal_ed_dt}</td>
-							</tr>
-							<tr>
-								<td>
-									<button type="button" class="button-like">좋아요</button>
-								</td>
-								<td><a href="FeedContent.jsp" class="button-like">댓글</a></td>
-							</tr>
-						</table>
+							<div class="feed-img-container">
+								<img class="feed-img"
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${obdl.img}"
+									alt="Feed Image">
+							</div>
+						</div>
 					</a>
+					<div class="feed-actions">
+						<!-- 배경 제거된 좋아요 버튼 -->
+						<button type="button" class="button-like" id="likeButton">
+							<img
+								src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUpBlank.png"
+								class="thumb" alt="Like" id="likeIcon">
+						</button>
+						<!-- 좋아요 갯수를 표시하는 영역 -->
+						<span class="like-count" id="likeCount">0</span>
+						<!-- 댓글 버튼에 이미지 추가 -->
+						<a href="FeedContent.jsp" class="button-comment"> <img
+							src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/comment.png"
+							class="comment-icon" alt="Comment">
+						</a>
+					</div>
 				</form>
 				<br>
-			</c:forEach>
-			
-			
-		</div>
+			</div>
+			<hr class="feed-end">
+		</c:forEach>
 	</div>
 	<script src="./assets/js/FeedPage.js"></script>
-</body>
+	<script>
+	document.addEventListener('DOMContentLoaded', function () {
+	      const likeButton = document.getElementById('likeButton');
+	      const likeIcon = document.getElementById('likeIcon');
+	      const likeCount = document.getElementById('likeCount');
+
+	      let isLiked = false; // 좋아요 상태를 추적하기 위한 변수
+	      let count = 0; // 좋아요 갯수 초기값
+
+	      likeButton.addEventListener('click', function () {
+	          // 좋아요 상태에 따라 아이콘 변경 및 갯수 증가
+	          if (isLiked) {
+	              likeIcon.src = 'https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUpBlank.png'; // 원래 아이콘으로 변경
+	              count--; // 좋아요 갯수 감소
+	          } else {
+	              likeIcon.src = 'https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUp.png'; // 좋아요가 눌린 아이콘으로 변경
+	              count++; // 좋아요 갯수 증가
+	          }
+
+	          // 좋아요 상태 반전
+	          isLiked = !isLiked;
+	          likeCount.textContent = count; // 좋아요 갯수 업데이트
+	      });
+	  });
+	</script>
 </body>
 </html>

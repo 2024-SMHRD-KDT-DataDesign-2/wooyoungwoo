@@ -27,7 +27,6 @@ public class orderByService extends HttpServlet {
     	chalDAO dao = new chalDAO() ;
     	
     	if(ob.equals("all")) {
- 
     		dtoList =  dao.getchal() ;
     	}
     	else if(ob.equals("tak")) {

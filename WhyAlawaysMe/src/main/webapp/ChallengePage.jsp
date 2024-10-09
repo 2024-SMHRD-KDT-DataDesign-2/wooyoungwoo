@@ -18,16 +18,26 @@
 	<!-- 피드 선택칸 -->
 	<div class="feed-pick">
 		<form action="orderByService" method="post">
-			<ul class=cate-choice>
-				<li><input type="submit" name="ob" value="랜덤"></li>
-				<li><input type="submit" name="ob" value="관심"></li>
-				<li><input type="submit" name="ob" value="이웃"></li>
-				<li><input type="submit" name="ob" value="카테1"></li>
-				<li><input type="submit" name="ob" value="카테2"></li>
-				<li><input type="submit" name="ob" value="카테3"></li>
-				<li><input type="submit" name="ob" value="카테4"></li>
-				<li><input type="submit" name="ob" value="카테5"></li>
-				<li><input type="submit" name="ob" value="카테6"></li>
+			<ul class="cate-choice">
+				<li><input type="submit" name="ob" value="all"
+					 class="custom-button"><div class="cate-con">모든 챌린지</div></li>
+				<li><input type="submit" name="ob" value="tak"
+					class="custom-button"><div class="cate-con"> 타임 어택</div></li>
+				<li><input type="submit" name="ob" value="evn"
+					 class="custom-button"><div class="cate-con">친환경 요리</div></li>
+				<li><input type="submit" name="ob" value="wtc"
+					 class="custom-button"><div class="cate-con">세계 테마</div></li>
+				<li><input type="submit" name="ob" value="asn"
+					 class="custom-button"><div class="cate-con">반려동물</div></li>
+				<li><input type="submit" name="ob" value="gsu"
+					class="custom-button"><div class="cate-con">편의점 재료</div></li>
+				<li><input type="submit" name="ob" value="plt"
+					 class="custom-button"><div class="cate-con">가격 제한</div></li>
+				<li><input type="submit" name="ob" value="veg"
+					 class="custom-button"><div class="cate-con">비건 요리</div></li>
+				<li><input type="submit" name="ob" value="vsl"
+					 class="custom-button"><div class="cate-con">비쥬얼 요리</div></li>
+
 			</ul>
 		</form>
 	</div>
@@ -41,7 +51,7 @@
 							<!-- 사용자 프로필 이미지 및 닉네임 -->
 							<div class="feed-profile">
 								<img class="mini-pro" src="${cdto.user_profile}" alt="User">
-								<span class="mini-nic">${fdto.user_nick}</span>
+								<span class="mini-nic">${cdto.user_nick}</span>
 							</div>
 							<!-- 챌린지 제목 -->
 							<div class="feed-title">
@@ -104,6 +114,15 @@
 	          likeCount.textContent = count; // 좋아요 갯수 업데이트
 	      });
 	  });
+	</script>
+	<script>
+	// 모든 input 요소에 대해 data-value 값을 시각적으로 표시하도록 설정
+	document.querySelectorAll('input[type="submit"]').forEach(button => {
+	    button.style.color = 'transparent'; // value 값 숨김
+	    button.addEventListener('click', function() {
+	        console.log(`Selected value: ${button.value}`); // 선택된 값 확인용
+	    });
+	});
 	</script>
 </body>
 </html>
