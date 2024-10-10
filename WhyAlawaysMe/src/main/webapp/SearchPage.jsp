@@ -59,7 +59,6 @@
 				</form>
 				<br>
 			</div>
-			<hr class="feed-end">
 		</c:forEach>
 
 		<!-- 챌린지 띄우기 -->
@@ -104,7 +103,6 @@
 				</form>
 				<br>
 			</div>
-			<hr class="feed-end">
 		</c:forEach>
 
 		<script src="./assets/js/FeedPage.js"></script>
