@@ -1224,7 +1224,6 @@
 }
 
 .detail-challenge_content__Ggn9l {
-	max-width: 600px;
 	width: 100%;
 	position: relative
 }
@@ -4850,5 +4849,17 @@ translateY
 
 
 }
+}
+.like-comment-section{
+	display :flex;
+	
+}
+.chal-par{
+	background-color: #d4b062;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 @charset "UTF-8";

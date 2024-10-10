@@ -31,11 +31,24 @@
 	href="/_next/static/chunks/pages/privacyV2-a3bb0e3b154c0658.js">
 <style data-n-href="/_next/static/css/12f6d34bc1f84336.css">
 @import url("./assets/css/FeedContent.css");
+
+.content-container {
+	height: auto;
+	width: 80%;
+}
+
+.content-main {
+	width: 100%
+}
+
+.challenge-detail_image {
+	width: 100%;
+}
 </style>
 
 </head>
 <body>
-<jsp:include page="MenuBar.jsp" />
+	<jsp:include page="MenuBar.jsp" />
 	<div class="main-center">
 		<!-- 상세 피드 내용  -->
 		<div class="content-container">
@@ -47,10 +60,8 @@
 					<div class="Main_content__QSnMW">
 						<a href="MyPage.jsp">
 							<div class="ChallengeHostImage_host__ddIMk">
-								<img alt="challengehost"
-									srcset="http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=64x64 1x, http://images.munto.kr/production-user/1726553700630-photo-23gbn-22000-0?s=128x128 2x"
-									src="${chalDetail.user_profile}" width="50" height="50"
-									decoding="async" data-nimg="1"
+								<img alt="challengehost" src="${chalDetail.user_profile}"
+									width="50" height="50" decoding="async" data-nimg="1"
 									class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 									style="color: transparent;">
 							</div>
@@ -66,14 +77,7 @@
 				</div>
 				<div class="Info_template__XuHUA">
 					<div class="Info_member__zouhM">
-						<div class="ChallengeHostImage_host__ddIMk">
-							<img alt="challengehost"
-								srcset="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48 2x"
-								src="https://images.munto.kr/munto-web/ic_info_challengeleader_24px.svg?s=48x48"
-								width="24" height="24" decoding="async" data-nimg="1"
-								class="ChallengeHostImage_host__state__6gKQO" loading="lazy"
-								style="color: transparent;">
-						</div>
+						<div class="ChallengeHostImage_host__ddIMk"></div>
 						</a>
 					</div>
 				</div>
@@ -82,13 +86,7 @@
 					<div class="Info_notification__introduce__JJNE2">자세한 정보를
 						알려드릴게요</div>
 					<div class="Info_notification__detail__RdfMP">
-						<span class="Info_detail__kAjrp"><img alt="map"
-							srcset="https://images.munto.kr/munto-web/info_group.svg?s=32x32 1x, https://images.munto.kr/munto-web/info_group.svg?s=48x48 2x"
-							src="https://images.munto.kr/munto-web/info_group.svg?s=48x48"
-							width="24" height="24" decoding="async" data-nimg="1"
-							class="Info_detail__image__CiTMF" loading="lazy"
-							style="color: transparent;">
-							<div class="Info_detail__info__lpAiz">25명</div> </span> <span
+						 <span
 							class="Info_detail__kAjrp"><img alt="member"
 							srcset="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=32x32 1x, https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48 2x"
 							src="https://images.munto.kr/munto-web/ic_info_certification_24px.svg?s=48x48"
@@ -118,14 +116,15 @@
 						<input type="hidden" name="user_id" value="${chalDetail.user_id}">
 						<!-- 사용자 ID -->
 						<div class="par_chal">
-							<input type="submit" value="참여하기">
+							<input type="submit" value="참여하기" class="chal-par">
 						</div>
 					</form>
 					<div class="comment-section" style="display: inline-block;">
 						<button id="commentBtn"
-							style="background-color: #2ecc71; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+							style="background-color: #2ecc71; position:relative; left:20px; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
 							댓글 남기기</button>
 					</div>
+				</div>
 					<!-- 댓글 작성 폼 -->
 					<div id="commentForm" style="display: none; margin-top: 20px;">
 						<textarea id="commentInput" placeholder="댓글을 입력하세요"
@@ -139,7 +138,6 @@
 						<h3>댓글</h3>
 						<ul id="comments" style="list-style: none; padding: 0;"></ul>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

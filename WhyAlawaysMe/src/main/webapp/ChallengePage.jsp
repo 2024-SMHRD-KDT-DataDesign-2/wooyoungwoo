@@ -56,9 +56,9 @@
 							<div class="feed-title">
 								<span>${cdto.chal_title}</span>
 							</div>
-							<div class="feed-content">
+						<%-- 	<div class="feed-content">
 								<span>${cdto.chal_content}</span>
-							</div>
+							</div> --%>
 							<!-- 피드 이미지 -->
 							<div class="feed-img-container">
 								<img class="feed-img"

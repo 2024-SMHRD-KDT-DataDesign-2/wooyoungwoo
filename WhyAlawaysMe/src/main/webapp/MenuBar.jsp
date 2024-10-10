@@ -69,21 +69,24 @@
 }
 
 .mega-menus {
+	display:flex;
 	opacity: 0;
-	visibility: hidden;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: 15px auto;
-	width: 80%;
-	border: 1px solid #ECECEC;
-	padding: 0 15px;
-	min-height: 330px;
-	transition: all 0.2s ease-in-out;
-	background-image:
-		url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e86dd30876159.5637811adc76c.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height:150px;
+    top: 75%;
+    margin: 15px auto;
+    width: 70%;
+    border: 1px solid #ECECEC;
+    padding: 0 15px;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    /* background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e86dd30876159.5637811adc76c.jpg); */
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .mega-menus li {
@@ -94,6 +97,8 @@
 
 .section {
 	float: left;
+	margin: 35px 15px;
+	width: 30% ;
 	margin: 35px 15px;
 }
 
@@ -261,6 +266,11 @@
 	border-top: 1px solid #000;
 	margin-top: 0;
 	margin-bottom: 0;
+	
+.cate-name{
+	font-size:20px;
+	font-weight:bold;
+}
 }
 </style>
 </head>
@@ -297,10 +307,19 @@
 						class="menu-bar search-container">카테고리 <i class="fa fa-angle-down"></i></a>
 						<ul class="mega-menus">
 							<div class="section">
-								<h3>Pages 1</h3>
-								<li><a href="#">Submenu 1</a></li>
-								<li><a href="#">Submenu 2</a></li>
-								<li><a href="#">Submenu 3</a></li>
+								<li><a href="ChalService"><span class="cate-name">모든 챌린지</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">타임 어택</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">가격 제한</span></a></li>
+							</div>
+							<div class="section">
+								<li><a href="ChalService"><span class="cate-name">친환경 요리</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">세계테마 요리</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">편의점 재료</span></a></li>
+							</div>
+							<div class="section">
+								<li><a href="ChalService"><span class="cate-name">비건 요리</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">비쥬얼 요리</span></a></li>
+								<li><a href="ChalService"><span class="cate-name">반려동물 간식</span></a></li>
 							</div>
 						</ul></li>
 					<li><c:if test="${!empty info}">
