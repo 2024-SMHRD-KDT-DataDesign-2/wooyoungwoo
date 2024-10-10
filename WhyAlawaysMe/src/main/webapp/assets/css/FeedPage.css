@@ -71,10 +71,11 @@
 }
 
 .feed-content {
-	font-size: 15px;
-	padding: 5px;
-	width: 100%;
-	height: 60px;
+font-size: 15px;
+    padding: 5px;
+    width: 60%;
+    height: 60px ;
+    overflow: hidden;
 }
 
 .feed-img-container {
