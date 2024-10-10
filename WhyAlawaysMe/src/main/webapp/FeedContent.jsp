@@ -97,6 +97,12 @@
 							댓글 남기기</button>
 					</div>
 
+					<!-- 댓글 목록 -->
+				</div>
+					<div id="commentList" style="margin-top: 20px;">
+						<h3>댓글</h3>
+						<ul id="comments" style="list-style: none; padding: 0;"></ul>
+					</div>
 					<!-- 댓글 작성 폼 -->
 					<div id="commentForm" style="display: none; margin-top: 20px;">
 						<textarea id="commentInput" placeholder="댓글을 입력하세요"
@@ -105,13 +111,6 @@
 							style="background-color: #27ae60; color: white; border: none; padding: 10px 20px; margin-top: 10px; cursor: pointer;">댓글
 							등록</button>
 					</div>
-
-					<!-- 댓글 목록 -->
-					<div id="commentList" style="margin-top: 20px;">
-						<h3>댓글</h3>
-						<ul id="comments" style="list-style: none; padding: 0;"></ul>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

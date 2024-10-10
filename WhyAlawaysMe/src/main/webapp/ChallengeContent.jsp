@@ -126,6 +126,10 @@
 					</div>
 				</div>
 					<!-- 댓글 작성 폼 -->
+					<div id="commentList" style="margin-top: 20px;">
+						<h3>댓글</h3>
+						<ul id="comments" style="list-style: none; padding: 0;"></ul>
+					</div>
 					<div id="commentForm" style="display: none; margin-top: 20px;">
 						<textarea id="commentInput" placeholder="댓글을 입력하세요"
 							style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
@@ -134,10 +138,6 @@
 							등록</button>
 					</div>
 					<!-- 댓글 목록 -->
-					<div id="commentList" style="margin-top: 20px;">
-						<h3>댓글</h3>
-						<ul id="comments" style="list-style: none; padding: 0;"></ul>
-					</div>
 			</div>
 		</div>
 	</div>
