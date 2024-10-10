@@ -58,7 +58,7 @@
 						<div class="feed-container">
 							<!-- 사용자 프로필 이미지 및 닉네임 -->
 							<div class="feed-profile">
-								<img class="mini-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${obdl.user_profile}" alt="User">
+								<img class="mini-pro" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${odbl.user_profile}" alt="User">
 								<span class="mini-nic">${obdl.user_nick}</span>
 							</div>
 							<!-- 챌린지 제목 -->
