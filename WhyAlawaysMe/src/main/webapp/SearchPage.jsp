@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,78 +14,13 @@
 </head>
 
 <body>
+<jsp:include page="MenuBar.jsp" />
 	<div class="main-center">
-		<!-- 상단 메뉴바 -->
-		<div class="blocks-menus">
-			<div class="container">
-				<ul class="primary-menus">
-					<li>
-						<!-- 로고와 메뉴를 담는 전체 컨테이너 -->
-						<div class="logo-container">
-							<!-- 로고 이미지가 위치한 링크 -->
-							<a href="MainPage.jsp"> <img
-								src=https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A1%9C%EA%B3%A0.png
-								alt="" class="logo-image">
-							</a>
-						</div>
-					</li>
-					<li class="search">
-						<form action="searchService" class="search-container"
-							method="post">
-							<input type="text" name="search" id="search-bar"
-								placeholder="챌린지를 검색하세요"> <input type="image"
-								class="search-icon"
-								src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
-								alt="Submit" />
-						</form>
-					</li>
-					<li><a href="FeedService" class="search-container">피드</a></li>
-					<li><a href="ChalService" class="search-container">챌린지</a></li>
-					<li><a href="ChattingRoomService" class="search-container">
-							메세지</a></li>
-					<li class="menus-megamenus"><a href="#">카테고리 <i
-							class="fa fa-angle-down"></i></a>
-						<ul class="mega-menus">
-							<div class="section">
-								<li><a href="#">타임 어택</a></li>
-								<li><a href="#">가격 제한</a></li>
-								<li><a href="#">친환경 요리</a></li>
-								<li><a href="#">세계 테마</a></li>
-								<li><a href="#">편의점 재료</a></li>
-								<li><a href="#">비건 요리</a></li>
-								<li><a href="#">비쥬얼 요리</a></li>
-								<li><a href="#">반려동물 간식</a></li>
-							</div>
-						</ul></li>
-					<li><c:if test="${!empty info}">
-							<div class="mypage-container">
-								<img class="mypage-icon"
-									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/%EC%9D%B4%EC%9A%B0%EC%98%81/%EC%9D%B4%EB%AF%B8%EC%A7%80/%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80.png"
-									alt="MyPageIcon">
-								<ul class="mypage-dropdown">
-									<li><a href="MyPage.jsp">마이 페이지</a></li>
-									<li><a href="LogoutService">로그아웃</a></li>
-								</ul>
-							</div>
-						</c:if> <c:if test="${empty info}">
-							<a href="LoginAndJoinPage.jsp">로그인</a>
-						</c:if></li>
-					<li>
-						<div class="Write">
-							<a href="MakeFeedPage.jsp"> 작성하기 
-						</div> </a>
-					</li>
-				</ul>
-				<hr class="line">
-			</div>
-		</div>
-
 		<!-- --------------------------상단 끝-------------------------------- -->
-
 		<!-- 피드 띄우기 -->
 		<c:forEach items="${searchFeed}" var="feed">
 			<form action="#">
-				<a href="FeedContent.jsp" class="feed-move">
+				<a href="ChalService" class="feed-move">
 					<table>
 						<!-- c:forEach 문으로 리스트 출력 -->
 						<!-- 한 명의 정보를 하나의 tr에 표시 -->
@@ -144,7 +78,7 @@
 								alt="Feed Image"></td>
 						</tr>
 						<tr>
-							<td>${chal.chal_st_dt} ~ ${chal.chal_ed_dt}</td>
+							<td>${chal.chal_st_dt}~ ${chal.chal_ed_dt}</td>
 						</tr>
 						<tr>
 							<td>
@@ -158,35 +92,85 @@
 			<br>
 		</c:forEach>
 
+		<!--테스트  -->
+		<div class="feedContainer">
+			<c:forEach items="${searchFeed}" var="feed">
+				<div class="feedContent">
+					<form action="FeedService" method="post"
+						enctype="multipart/form-data">
+						<a href="detailFeed?id=${feed.feed_idx}" class="feed-move">
+							<div class="feed-container">
+								<!-- 사용자 프로필 이미지 및 닉네임 -->
+								<div class="feed-profile">
+									<img class="mini-pro" src="${feed.user_profile}" alt="User">
+									<span class="mini-nic">${feed.user_nick}</span>
+								</div>
+								<!-- 챌린지 제목 -->
+								<div class="feed-title">
+									<span>${feed.feed_title}</span>
+								</div>
+								<div class="feed-content">
+									<span>${feed.feed_content}</span>
+								</div>
+								<!-- 피드 이미지 -->
+								<div class="feed-img-container">
+									<img class="feed-img"
+										src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.feed_img}"
+										alt="Feed Image">
+								</div>
+							</div>
+						</a>
+						<div class="feed-actions">
+							<!-- 배경 제거된 좋아요 버튼 -->
+							<button type="button" class="button-like" id="likeButton">
+								<img
+									src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUpBlank.png"
+									class="thumb" alt="Like" id="likeIcon">
+							</button>
+							<!-- 좋아요 갯수를 표시하는 영역 -->
+							<span class="like-count" id="likeCount">0</span>
+							<!-- 댓글 버튼에 이미지 추가 -->
+							<a href="FeedContent.jsp" class="button-comment"> <img
+								src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/comment.png"
+								class="comment-icon" alt="Comment">
+							</a>
+						</div>
+					</form>
+					<br>
+				</div>
+				<hr class="feed-end">
+			</c:forEach>
+		</div>
+
+		<script src="./assets/js/FeedPage.js"></script>
+		<script>
+	document.addEventListener('DOMContentLoaded', function () {
+	      const likeButton = document.getElementById('likeButton');
+	      const likeIcon = document.getElementById('likeIcon');
+	      const likeCount = document.getElementById('likeCount');
+
+	      let isLiked = false; // 좋아요 상태를 추적하기 위한 변수
+	      let count = 0; // 좋아요 갯수 초기값
+
+	      likeButton.addEventListener('click', function () {
+	          // 좋아요 상태에 따라 아이콘 변경 및 갯수 증가
+	          if (isLiked) {
+	              likeIcon.src = 'https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUpBlank.png'; // 원래 아이콘으로 변경
+	              count--; // 좋아요 갯수 감소
+	          } else {
+	              likeIcon.src = 'https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/thumbUp.png'; // 좋아요가 눌린 아이콘으로 변경
+	              count++; // 좋아요 갯수 증가
+	          }
+
+	          // 좋아요 상태 반전
+	          isLiked = !isLiked;
+	          likeCount.textContent = count; // 좋아요 갯수 업데이트
+	      });
+	  });
+	</script>
+
 	</div>
 	<script src="./assets/js/FeedPage.js"></script>
-	<script>
-		document
-				.addEventListener(
-						'DOMContentLoaded',
-						function() {
-							const myPageIcon = document
-									.querySelector('.mypage-icon');
-							const myPageDropdown = document
-									.querySelector('.mypage-dropdown');
-
-							myPageIcon
-									.addEventListener(
-											'click',
-											function() {
-												myPageDropdown.style.display = myPageDropdown.style.display === 'flex' ? 'none'
-														: 'flex';
-											});
-
-							window.addEventListener('click', function(event) {
-								if (!myPageIcon.contains(event.target)
-										&& !myPageDropdown
-												.contains(event.target)) {
-									myPageDropdown.style.display = 'none';
-								}
-							});
-						});
-	</script>
 </body>
 </body>
 </html>
