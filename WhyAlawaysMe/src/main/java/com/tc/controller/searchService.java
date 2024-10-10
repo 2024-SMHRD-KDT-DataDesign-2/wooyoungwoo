@@ -23,6 +23,8 @@ public class searchService extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
 		List<feedDTO> searchFeed = new ArrayList<>(); ;
 		List<chalDTO> searchChal = new ArrayList<>(); ;
 		
@@ -36,6 +38,8 @@ public class searchService extends HttpServlet {
 		
 		System.out.println("검색 전 피드 목록 : " + feedList);
 		System.out.println("검색 전 챌린지 목록 : " + chalList);
+		
+		System.out.println("search : " + search);
 
 		for (feedDTO feed : feedList) {
 			if (feed.getFeed_title().contains(search)) {
@@ -45,6 +49,7 @@ public class searchService extends HttpServlet {
 
 		for (chalDTO chal : chalList) {
 			if (chal.getChal_title().contains(search)) {
+				System.out.println("검색된 챌린지 제목 : " + chal.getChal_title());
 				searchChal.add(chal) ;
 			}
 		}
