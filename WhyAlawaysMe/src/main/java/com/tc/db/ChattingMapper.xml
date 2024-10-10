@@ -11,7 +11,7 @@
 	<insert id="creat" parameterType="com.tc.model.chattingRoomDTO">
 		insert into CHAT_ROOMS(ROOM_TITLE, ROOM_INFO, USER_ID,
 		CREATED_AT, ROOM_LIMITS, ROOM_STATUS)
-		values(#{user_id}'님과'#{room_info}'님의 채팅방', #{room_info}, #{user_id},
+		values(#{user_id}||'님과'||#{room_info}||'님의 채팅방', #{room_info}, #{user_id},
 		SYSDATE, 2, 'GOOD')
 	</insert>
 	
