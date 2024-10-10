@@ -185,7 +185,7 @@
 									</div>
 									<div class="feed-body">
 										<div class="feed-title">${feed.feed_title}</div>
-										<div class="feed-con">내용${feed.feed_content}</div>
+										<div class="feed-con">${feed.feed_content}</div>
 										<div class="profile-part">
 											<img class="user-pro"
 												src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feed.user_profile}"

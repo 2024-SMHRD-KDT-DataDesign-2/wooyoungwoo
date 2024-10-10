@@ -218,7 +218,7 @@
 	top: 5px;
 	position: relative;
 	padding: 10px 20px;
-	background-color: #4CAF50;
+	background-color: #FF6F61;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -337,7 +337,7 @@
 						</c:if></li>
 					<li>
 						<div class="write">
-							<button class="writeButton">작성하기</button>
+							<button class="write-page writeButton">작성하기</button>
 							<!-- 작성하기 버튼 클릭 시 나타나는 옵션 리스트 -->
 							<ul class="write-dropdown">
 								<li id="writeFeed"><a href="MakeFeedPage.jsp">피드작성</a></li>

@@ -74,7 +74,7 @@
 	
 	<select id="orderBy" parameterType="String" resultType="com.tc.model.chalDTO">
 		SELECT
-		U.USER_NICK,U.USER_PROFILE,U.USER_ID,CH.CHAL_IDX,CH.chal_TITLE,CH.IMG,CH.CHAL_IDX
+		U.*,CH.*
 		FROM USERS U JOIN
 		CHALLENGES CH
 		ON U.USER_ID = CH.USER_ID

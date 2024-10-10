@@ -40,7 +40,7 @@
 }
 
 .cate-choice input[type="submit"] {
-	background-color: #4CAF50;
+	background-color: #FF6F61;
 	color: white;
 	border: none;
 	padding: 0 46px;
@@ -55,7 +55,7 @@
 
 }
 .cate-choice input[type="submit"]:hover {
-	background-color: #45a049; /* 호버 시 배경색 변경 */
+	background-color:#FF6F61; /* 호버 시 배경색 변경 */
 }
 
 .feedContainer {
@@ -204,7 +204,7 @@ font-size: 15px;
 }
 
 .display-value {
-	background-color: #4CAF50; /* 버튼 배경색 */
+	background-color:#FF6F61; /* 버튼 배경색 */
 	color: white; /* 텍스트 색상 */
 	padding: 10px 15px; /* 패딩 */
 	border-radius: 5px; /* 모서리 둥글게 */
@@ -213,7 +213,7 @@ font-size: 15px;
 }
 
 .display-value:hover {
-	background-color: #45a049; /* 호버 시 배경색 변경 */
+	background-color:#FF6F61; /* 호버 시 배경색 변경 */
 }
 
 /* 기본 input[type="submit"] 스타일 초기화 */

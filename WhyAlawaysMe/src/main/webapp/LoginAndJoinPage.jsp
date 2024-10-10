@@ -86,7 +86,7 @@
 				<div class="social-container"></div>
 				<input type="email" name="id" placeholder="아이디(이메일)를 입력하세요">
 				<input type="password" name="pw" placeholder="비밀번호를 입력하세요">
-				<a href="">비밀번호 찾기</a> <input type="submit" value="로그인"
+				<a href=""></a> <input type="submit" value="로그인"
 					class="jlbtn">
 			</form>
 		</div>

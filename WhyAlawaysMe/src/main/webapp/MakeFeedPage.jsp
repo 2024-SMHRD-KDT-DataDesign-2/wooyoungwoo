@@ -9,8 +9,15 @@
 <title>Insert title here</title>
 <style>
 @import url("./assets/css/MakeFeedPage.css");
+.menu-bar .search-icon{
+	position: relative;
+    float: right;
+    width: 40px;
+    height: 40px;
+    top: -9px;
+    left: -37px;
+}
 </style>
-
 </head>
 <body>
 <jsp:include page="MenuBar.jsp" />
