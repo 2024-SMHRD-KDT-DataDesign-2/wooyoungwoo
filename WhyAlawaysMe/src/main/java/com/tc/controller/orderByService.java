@@ -54,6 +54,8 @@ public class orderByService extends HttpServlet {
     		dtoList = dao.orderBy(ob) ;
     	}
     	
+    	System.out.println("orderby dtoList user_img : " + dtoList);
+    	
     	HttpSession session = request.getSession() ;
 		session.setAttribute("orderByList", dtoList);
 		

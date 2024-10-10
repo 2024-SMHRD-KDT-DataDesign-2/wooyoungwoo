@@ -52,13 +52,13 @@
 		<div class="content-container">
 			<div class="detail-challenge_content__Ggn9l">
 				<div class="content-main">
-					<img src="${feedDetail.feed_img}" alt="challenge-detail_image"
+					<img src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feedDetail.feed_img}" alt="challenge-detail_image"
 						class="Main_template__image__OBRGn" loading="lazy"
 						style="color: transparent;">
 					<div class="Main_content__QSnMW">
 						<a href="MyPage.jsp">
 							<div class="ChallengeHostImage_host__ddIMk">
-								<img alt="challengehost" src="${feedDetail.user_profile}"
+								<img alt="challengehost" src="https://raw.githubusercontent.com/2024-SMHRD-KDT-DataDesign-2/wooyoungwoo/master/img/${feedDetail.user_profile}"
 									width="50" height="50" decoding="async" data-nimg="1"
 									class="ChallengeHostImage_host__image__dT0hM" loading="lazy"
 									style="color: transparent;">
